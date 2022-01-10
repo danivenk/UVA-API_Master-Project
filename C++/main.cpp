@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <vector>
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -7,6 +8,7 @@
 #include <tuple>
 #include <cassert>
 #include <iterator>
+#include <typeinfo>
 
 using namespace std;
 
@@ -21,10 +23,26 @@ class Geometry {
 
     public:
         // constructor & destructor
-        Geometry(T r, list<U> parms) : _r(r), _parms(parms) {};
+        Geometry(T r, list<U> parms) : _r(r), _parms(parms) {
+            init(r, parms);
+            setup_geometry();
+        };
         ~Geometry() {};
     
     private:
+        // initialization
+        void init(T r, list<U> parms) {
+            assert(parms.size() >= 1);
+
+            for (int i = 0; i < r.size(); i++) {
+                _omega_cor.push_back(0);
+                _frad_cortodisk.push_back(0);
+                _frad_disktocor.push_back(0);
+            }
+        };
+        virtual void setup_geometry() {};
+
+    protected:
         // parameter declaration
         T _r;
         T _omega_cor, _frad_disktocor, _frad_cortodisk;
@@ -39,7 +57,17 @@ class Geometry {
 
 template <class T, class U>
 class BKNpow_Emiss : public Geometry<T, U> {
+    public:
+        BKNpow_Emiss(T r, list<U> parms) : Geometry<T, U>(r, parms) {};
 
+    private:
+        void setup_geometry() {
+            for (int i = 0; i < _r.size(); i++) {
+                _omega_cor.push_back(1);
+                _frad_cortodisk.push_back(1);
+                _frad_disktocor.push_back(1);
+            }
+        }
 };
 
 int main() {
@@ -48,9 +76,21 @@ int main() {
 
     list<double> _list = {};
 
-    for (int i = 1; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         _list.push_back(rand());
     }
+
+    Geometry<list<double>, double> a(_list, {1,2,3});
+
+    cout << a.get_omega_cor() << endl;
+    cout << a.get_frad_disktocor() << endl;
+    cout << a.get_frad_cortodisk() << endl;
+    
+    BKNpow_Emiss<list<double>, double> b(_list, {1,2,3});
+
+    cout << b.get_omega_cor() << endl;
+    cout << b.get_frad_disktocor() << endl;
+    cout << b.get_frad_cortodisk() << endl;
 
     // A a(2);
 
