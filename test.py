@@ -2,40 +2,30 @@ import numpy as np
 import mono_lags.um21_lagmodel as um
 
 def main():
-    um.sphere(2, [1, 10, 10])
+    a = np.arange(0,10)
+    b = []
+    primes = [2]
 
-    
-    ntheta = 2
-    nphi = 3
-    dtheta = np.pi/(2.*ntheta)
-    dphi = 2.*np.pi/nphi
-    theta = np.arange(0,np.pi/2.,dtheta)
-    phi = np.arange(0,2*np.pi,dphi)
-    phi_arr, theta_arr = np.meshgrid(phi, theta)
+    for value in a:
+        if value > 2 and prime(value, primes):
+            b.append(True)
+            primes.append(value)
+        elif value == 2:
+            b.append(True)
+        else:
+            b.append(False)
 
-    print("theta", theta_arr, sep="\n")
-    print("phi", phi_arr, sep="\n")
+    b = np.array(b)
+    primes = np.array(primes)
 
-    # a = np.arange(0,100)
-    # b = []
-    # primes = [2]
+    print(a)
+    print(a[b])
 
-    # for value in a:
-    #     if value > 2 and prime(value, primes):
-    #         b.append(True)
-    #         primes.append(value)
-    #     else:
-    #         b.append(False)
+    c = np.reshape(a, (len(a), 1)) * np.reshape(a[b], (1, len(a[b])))
 
-    # b = np.array(b)
+    print(c)
+    print(c[1][3])
 
-    # a = a.reshape(10,10)
-    # b = b.reshape(10,10)
-
-    # print(primes)
-    # print(a)
-    # print(b)
-    # print(a[b])
 
 def prime(number, primes):
 

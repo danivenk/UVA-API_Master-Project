@@ -1,4 +1,3 @@
-#include <iostream>
 #include <list>
 #include <vector>
 #include <cmath>
@@ -15,6 +14,7 @@
 #include "geometries/sphere.h"
 #include "geometries/cylinder.h"
 #include "geometries/inv_cone.h"
+#include "array.h"
 
 template <class T>
 tuple<T, int> find_nearest(list<T> array, T value);
@@ -96,17 +96,39 @@ int main() {
     cout << f.get_frad_disktocor() << endl;
     cout << f.get_frad_cortodisk() << endl;
 
-    // A a(2);
+    list<double> a_list, b_list, c_list;
 
-    // cout << "A" << endl;
-    // cout << a.get_a() << endl;
-    // cout << square(a) << endl;
+    for (int i = 0; i < 10; i++) {
+        a_list.push_back(i);
+        if (i % 4 == 0) {
+            b_list.push_back(i);
+        }
+        if (i % 4 == 1) {
+            c_list.push_back(i);
+        }
+    }
 
-    // B b(2);
+    Nested_Array<list<double>, list<list<double>>, double> test(a_list, b_list);
+    Array<list<double>, double> tset(a_list, b_list);
+    // Array<list<double>, double> teet(a_list, c_list);
 
-    // cout << "B" << endl;
-    // cout << b.get_a() << endl;
-    // cout << square(b) << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "-";
+    }
+    cout << endl;
+
+    Nested_Array<list<double>, list<list<double>>, double> teet = test + test;
+    Array<list<double>, double> tsst = tset + tset;
+
+    // cout << test << endl;
+    // cout << tset << endl;
+    cout << teet << endl;
+    cout << tsst << endl;
+
+    // for (a_val = a_list.begin(), b_val = b_list.begin(); a_val != a_list.end(),
+    //         b_val != b_list.end(); a_val++, b_val++) {
+    //     cout << *a_val << " - " << (*b_val-*(b_val + 1)) << endl;
+    // }
 
     return 0;
 }
@@ -207,9 +229,11 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
 
     for (r = rad.begin(), i = 0; r != rad.end(), i < rad.size(); r++, i++) {
         if (*r > rcor) {
-            tau.push_back(pow(get<0>(disk_tau_par) * (*r/rcor),get<1>(disk_tau_par))*pow(*r, 1.5));
+            tau.push_back(pow(get<0>(disk_tau_par) * (*r/rcor), 
+                get<1>(disk_tau_par))*pow(*r, 1.5));
         } else {
-            tau.push_back(pow(get<0>(cor_tau_par) * (*r/rcor),get<1>(cor_tau_par))*pow(*r, 1.5));
+            tau.push_back(pow(get<0>(cor_tau_par) * (*r/rcor),
+                get<1>(cor_tau_par))*pow(*r, 1.5));
         }
         
         if (lor_model == "continous") {
@@ -227,9 +251,9 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
                     } else {
                         rms.push_back(sqrt(pow(get<2>(lor_par), 2)/(i_rcor)));
                     }
-                } if else (get<1>(lor_par) >= 0 && get<2>(lor_par) < 0) {
+                } else if (get<1>(lor_par) >= 0 && get<2>(lor_par) < 0) {
                     rms.push_back(sqrt(pow(get<1>(lor_par), 2)/(i_rsigmax+1)));
-                } if else (get<1>(lor_par) < 0 && get<2>(lor_par) >= 0) {
+                } else if (get<1>(lor_par) < 0 && get<2>(lor_par) >= 0) {
                     if (*r > rcor) {
                         rms.push_back(-get<1>(lor_par));
                     } else {
@@ -258,12 +282,12 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
     for (int j = 0; j < tuple_size<U>{}; j += 3) {
         if (lor_model == "multi_frequency") {
             double ltau = 1/(get<j>(lor_par)*t_scale);
-            if (ltau <= *(t + tau.size() - 1) && ltau >= *(tau.begin())) {
+            if (ltau <= *next(t, tau.size() - 1) && ltau >= *(tau.begin())) {
                 auto [ltau2, i] = find_nearest<T>(tau, ltau);
-                *(freq + i) = 1/(*(t + i) * t_scale);
-                *(q + i) = get<j+1>(lor_par);
+                *next(freq, i) = 1/(*next(t, i) * t_scale);
+                *next(q, i) = get<(const int) j+1>(lor_par);
                 if (i < i_rsigmax) {
-                    *(rms_value + i) = get<j+2>(lor_par);
+                    *next(rms_value, i) = get<(const int) j+2>(lor_par);
                 }
             }
         }
@@ -271,38 +295,154 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
             if (get<j>(lor_par) <= *(r + rad.size() - 1) &&
                     get<j>(lor_par) >= *r) {
                 auto [lrad, i] = find_nearest<T>(rad, get<j>(lor_par));
-                *(freq + i) = 1/(*(t + 1) * t_scale);
-                *(q + i) = get<j+1>(lor_par);
+                *next(freq, i) = 1/(*next(t, 1) * t_scale);
+                *next(q, i) = get<(const int) j+1>(lor_par);
                 if (i < i_rsigmax) {
-                    *(rms_value + i) = get<j+2>(lor_par);
+                    *next(rms_value, i) = get<(const int) j+2>(lor_par);
                 }
             }
         } else if (lor_model == "multi_radius_frequency") {
             if (get<j>(lor_par) <= *(r + rad.size() - 1) &&
                     get<j>(lor_par) >= *r) {
                 auto [lrad, i] = find_nearest<T>(rad, get<j>(lor_par));
-                if (*(r + i) > 0) {
+                if (*next(r, i) > 0) {
                     for (int i_next = 1; i_next < i; i_next++) {
-                        if (*(rms_value + i - i_next) == 0 &&
-                                *(rms_value + i) > 0) {
+                        if (*next(rms_value, i - i_next) == 0 &&
+                                *next(rms_value, i) > 0) {
                             i = i - i_next;
                         }
                     }
-                    *(freq + i) = get<j+1>(lor_par);
-                    *(q + i) = get<j+2>(lor_par);
+                    *next(freq, i) = get<(const int) j+1>(lor_par);
+                    *next(q, i) = get<(const int) j+2>(lor_par);
                     if (i < i_rsigmax) {
-                        *(rms + i) = get<j+3>(lor_par);
+                        *next(rms_value, i) = get<(const int) j+3>(lor_par);
                     }
 
-                    cout << "Signal radius for " << get<j+1>(lor_par) <<
-                        " Hz is " << *(r + i) << endl;
-                    cout << "with rms" << *(rms_value + i)
+                    cout << "Signal radius for " << 
+                        get<(const int) j+1>(lor_par) << " Hz is " <<
+                        *next(r, i) << endl << "with rms" <<
+                        *next(rms_value, i);
                 }
             }
         }
     }
 
     return make_tuple(tau, lfreq, q_list, rms);
+}
+
+template <class T>
+list <T> cacl_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
+        tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par) {
+    list<T> deltau;
+
+    typename list<T>::iterator r, edge;
+
+    for (r = rad.begin(), edge = rad_edge.begin(); r = rad.end(),
+            edge = rad_edge.end(); r++, edge++) {
+        if (*r <= rcor) {
+            deltau.append(get<0>(cor_prop_par) * (*next(edge, 1) - *edge) * 
+                pow(*r, 1/2) * pow(*r/rcor, get<1>(cor_prop_par)));
+        } else {
+            deltau.append(get<0>(disk_prop_par) * (*next(edge, 1) - *edge) * 
+                pow(*r, 1/2) * pow(*r/rcor, get<1>(disk_prop_par)));
+        }
+    }
+
+    return deltau;
+}
+
+template <class T>
+tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_reponse(
+        list<T> rad, T rcor, list<T> disp_frac, list<T> disktocor_frac,
+        list<T> cortodisk_frac, list<T> seed_frac_flow, list<T> heat_frac_flow) {
+    
+    list<T> ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev;
+
+    typename list<T>::iterator r, disp, fdc, fcd, seed, heat;
+
+    double f_rev = 0, f_return = 0;
+
+    for (fcd = cortodisk_frac.begin(), fdc = disktocor_frac.begin();
+            fcd != cortodisk_frac.end(), fdc = disktocor_frac.end(); fcd++,
+            fdc++) {
+        f_rev += *fcd; f_return += (*fcd) * (*fdc);
+    }
+
+    for (r = rad.begin(), disp = disp_frac.begin(),
+            fdc = disktocor_frac.begin(), seed = seed_frac_flow.begin(),
+            heat = heat_frac_flow.begin(); r != rad.end(),
+            disp != disp_frac.end(), fdc = disktocor_frac.end(),
+            seed = seed_frac_flow.end(), heat = heat_frac_flow.end(); r++,
+            disp++, fdc++, seed++, heat++) {
+        if (*r > rcor) {
+            ldisk_disp.push_back((*disp) * (1 - *fdc));
+        } else {
+            ldisk_disp.push_back(0);
+        }
+
+        lseed_disp.push_back((*disp) * (*fdc + *seed) * (1 - f_rev));
+        lheat.push_back((*disp) * (*heat) * (1 - f_rev));
+
+        lseed_rev.push_back(f_return * (1 - f_rev) * (*disp) *
+            (*fdc + *seed + *heat)/(1 - f_return));
+        ldisk_rev.push_back((f_rev - f_return) * (*disp) *
+            (*fdc + *seed + *heat)/(1 - f_return));
+    }
+
+    return make_tuple(ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev);
+}
+
+template <class T, class U>
+tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
+        T e_seed, list<T> energy, list<T> ldisk_disp, list<T> lseed_disp,
+        list<T> lheat, list<T> ldisk_rev, list <T> lseed_rev) {
+
+    double lheat_sum, lseed_sum, gamma_mean, u, v, n;
+    list<T> gamma_irf, disk_irf, seed_irf, seed_div_sum_irf, heat_div_sum_irf,
+        seed_column, heat_column;
+
+    typename list<T>::iterator heat, seed_disp, seed_rev, disk_disp, disk_rev,
+        energy_value;
+
+    lheat_sum = 0, lseed_sum = 0;
+
+    for (heat = lheat.begin(), seed_disp = lseed_disp.begin(),
+            seed_rev = lseed_rev.begin(); heat = lheat.end(),
+            seed_disp = lseed_disp.end(), seed_rev = lseed_rev.end(); heat++,
+            seed_disp++, seed_rev++) {
+        lheat_sum += *heat; lseed_sum += *seed_disp + *seed_rev;
+    }
+
+    gamma_mean = get<0>(gamma_par) * pow(lseed_sum/lheat_sum, get<1>(gamma_par));
+    u = gamma_mean * get<1>(gamma_par);
+    v = gamma_mean - 1;
+
+    for (energy_value = energy.begin(); energy_value = energy.end();
+            energy_value++) {
+        seed_column.push_back(1-u*log((*energy_value)/e_seed) + (u/v));
+        heat_column.push_back(u*log((*energy_value)/e_seed) - (u/v));
+    }
+
+    for (seed_disp = lseed_disp.begin(), seed_rev = lseed_rev.begin(),
+            heat = lheat.begin(), disk_disp = ldisk_disp.begin(),
+            disk_rev = ldisk_rev.begin(); seed_disp = lseed_disp.end(),
+            seed_rev = lseed_rev.end(), heat = lheat.end(),
+            disk_disp = ldisk_disp.end(), disk_rev = ldisk_rev.end();
+            seed_disp++, seed_rev++, heat++, disk_disp++, disk_rev++) {
+        gamma_irf.push_back(gamma_mean * get<1>(gamma_par) *
+            ((*seed_disp + *seed_rev)/lseed_sum - *heat/lheat_sum));
+        disk_irf.push_back(*disk_disp + *disk_rev);
+        seed_irf.push_back(*seed_disp + *seed_rev);
+        seed_div_sum_irf.push_back((*seed_disp + *seed_rev)/lseed_sum);
+        heat_div_sum_irf.push_back(*heat/lheat);
+    }
+
+    U firf_seed(seed_column, seed_div_sum_irf),
+        firf_heat(heat_column, heat_div_sum_irf);
+
+    U flux_irf = firf_seed + firf_heat;
+
+    make_tuple(gamma_mean, gamma_irf, disk_irf, seed_irf);
 }
 
 template <class T>
