@@ -446,6 +446,66 @@ tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
 }
 
 template <class T>
+tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
+        list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale,
+        int nirf) {
+    list<T> rebinned_irf(nirf, 0), input_irf2(input_irf.size(), 0);
+
+    typename list<T>::iterator ds = deltau_scale.begin(),
+        irf = input_irf.begin(), irf2 = input_irf2.begin(),
+        nbins = irf_nbins.begin(), rebinned, bef = irf_binedgefrac.begin();
+    
+    for (int i = i_rsigmax; i > 0; i--) {
+        if (*next(ds, i) > 0) {
+            *next(irf2, i) = *next(irf, i) / *next(ds, i);
+        }
+    }
+    
+    T irfbin = 0;
+
+    for (int j = i; j <= i_rsigmax; j++) {
+        irfbin += *next(nbins, j);
+    }
+
+    int irfbin_start = static_cast<int>(irfbin) -(*next(nbins, i));
+    int irfbin_stop = irfbin - 1;
+
+    for (rebinned = rebinned_irf.begin(); rebinned = rebinned_irf.end();
+            rebinned++) {
+        *rebinned = *next(irf2, i);
+    }
+
+    rebinned = rebinned_irf.begin();
+
+    for (int i = i_rsigmax; i > 0; i--) {
+        if (*next(ds, i) > 0) {
+            if (i < i_rsigmax && *next(bef, i) > 0) {
+                *next(rebinned, irfbin_start) = *next(irf2, i) +
+                    (*next(bef, i) * (*next(irf2, i+1) - *next(irf2, i)))
+            }
+            if (i > 0 && *next(bef, i - 1) <= 0) {
+                *next(rebinned, irfbin_stop) = *next(irf2, i) +
+                    (*next(bef, i-1) * (*next(irf2, i) - *next(irf2, i-1)))
+            }
+        } else {
+            *next(rebinned, irfbin_stop+1) += *next(irf2, i);
+        }
+    }
+
+    *next(rebinned, irfbin_stop+1) /= dt;
+
+    T flux_outer = 0
+
+    if (i_rsigmax < input_irf.size() - 1) {
+        for (int i = i_rsigmax; i < input_irf.size(); i++) {
+            flux_outer += *next(irf, i);
+        }
+    }
+
+    make_tuple(rebinned_irf, flux_outer);
+} 
+
+template <class T>
 ostream& operator<<(ostream& os, const list<T> list) {
     for (auto& i: list) {
         os << i << " ";
