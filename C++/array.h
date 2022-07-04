@@ -65,6 +65,16 @@ class Nested_Array : public Matrix<T, U> {
                 _matrix.push_back(row);
             }
         }
+        Nested_Array(int n1, int n2) : Matrix<T, U>() {
+            for (int i = 0; i < this->size_1; i++) {
+                T row;
+                for (int j = 0; j < this->size_2; j++) {
+                    row.push_back(0);
+                }
+
+                _matrix.push_back(row);
+            }
+        }
         ~Nested_Array() {};
 
     private:
@@ -135,6 +145,15 @@ class Array : public Matrix<T, U> {
                 }
             }
         };
+        Array(int n1, int n2) : Matrix<T, U>() {
+            this->size_1 = n1; this->size_2 = n2;
+
+            for (int i = 0; i < this->size_1; i++) {
+                for (int j = 0; j < this->size_2; j++) {
+                    _matrix.push_back(0);
+                }
+            }
+        }
         ~Array() {};
 
     private:
