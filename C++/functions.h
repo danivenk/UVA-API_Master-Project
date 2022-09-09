@@ -1,3 +1,6 @@
+#ifndef functions_H
+#define functions_H
+
 #include <vector>
 #include <cmath>
 #include <cstdlib>
@@ -14,35 +17,69 @@
 #include "FFT/FFT.h"
 #include "array.h"
 
-#ifndef functions_H
-#define functions_H
+template <class T>
+tuple<T, int> find_nearest(list<T> array, T value);
+template <class T>
+tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
+    T rin, T rcor, T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind);
+template <class T, class U>
+tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(list<T> rad_area,
+    Geometry<list<T>, U> geomod);
+template <class T, class U>
+tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
+    int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
+    tuple<T, T> cor_tau_par, const char* lor_model, tuple<U> lor_par);
+template <class T>
+list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
+    tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par);
+template <class T>
+tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_reponse(
+    list<T> rad, T rcor, list<T> disp_frac, list<T> disktocor_frac,
+    list<T> cortodisk_frac, list<T> seed_frac_flow, list<T> heat_frac_flow);
+template <class T, class U>
+tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
+    T e_seed, list<T> energy, list<T> ldisk_disp, list<T> lseed_disp,
+    list<T> lheat, list<T> ldisk_rev, list <T> lseed_rev);
+template <class T>
+tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
+    list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
+template <class T>
+tuple<list<T>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq, T dt,
+    list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins, list<T> deltau_scale,
+    int i_rsigmax, list<T> f_pk, list<T> q, list<T> rms);
+template <class T, class U>
+U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms);
+template<class T>
+list<T> lorentz_q(list<T> f, T f_pk, T q, T rms);
+template<class T, class U>
+tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
+    list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
+    U encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf, list<T> deltau,
+    T min_deltau_frac, int i_rsigmax, list<T> lfreq,  list<T> q, list<T> rms,
+    T t_scale);
 
 template <class T>
 tuple<T, int> find_nearest(list<T> array, T value) {
-    
-    cout << "list: " << array << endl;
-    cout << "value: " << value << endl;
 
     T smallest = numeric_limits<T>::max();
     T small_diff = numeric_limits<T>::max();
 
     int i = 0;
+    int idx = i;
 
-    for (T &item: array) {
+    for (T const &item: array) {
         T diff = abs(item - value);
-
-        cout << smallest << " - " << item << endl;
-        cout << small_diff << " _ " << diff << endl;
 
         if (diff < small_diff) {
             smallest = item;
             small_diff = diff;
+            idx = i;
         }
 
         i++;
     }
     
-    return make_tuple(smallest, i);
+    return make_tuple(smallest, idx);
 }
 
 template <class T>
@@ -52,9 +89,10 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
 
     assert (rad.size() == rad_area.size());
 
-    list<T> dispfrac (rad.size(), 0);
-    list<T> seed_frac_flow = (rad.size(), 0);
-    list<T> heat_frac_flow = (rad.size(), 0);
+    T disptotal = 0;
+    list<T> dispfrac(rad.size(), 0);
+    list<T> seed_frac_flow(rad.size(), 0);
+    list<T> heat_frac_flow(rad.size(), 0);
 
     typename list<T>::iterator disp, seed, heat, r, area;
 
@@ -65,26 +103,29 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
             r != rad.end(), area != rad_area.end(); disp++, seed++, heat++,
             r++, area++) {
         *disp = *area * pow(*r, -3.0) * (1 - sqrt(rin/(*r)));
+        disptotal += *disp;
 
         if (*r <= rcor) {
-            *heat = pow(heatff_norm*(*r/rin), heatff_ind);
+            *heat = heatff_norm*pow((*r/rin), heatff_ind);
 
             if (seedff_norm >= 0) {
-                *seed = pow(seedff_norm*(*r/rin), heatff_ind);
+                *seed = seedff_norm*pow((*r/rin), heatff_ind);
             } else {
                 *seed = 1.0 - *heat;
             }
         }
     }
 
+    for (disp = dispfrac.begin(); disp != dispfrac.end(); disp++) {
+        *disp = *disp/disptotal;
+    }
+
     return make_tuple(dispfrac, seed_frac_flow, heat_frac_flow);
 }
 
-template <class T>
-tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(list<T> rad,
-        list<T> rad_area, Geometry<list<T>, T> geomod, list<T> parms) {
-
-    assert(rad.size() == rad_area.size());
+template <class T, class U>
+tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(list<T> rad_area,
+        Geometry<list<T>, U> geomod) {
 
     list<T> omega_cor(geomod.get_omega_cor()),
         frad_disktocor(geomod.get_frad_disktocor()),
@@ -215,7 +256,7 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
 }
 
 template <class T>
-list<T> cacl_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
+list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
         tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par) {
     list<T> deltau;
 

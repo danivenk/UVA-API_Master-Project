@@ -67,6 +67,7 @@ class Geometry {
 
     public:
         // getters
+        T get_rcor() { return get<0>(_parms); };
         T get_omega_cor() { return _omega_cor; };
         T get_frad_disktocor() { return _frad_disktocor; };
         T get_frad_cortodisk() { return _frad_cortodisk; };

@@ -1,66 +1,90 @@
+import sys
+import os
+import json
 import numpy as np
 from scipy.fft import fft
 import mono_lags.um21_lagmodel as um
 from matplotlib import pyplot
 
-def main():
-    lor_psd = um.lorentz_q(np.array([i/10 for i in range(100)]), np.array([.3 for _ in range(10)]), np.array([.6 for _ in range(10)]), np.array([.8 for _ in range(10)]))
+class File:
+    def __init__(self, filename):
+        self._filename = filename
 
-    a = np.zeros(100)
+        with open(os.path.join(os.getcwd(), filename), "r") as file:
+            self._data = json.load(file)
 
-    print(lor_psd + a)
-
-    # print(np.square([i/10 for i in range(100)]))
-
-    # b = 1+2j
-
-    # print(b, np.conj(b) * b)
+    @property
+    def data(self):
+        return self._data
 
 
-def test1():
-    a = np.arange(0,10)
-    b = []
-    primes = [2]
+def main(argv):
+    if len(argv) != 1:
+        exit(f"Usage: {sys.argv[0]} <file>")
 
-    for value in a:
-        if value > 2 and prime(value, primes):
-            b.append(True)
-            primes.append(value)
-        elif value == 2:
-            b.append(True)
-        else:
-            b.append(False)
+    dbg = 0
 
-    b = np.array(b)
-    primes = np.array(primes)
+    CPP = File(argv[0])
 
-    print(a)
-    print(a[b])
+    functions = CPP.data.keys()
 
-    c = np.reshape(a, (len(a), 1)) * np.reshape(a[b], (1, len(a[b])))
+    for function in functions:
+        dbg += test(dbg, CPP, function)
 
-    print(c)
-    print(c[1][3])
+    # print(dbg)
+    return dbg
 
 
-def prime(number, primes):
+def test(dbg, CPP, function):
+    """Test the find_nearest function"""
 
-    if number in primes:
-        return False
+    test1_CPP = CPP.data[function]
 
-    for prime in primes:
-        if number % prime == 0:
-            return False
+    assert type(function) == str
 
-    return True
+    f = getattr(um, function)
+
+    for tset, test in test1_CPP.items():
+        for i in range(len(test["input"])):
+            if type(test["input"][i]) == list:
+                test["input"][i] = np.array(test["input"][i])
+            if function == "calc_illumination_fracs" and \
+                    type(test["input"][i]) == str:
+                test["input"][i] = getattr(um, test["input"][i])
+            
+
+        test1 = f(*test["input"])
+
+        assert len(test1) == len(test["output"])
+
+        if checker(test1, test["output"], 1E-15):
+            dbg += 1
+            print(f"ERROR in {tset}")
+            print(f"ERROR: {test1} != {test['output']}")
+
+    return dbg
 
 
-def test2():
-    x = np.linspace(0, 1, 1000)
+def checker(data1, data2, thresh = 0):
+    assert len(data1) == len(data2)
 
-    y = np.sin(x)
-    fft_y = fft(y)
+    for i in range(len(data1)):
+        if not (np.isscalar(data1[i]) and np.isscalar(data2[i])):
+            if checker(data1[i], data2[i], thresh):
+                print("cheker fault")
+                return True
+        elif abs(data1[i] - data2[i]) > thresh:
+            print(data1[i], data2[i], data1[i] - data2[i], ">", thresh)
+            print("not the same!")
+            return True
+
+    return False
+
+
+def geometry(r, parms):
+    return 0, 0*r, 0*r
 
 
 if __name__ == "__main__":
-    main()
+    setattr(um, "geometry", geometry)
+    main(sys.argv[1:])

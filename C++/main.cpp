@@ -1,12 +1,125 @@
 #include "functions.h"
+#include <fstream>
+#include <json.hpp>
+
+using json = nlohmann::json;
 
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list);
+void find_nearest(json &J, string f_name);
+void calc_dispfrac(json &J, string f_name);
+void calc_illumination_fracs(json &J, string f_name);
 
 int main() {
-    1;
+    list<const char*> functions = {"find_nearest", "calc_dispfrac",
+        "calc_illumination_fracs", "calc_timing_parms",
+        "calc_propagation_parms", "calc_radial_time_reponse", "calc_irfs_mono",
+        "linear_rebin_irf", "calc_cross_psd", "lorentz_qold", "lorentz_q",
+        "calculate_stprod_mono"};
+    typename list<const char*>::iterator function = functions.begin();
+
+    json J;
+
+    find_nearest(J, *(function++));
+    calc_dispfrac(J, *(function++));
+
+    cout << "next function: " << *(function) << endl;
+    calc_illumination_fracs(J, *(function++));
+
+    // cout << J << endl;
+
+    ofstream out("cpp_out.txt");
+    out << J << endl;
+    out.close();
 
     return 0;
+}
+
+void find_nearest(json &J, string f_name) {
+    list<double> array;
+    double value = .36;
+
+    for (int i = 0; i < 10; i++) {
+        array.push_back((double) i/10);
+    }
+
+    auto [found, idx] = find_nearest<double>(array, value);
+    J[f_name]["test_1"] = {{"input", {array, value}}, {"output", {found, idx}}};
+    value = -3.4;
+    tie(found, idx) = find_nearest<double>(array, value);
+    J[f_name]["test_2"] = {{"input", {array, value}}, {"output", {found, idx}}};
+    value = 1.4;
+    tie(found, idx) = find_nearest<double>(array, value);
+    J[f_name]["test_3"] = {{"input", {array, value}}, {"output", {found, idx}}};
+    value = 1e100;
+    tie(found, idx) = find_nearest<double>(array, value);
+    J[f_name]["test_4"] = {{"input", {array, value}}, {"output", {found, idx}}};
+    value = -1e100;
+    tie(found, idx) = find_nearest<double>(array, value);
+    J[f_name]["test_5"] = {{"input", {array, value}}, {"output", {found, idx}}};
+    value = .7;
+    tie(found, idx) = find_nearest<double>(array, value);
+    J[f_name]["test_6"] = {{"input", {array, value}}, {"output", {found, idx}}};
+}
+
+void calc_dispfrac(json &J, string f_name) {
+    list<double> array_1, array_2;
+    double value_1 = .37;
+    double value_2 = 6.7;
+
+    for (int i = 1; i <= 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_front((double) i/10);
+    }
+
+    auto [dispfrac, seed_frac_flow, heat_frac_flow] =
+        calc_dispfrac<double>(array_1, array_2, value_1, value_1, value_2,
+                              value_1, value_1, value_1);
+    J[f_name]["test_1"] = {{"input", {array_1, array_2, value_1, value_1,
+        value_2, value_1, value_1, value_1}}, {"output", {dispfrac,
+        seed_frac_flow, heat_frac_flow}}};
+    value_2 = 0;
+    tie(dispfrac, seed_frac_flow, heat_frac_flow) =
+        calc_dispfrac<double>(array_1, array_2, value_1, value_1, value_2,
+                              value_1, value_1, value_1);
+    J[f_name]["test_2"] = {{"input", {array_1, array_2, value_1, value_1,
+        value_2, value_1, value_1, value_1}}, {"output", {dispfrac,
+        seed_frac_flow, heat_frac_flow}}};
+    value_2 = -4.9;
+    tie(dispfrac, seed_frac_flow, heat_frac_flow) =
+        calc_dispfrac<double>(array_1, array_2, value_1, value_1, value_2,
+                              value_1, value_1, value_1);
+    J[f_name]["test_3"] = {{"input", {array_1, array_2, value_1, value_1,
+        value_2, value_1, value_1, value_1}}, {"output", {dispfrac,
+        seed_frac_flow, heat_frac_flow}}};
+}
+
+void calc_illumination_fracs(json &J, string f_name) {
+    list<double> array_1, array_2;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    typedef tuple<double> parm;
+
+    for (int i = 1; i <= 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_front((double) i/10);
+    }
+
+    parm parms(value_1);
+
+    Geometry<list<double>, parm> geo(array_1, array_2, parms);
+
+    auto [omega_cor, frad_disktocor, frad_cortodisk] =
+        calc_illumination_fracs<double, parm>(array_2, geo);
+    J[f_name]["test_1"] = {{"input", {array_1, array_2, "geometry", parms}},
+        {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
+    // value_2 = 0;
+    // tie(dispfrac, seed_frac_flow, heat_frac_flow) =
+    //     calc_dispfrac<double>(array_1, array_2, value_1, value_1, value_2,
+    //                           value_1, value_1, value_1);
+    // J[f_name]["test_2"] = {{"input", {array_1, array_2, value_1, value_1,
+    //     value_2, value_1, value_1, value_1}}, {"output", {dispfrac,
+    //     seed_frac_flow, heat_frac_flow}}};
 }
 
 template <class T>
