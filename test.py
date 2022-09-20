@@ -60,7 +60,15 @@ def test(dbg, CPP, function):
         if checker(test1, test["output"], 1E-15):
             dbg += 1
             print(f"ERROR in {tset}")
-            print(f"ERROR: {test1} != {test['output']}")
+            
+            print("ERROR: ")
+            try:
+                test1[0][0]
+                for i in range(len(test1)):
+                    print(f"python: {np.array(test1[i])}")
+                    print(f"C++:    {np.array(test['output'][i])}")
+            except IndexError:
+                print(f"ERROR: {test1} != {test['output']}")
 
     return dbg
 

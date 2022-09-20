@@ -23,8 +23,7 @@ template <class T>
 tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
     T rin, T rcor, T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind);
 template <class T, class U>
-tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(list<T> rad_area,
-    Geometry<list<T>, U> geomod);
+tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(Geometry<list<T>, U> geomod);
 template <class T, class U>
 tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
     int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
@@ -124,20 +123,12 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
 }
 
 template <class T, class U>
-tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(list<T> rad_area,
-        Geometry<list<T>, U> geomod) {
+tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
+    Geometry<list<T>, U> geomod) {
 
     list<T> omega_cor(geomod.get_omega_cor()),
         frad_disktocor(geomod.get_frad_disktocor()),
-        frad_cortodisk (geomod.get_frad_cortodisk());
-
-    typename list<T>::iterator fcd, area;
-
-    for (fcd = geomod.get_frad_cortodisk().begin(), area = rad_area.begin();
-            fcd != geomod.get_frad_cortodisk().end(), area != rad_area.end();
-            fcd++, area++) {
-        *fcd *= *area;
-    }
+        frad_cortodisk (geomod.get_frad_cortodisk_area());
 
     return make_tuple(omega_cor, frad_disktocor, frad_cortodisk);
 }

@@ -11,19 +11,17 @@ class AN_Sphere : public Geometry<T, U> {
     private:
         void setup_geometry() {
             
-            typename T::iterator omega, fcd, fdc, r;
+            typename T::iterator fcd, fdc, r;
 
             assert(tuple_size<U>{} == 1);
 
             auto [r_cor] = this->_parms;
 
-            for (omega = this->_omega_cor.begin(),
-                    fcd = this->_frad_cortodisk.begin(),
+            for (fcd = this->_frad_cortodisk.begin(),
                     fdc = this->_frad_disktocor.begin(), r = this->_r.begin();
-                    omega != this->_omega_cor.end(),
                     fcd != this->_frad_cortodisk.end(),
                     fdc != this->_frad_disktocor.end(), r != this->_r.end();
-                    omega++, fcd++, fdc++, r++) {
+                    fcd++, fdc++, r++) {
                 if (*r > r_cor) {
                     *fdc = (asin(r_cor/(*r))-sqrt(pow((r_cor/(*r)), 2) -
                         pow((r_cor/(*r)), 4)))/M_PI;

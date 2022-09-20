@@ -21,14 +21,14 @@ class Cylinder : public Geometry<T, U> {
 
             T x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
 
-            for (double z = 0; z < h_cor; z += dz) {
-                for (double phi = 0; phi < 2*M_PI; phi += dphi) {
+            for (double z = 0; z/dz < nz; z += dz) {
+                for (double phi = 0; phi/dphi < nphi; phi += dphi) {
                     double x = cos(phi)*r_cor;
                     double y = sin(phi)*r_cor;
                     double da = dz*dphi*r_cor;
 
                     x_arr.push_back(x); y_arr.push_back(y); z_arr.push_back(z);
-                    da_arr.push_back(x);
+                    da_arr.push_back(da);
 
                     double ypos = -y;
                     double zpos = -z;
@@ -56,15 +56,11 @@ class Cylinder : public Geometry<T, U> {
                         y++, z++, da++, ypos++, zpos++) {
                     double xpos = (*r)-(*x);
                     double rpos = pow(pow(xpos, 2) + pow(*ypos,2) +
-                                        pow(*zpos, 2), .5);
+                                      pow(*zpos, 2), .5);
 
-                    xpos /= rpos;
-                    *ypos /= rpos;
-                    *zpos /= rpos;
-
-                    double daomega = (*da)*((*x)*(xpos) + (*y)*(*ypos))/
-                        (pow(rpos, 2)*r_cor);
-                    double daomegawt = daomega*abs(*zpos);
+                    double daomega = (*da)*((*x)*(xpos/rpos) +
+                        (*y)*(*ypos/rpos))/(pow(rpos, 2)*r_cor);
+                    double daomegawt = daomega*abs(*zpos/rpos);
 
                     if (daomega > 0 && *r > r_cor) {
                         *omega += daomega;

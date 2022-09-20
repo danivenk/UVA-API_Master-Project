@@ -21,15 +21,16 @@ class Sphere : public Geometry<T, U> {
 
             T x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
 
-            for (double theta = 0; theta < M_PI/2; theta += dtheta) {
-                for (double phi = 0; phi < 2*M_PI; phi += dphi) {
+            for (double theta = 0; theta/dtheta < ntheta; theta += dtheta) {
+                for (double phi = 0; phi/dphi < nphi; phi += dphi) {
+
                     double x = sin(theta)*cos(phi)*r_cor;
                     double y = sin(theta)*sin(phi)*r_cor;
                     double z = cos(theta)*r_cor;
                     double da = pow(r_cor, 2)*dtheta*dphi*sin(theta);
 
                     x_arr.push_back(x); y_arr.push_back(y); z_arr.push_back(z);
-                    da_arr.push_back(x);
+                    da_arr.push_back(da);
 
                     double ypos = -y;
                     double zpos = -z;
@@ -56,16 +57,13 @@ class Sphere : public Geometry<T, U> {
                         ypos != ypos_arr.end(), zpos != zpos_arr.end(); x++,
                         y++, z++, da++, ypos++, zpos++) {
                     double xpos = (*r)-(*x);
-                    double rpos = pow(pow(xpos, 2) + pow(*ypos,2) +
-                                        pow(*zpos, 2), .5);
+                    double rpos = pow(pow(xpos, 2) + pow(*ypos, 2) +
+                                      pow(*zpos, 2), .5);
 
-                    xpos /= rpos;
-                    *ypos /= rpos;
-                    *zpos /= rpos;
-
-                    double daomega = (*da)*((*x)*(xpos) + (*y)*(*ypos) +
-                        (*z)*(*zpos))/(pow(rpos, 2)*r_cor);
-                    double daomegawt = daomega*abs(*zpos);
+                    double daomega = (*da)*((*x)*(xpos/rpos) +
+                        (*y)*(*ypos/rpos) + (*z)*(*zpos/rpos))/
+                        (pow(rpos, 2)*r_cor);
+                    double daomegawt = daomega*abs(*zpos/rpos);
 
                     if (daomega > 0 && *r > r_cor) {
                         *omega += daomega;
