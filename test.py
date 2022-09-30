@@ -19,8 +19,10 @@ class File:
 
 
 def main(argv):
-    if len(argv) != 1:
-        exit(f"Usage: {sys.argv[0]} <file>")
+    if len(argv) != 2:
+        exit(f"Usage: {sys.argv[0]} <file> <threshold>")
+
+    tresh = float(argv[1])
 
     dbg = 0
 
@@ -29,13 +31,18 @@ def main(argv):
     functions = CPP.data.keys()
 
     for function in functions:
-        dbg += test(dbg, CPP, function)
+        dbg += test_f(dbg, CPP, function, tresh)
+
+    if len(um.test) != 0:
+        print(", ".join(i for i in um.tset if i not in um.test))
+    else:
+        print("FINISHED!")
 
     # print(dbg)
     return dbg
 
 
-def test(dbg, CPP, function):
+def test_f(dbg, CPP, function, thresh=0):
     """Test the find_nearest function"""
 
     test1_CPP = CPP.data[function]
@@ -57,7 +64,7 @@ def test(dbg, CPP, function):
 
         assert len(test1) == len(test["output"])
 
-        if checker(test1, test["output"], 1E-15):
+        if checker(test1, test["output"], thresh):
             dbg += 1
             print(f"ERROR in {tset}")
             

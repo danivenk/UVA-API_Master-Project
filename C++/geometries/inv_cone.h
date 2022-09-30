@@ -53,7 +53,6 @@ class Inv_Cone : public Geometry<T, U> {
                     fdc != this->_frad_disktocor.end(), r != this->_r.end();
                     omega++, fcd++, fdc++, r++) {
                 double omegawt = 0;
-                int i = 0;
 
                 for (r_cone = r_cone_arr.begin(), da = da_arr.begin(),
                         x = x_arr.begin(), y = y_arr.begin(), z = z_arr.begin(),

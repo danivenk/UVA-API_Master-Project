@@ -24,10 +24,10 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
     T rin, T rcor, T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind);
 template <class T, class U>
 tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(Geometry<list<T>, U> geomod);
-template <class T, class U>
-tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
+template <class T>
+tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
     int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-    tuple<T, T> cor_tau_par, const char* lor_model, tuple<U> lor_par);
+    tuple<T, T> cor_tau_par, const char* lor_model, list<T> lor_par);
 template <class T>
 list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
     tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par);
@@ -133,94 +133,100 @@ tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
     return make_tuple(omega_cor, frad_disktocor, frad_cortodisk);
 }
 
-template <class T, class U>
-tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
+template <class T>
+tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
         int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-        tuple<T, T> cor_tau_par, const char* lor_model, tuple<U> lor_par) {
+        tuple<T, T> cor_tau_par, const char* lor_model, list<T> lor_par) {
     
     list<T> tau, lfreq, q_list, rms;
 
-    typename list<T>::iterator r;
+    typename list<T>::iterator r, lor = lor_par.begin();
     int i;
 
     for (r = rad.begin(), i = 0; r != rad.end(), i < rad.size(); r++, i++) {
         if (*r > rcor) {
-            tau.push_back(pow(get<0>(disk_tau_par) * (*r/rcor), 
+            tau.push_back(get<0>(disk_tau_par) * pow((*r/rcor), 
                 get<1>(disk_tau_par))*pow(*r, 1.5));
         } else {
-            tau.push_back(pow(get<0>(cor_tau_par) * (*r/rcor),
+            tau.push_back(get<0>(cor_tau_par) * pow((*r/rcor),
                 get<1>(cor_tau_par))*pow(*r, 1.5));
         }
-        
-        if (lor_model == "continous") {
-            assert(tuple_size<tuple<U>>{} == 3);
-            lfreq.push_back(1/tau.back()*t_scale);
-            q_list.push_back(get<0>(lor_par));
 
-            if (i > i_rsigmax) {
-                rms.push_back(0);
-            } else {
-                if (get<1>(lor_par) >= 0 && get<2>(lor_par) >= 0) {
-                    if (*r > rcor) {
-                        rms.push_back(sqrt(pow(get<1>(lor_par), 2)/
-                            (i_rsigmax+1-i_rcor)));
-                    } else {
-                        rms.push_back(sqrt(pow(get<2>(lor_par), 2)/(i_rcor)));
-                    }
-                } else if (get<1>(lor_par) >= 0 && get<2>(lor_par) < 0) {
-                    rms.push_back(sqrt(pow(get<1>(lor_par), 2)/(i_rsigmax+1)));
-                } else if (get<1>(lor_par) < 0 && get<2>(lor_par) >= 0) {
-                    if (*r > rcor) {
-                        rms.push_back(-get<1>(lor_par));
-                    } else {
-                        rms.push_back(sqrt(pow(get<2>(lor_par), 2)/i_rcor));
-                    }
-                } else {
-                    if (*r > rcor) {
-                        rms.push_back(-get<1>(lor_par));
-                    } else {
-                        rms.push_back(-get<2>(lor_par));
-                    }
-                }
-            }
-        } else {
-            lfreq.push_back(0);
-            q_list.push_back(0);
-            rms.push_back(0);
-        }
+        lfreq.push_back(0);
+        q_list.push_back(0);
+        rms.push_back(0);
     }
 
     r = rad.begin();
 
     typename list<T>::iterator t = tau.begin(), freq = lfreq.begin(),
-        q = q_list.begin(), rms_value = rms.begin(); 
+        q = q_list.begin(), rms_value = rms.begin();
 
-    for (int j = 0; j < tuple_size<U>{}; j += 3) {
-        if (lor_model == "multi_frequency") {
-            double ltau = 1/(get<j>(lor_par)*t_scale);
-            if (ltau <= *next(t, tau.size() - 1) && ltau >= *(tau.begin())) {
-                auto [ltau2, i] = find_nearest<T>(tau, ltau);
-                *next(freq, i) = 1/(*next(t, i) * t_scale);
-                *next(q, i) = get<(const int) j+1>(lor_par);
-                if (i < i_rsigmax) {
-                    *next(rms_value, i) = get<(const int) j+2>(lor_par);
+    if (lor_model == "continuous") {
+        for (i = 0; i < rad.size(); i++) {
+            assert(lor_par.size() == 3);
+            *next(freq, i) = 1/(*next(t, i)*t_scale);
+            *next(q, i) = *next(lor, 0);
+
+            if (i <= i_rsigmax) {
+                if (*next(lor, 1) >= 0 && *next(lor, 2) >= 0) {
+                    if (*next(r, i) > rcor) {
+                        *next(rms_value, i) = sqrt(pow(*next(lor, 1), 2)/
+                            (i_rsigmax+1-i_rcor));
+                    } else {
+                        *next(rms_value, i) =
+                            sqrt(pow(*next(lor, 2), 2)/i_rcor);
+                    }
+                } else if (*next(lor, 1) >= 0 && *next(lor, 2) < 0) {
+                    *next(rms_value, i) =
+                        sqrt(pow(*next(lor, 1), 2)/(i_rsigmax+1));
+                } else if (*next(lor, 1) < 0 && *next(lor, 2) >= 0) {
+                    if (*next(r, i) > rcor) {
+                        *next(rms_value, i) = -(*next(lor, 1));
+                    } else {
+                        *next(rms_value, i) =
+                            sqrt(pow(*next(lor, 2), 2)/i_rcor);
+                    }
+                } else {
+                    if (*next(r, i) > rcor) {
+                        *next(rms_value, i) = -(*next(lor, 1));
+                    } else {
+                        *next(rms_value, i) = -(*next(lor, 2));
+                    }
                 }
             }
         }
-        else if (lor_model == "multi_radius") {
-            if (get<j>(lor_par) <= *(r + rad.size() - 1) &&
-                    get<j>(lor_par) >= *r) {
-                auto [lrad, i] = find_nearest<T>(rad, get<j>(lor_par));
-                *next(freq, i) = 1/(*next(t, 1) * t_scale);
-                *next(q, i) = get<(const int) j+1>(lor_par);
+    }
+
+    if (lor_model == "multi_frequency") {
+        for (int j = 0; j < lor_par.size(); j += 3) {
+            double ltau = 1/(*next(lor, j)*t_scale);
+            if (ltau <= *next(t, tau.size() - 1) && ltau >= *(tau.begin())) {
+                auto [ltau2, i] = find_nearest<T>(tau, ltau);
+                *next(freq, i) = 1/(*next(t, i) * t_scale);
+                *next(q, i) = *next(lor, j+1);
                 if (i < i_rsigmax) {
-                    *next(rms_value, i) = get<(const int) j+2>(lor_par);
+                    *next(rms_value, i) = *next(lor, j+2);
                 }
             }
-        } else if (lor_model == "multi_radius_frequency") {
-            if (get<j>(lor_par) <= *(r + rad.size() - 1) &&
-                    get<j>(lor_par) >= *r) {
-                auto [lrad, i] = find_nearest<T>(rad, get<j>(lor_par));
+        }
+    } else if (lor_model == "multi_radius") {
+        for (int j = 0; j < lor_par.size(); j += 3) {
+            if (*next(lor, j) <= *next(r, rad.size() - 1) &&
+                    *next(lor, j) >= *r) {
+                auto [lrad, i] = find_nearest<T>(rad, *next(lor, j));
+                *next(freq, i) = 1/(*next(t, i) * t_scale);
+                *next(q, i) = *next(lor, j+1);
+                if (i <= i_rsigmax) {
+                    *next(rms_value, i) = *next(lor, j+2);
+                }
+            }
+        }
+    } else if (lor_model == "multi_radius_frequency") {
+        for (int j = 0; j < lor_par.size(); j += 4) {
+            if (*next(lor, j) <= *next(r, rad.size() - 1) &&
+                    *next(lor, j) >= *r) {
+                auto [lrad, i] = find_nearest<T>(rad, *next(lor, j));
                 if (*next(r, i) > 0) {
                     for (int i_next = 1; i_next < i; i_next++) {
                         if (*next(rms_value, i - i_next) == 0 &&
@@ -228,16 +234,15 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_parms(list<T> rad,
                             i = i - i_next;
                         }
                     }
-                    *next(freq, i) = get<(const int) j+1>(lor_par);
-                    *next(q, i) = get<(const int) j+2>(lor_par);
+                    *next(freq, i) = *next(lor, j+1);
+                    *next(q, i) = *next(lor, j+2);
                     if (i < i_rsigmax) {
-                        *next(rms_value, i) = get<(const int) j+3>(lor_par);
+                        *next(rms_value, i) = *next(lor, j+3);
                     }
 
-                    cout << "Signal radius for " << 
-                        get<(const int) j+1>(lor_par) << " Hz is " <<
-                        *next(r, i) << endl << "with rms" <<
-                        *next(rms_value, i);
+                    cout << "Signal radius for " << *next(lor, j+1) <<
+                        " Hz is " << *next(r, i) << endl << "with rms " <<
+                        *next(rms_value, i) << endl;
                 }
             }
         }
