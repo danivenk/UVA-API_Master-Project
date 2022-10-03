@@ -1,22 +1,30 @@
 #include "functions.h"
 #include <fstream>
 #include <json.hpp>
+#include <ctime>
+#include <cstdlib>
 
 using json = nlohmann::json;
 
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list);
+int myrandom (int i);
+
 void find_nearest(json &J, string f_name);
 void calc_dispfrac(json &J, string f_name);
 void calc_illumination_fracs(json &J, string f_name);
 void calc_timing_params(json &J, string f_name);
+void calc_propagation_params(json &J, string f_name);
+void calc_radial_time_response(json &J, string f_name);
 
 int main() {
+    // time(0)
+    srand (unsigned (0));
     list<const char*> functions = {"find_nearest", "calc_dispfrac",
         "calc_illumination_fracs", "calc_timing_params",
-        "calc_propagation_parms", "calc_radial_time_reponse", "calc_irfs_mono",
-        "linear_rebin_irf", "calc_cross_psd", "lorentz_qold", "lorentz_q",
-        "calculate_stprod_mono"};
+        "calc_propagation_params", "calc_radial_time_response",
+        "calc_irfs_mono", "linear_rebin_irf", "calc_cross_psd", "lorentz_qold",
+        "lorentz_q", "calculate_stprod_mono"};
     typename list<const char*>::iterator function = functions.begin();
 
     json J;
@@ -24,9 +32,11 @@ int main() {
     find_nearest(J, *(function++));
     calc_dispfrac(J, *(function++));
     calc_illumination_fracs(J, *(function++));
+    calc_timing_params(J, *(function++));
+    calc_propagation_params(J, *(function++));
 
     cout << "next function: " << *(function) << endl;
-    calc_timing_params(J, *(function++));
+    calc_radial_time_response(J, *(function++));
 
     // cout << J << endl;
 
@@ -202,7 +212,6 @@ void calc_timing_params(json &J, string f_name) {
 
     for (int i = 1; i <= 10; i++) {
         array_1.push_back((double) i/10);
-        // array_2.push_front((double) i/10);
     }
 
     list<double> parms = {value_1};
@@ -363,6 +372,69 @@ void calc_timing_params(json &J, string f_name) {
         value_4, tparms1, tparms2, "multi_radius_frequency", parms2}},
         {"output", {tau, lfreq, q, rms}}};
 }
+
+void calc_propagation_params(json &J, string f_name) {
+    list<double> array_1, array_2;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+    // int value_5 = 1;
+    // int value_6 = 4;
+
+    for (int i = 1; i <= 10; i++) {
+        if (i != 10) {
+            array_1.push_back((double) i/10);
+        }
+        array_2.push_back((double) (i-.5)/10);
+    }
+
+    tuple<double, double> parms1(value_2/1.3, value_3/1.4);
+    tuple<double, double> parms2(value_2/1.4, value_4/1.3);
+
+    auto deltau = calc_propagation_params<double>(array_1, array_2, value_1,
+        parms1, parms2);
+    J[f_name]["test_1"] = {{"input", {array_1, array_2, value_1, parms1,
+        parms2}}, {"output", {deltau}}};
+}
+
+void calc_radial_time_response(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+    // int value_5 = 1;
+    // int value_6 = 4;
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_back((double) (myrandom(10))/10);
+        array_3.push_back((double) (myrandom(10))/10);
+        array_4.push_back((double) (myrandom(10))/10);
+        array_5.push_back((double) (myrandom(10))/10);
+        array_6.push_back((double) (myrandom(10))/10);
+    }
+
+    // tuple<double, double> parms1(value_2/1.3, value_3/1.4);
+    // tuple<double, double> parms2(value_2/1.4, value_4/1.3);
+
+    auto [ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev] = 
+        calc_radial_time_response<double>(array_1, value_1, array_2, array_3,
+            array_4, array_5, array_6);
+    J[f_name]["test_1"] = {{"input", {array_1, value_1, array_2, array_3,
+        array_4, array_5, array_6}}, {"output", {ldisk_disp, lseed_disp, lheat,
+        ldisk_rev, lseed_rev}}};
+
+    // tie(tau, lfreq, q, rms) =
+    //     calc_timing_params<double>(array_1, 7 * value_5, value_1, value_6,
+    //         value_4, tparms1, tparms2, "continuous", parms);
+    // J[f_name]["test_02"] = {{"input", {array_1, 7 * value_5, value_1, value_6,
+    //     value_4, tparms1, tparms2, "continuous", parms}}, {"output", {tau,
+    //     lfreq, q, rms}}};
+}
+
+int myrandom (int i) { return std::rand()%i;}
 
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list) {

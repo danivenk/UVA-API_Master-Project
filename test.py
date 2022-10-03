@@ -33,7 +33,7 @@ def main(argv):
     for function in functions:
         dbg += test_f(dbg, CPP, function, tresh)
 
-    if len(um.test) != 0:
+    if len(um.test) != len(um.tset):
         print(", ".join(i for i in um.tset if i not in um.test))
     else:
         print("FINISHED!")
@@ -62,26 +62,34 @@ def test_f(dbg, CPP, function, thresh=0):
 
         test1 = f(*test["input"])
 
-        assert len(test1) == len(test["output"])
+        try:
+            assert len(test1) == len(test["output"])
+        except AssertionError:
+            assert len(test1) == len(test["output"][0])
 
         if checker(test1, test["output"], thresh):
             dbg += 1
-            print(f"ERROR in {tset}")
+            print(f"ERROR in {tset} of {function}")
             
-            print("ERROR: ")
+            print("ERROR: ", end="")
             try:
+                print()
                 test1[0][0]
                 for i in range(len(test1)):
                     print(f"python: {np.array(test1[i])}")
                     print(f"C++:    {np.array(test['output'][i])}")
             except IndexError:
-                print(f"ERROR: {test1} != {test['output']}")
+                print(f"{test1} != {test['output']}")
 
     return dbg
 
 
 def checker(data1, data2, thresh = 0):
-    assert len(data1) == len(data2)
+    try:
+        assert len(data1) == len(data2)
+    except AssertionError:
+        assert len(data1) == len(data2[0])
+        data2 = data2[0]
 
     for i in range(len(data1)):
         if not (np.isscalar(data1[i]) and np.isscalar(data2[i])):

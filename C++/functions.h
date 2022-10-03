@@ -97,10 +97,8 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
 
     for (disp = dispfrac.begin(), seed = seed_frac_flow.begin(),
             heat = heat_frac_flow.begin(), r = rad.begin(),
-            area = rad_area.begin(); disp != dispfrac.end(),
-            seed != seed_frac_flow.end(), heat != heat_frac_flow.end(),
-            r != rad.end(), area != rad_area.end(); disp++, seed++, heat++,
-            r++, area++) {
+            area = rad_area.begin(); disp != dispfrac.end(); disp++, seed++,
+            heat++, r++, area++) {
         *disp = *area * pow(*r, -3.0) * (1 - sqrt(rin/(*r)));
         disptotal += *disp;
 
@@ -143,7 +141,7 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
     typename list<T>::iterator r, lor = lor_par.begin();
     int i;
 
-    for (r = rad.begin(), i = 0; r != rad.end(), i < rad.size(); r++, i++) {
+    for (r = rad.begin(), i = 0; r != rad.end(); r++, i++) {
         if (*r > rcor) {
             tau.push_back(get<0>(disk_tau_par) * pow((*r/rcor), 
                 get<1>(disk_tau_par))*pow(*r, 1.5));
@@ -252,20 +250,19 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
 }
 
 template <class T>
-list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
+list<T> calc_propagation_params(list<T> rad, list<T> rad_edge, T rcor,
         tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par) {
     list<T> deltau;
 
     typename list<T>::iterator r, edge;
 
-    for (r = rad.begin(), edge = rad_edge.begin(); r = rad.end(),
-            edge = rad_edge.end(); r++, edge++) {
+    for (r = rad.begin(), edge = rad_edge.begin(); r != rad.end(); r++,
+            edge++) {
         if (*r <= rcor) {
-            deltau.append(get<0>(cor_prop_par) * (*next(edge, 1) - *edge) * 
-                pow(*r, 1/2) * pow(*r/rcor, get<1>(cor_prop_par)));
+            deltau.push_back(get<0>(cor_prop_par) * (*next(edge, 1) - *edge) * pow(*r, .5) * pow(*r/rcor, get<1>(cor_prop_par)));
         } else {
-            deltau.append(get<0>(disk_prop_par) * (*next(edge, 1) - *edge) * 
-                pow(*r, 1/2) * pow(*r/rcor, get<1>(disk_prop_par)));
+            deltau.push_back(get<0>(disk_prop_par) * (*next(edge, 1) - *edge) * 
+                pow(*r, .5) * pow(*r/rcor, get<1>(disk_prop_par)));
         }
     }
 
@@ -273,7 +270,7 @@ list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
 }
 
 template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_reponse(
+tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_response(
         list<T> rad, T rcor, list<T> disp_frac, list<T> disktocor_frac,
         list<T> cortodisk_frac, list<T> seed_frac_flow, list<T> heat_frac_flow) {
     
@@ -284,17 +281,14 @@ tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_reponse(
     double f_rev = 0, f_return = 0;
 
     for (fcd = cortodisk_frac.begin(), fdc = disktocor_frac.begin();
-            fcd != cortodisk_frac.end(), fdc = disktocor_frac.end(); fcd++,
-            fdc++) {
+            fcd != cortodisk_frac.end(); fcd++, fdc++) {
         f_rev += *fcd; f_return += (*fcd) * (*fdc);
     }
 
     for (r = rad.begin(), disp = disp_frac.begin(),
             fdc = disktocor_frac.begin(), seed = seed_frac_flow.begin(),
-            heat = heat_frac_flow.begin(); r != rad.end(),
-            disp != disp_frac.end(), fdc = disktocor_frac.end(),
-            seed = seed_frac_flow.end(), heat = heat_frac_flow.end(); r++,
-            disp++, fdc++, seed++, heat++) {
+            heat = heat_frac_flow.begin(); r != rad.end(); r++, disp++, fdc++,
+            seed++, heat++) {
         if (*r > rcor) {
             ldisk_disp.push_back((*disp) * (1 - *fdc));
         } else {
