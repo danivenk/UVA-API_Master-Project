@@ -35,7 +35,7 @@ class Matrix {
         };
 };
 
-template <class T, class T_T, class U>
+template <class T_T, class T, class U>
 class Nested_Array : public Matrix<T, U> {
 
     public:
@@ -100,6 +100,8 @@ class Nested_Array : public Matrix<T, U> {
 
             return *next(element, j);
         }
+
+        T_T get_matrix() const { return _matrix; };
 
         friend Nested_Array operator+(Nested_Array& matrix1, Nested_Array& matrix2) {
             auto [size_1_1, size_2_1] = matrix1.get_size();
@@ -177,6 +179,25 @@ class Array : public Matrix<T, U> {
 
             return *next(element, j + i * this->size_2);
         };
+
+        list<T> get_matrix() const {
+            auto [size1, size2] = this->get_size();
+
+            list<T> out;
+
+            for (int i = 0; i < size1; i++) {
+                T out_;
+                for (int j = 0; j < size2; j++) {
+                    auto val = this->get_element(i, j);
+
+                    out_.push_back(val);
+                }
+
+                out.push_back(out_);
+            }
+
+            return out;
+        }
 
         friend Array operator+(Array& matrix1, Array& matrix2) {
             auto [size_1_1, size_2_1] = matrix1.get_size();

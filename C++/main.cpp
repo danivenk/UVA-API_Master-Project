@@ -16,6 +16,9 @@ void calc_illumination_fracs(json &J, string f_name);
 void calc_timing_params(json &J, string f_name);
 void calc_propagation_params(json &J, string f_name);
 void calc_radial_time_response(json &J, string f_name);
+void calc_irfs_mono(json &J, string f_name);
+void linear_rebin_irf(json &J, string f_name);
+void calc_cross_psd(json &J, string f_name);
 
 int main() {
     // time(0)
@@ -34,11 +37,12 @@ int main() {
     calc_illumination_fracs(J, *(function++));
     calc_timing_params(J, *(function++));
     calc_propagation_params(J, *(function++));
+    calc_radial_time_response(J, *(function++));
+    calc_irfs_mono(J, *(function++));
+    linear_rebin_irf(J, *(function++));
 
     cout << "next function: " << *(function) << endl;
-    calc_radial_time_response(J, *(function++));
-
-    // cout << J << endl;
+    calc_cross_psd(J, *(function++));
 
     ofstream out("cpp_out.txt");
     out << J << endl;
@@ -379,8 +383,6 @@ void calc_propagation_params(json &J, string f_name) {
     double value_2 = 6.7;
     double value_3 = .7;
     double value_4 = .13;
-    // int value_5 = 1;
-    // int value_6 = 4;
 
     for (int i = 1; i <= 10; i++) {
         if (i != 10) {
@@ -404,8 +406,6 @@ void calc_radial_time_response(json &J, string f_name) {
     double value_2 = 6.7;
     double value_3 = .7;
     double value_4 = .13;
-    // int value_5 = 1;
-    // int value_6 = 4;
 
     for (int i = 1; i < 10; i++) {
         array_1.push_back((double) i/10);
@@ -416,22 +416,118 @@ void calc_radial_time_response(json &J, string f_name) {
         array_6.push_back((double) (myrandom(10))/10);
     }
 
-    // tuple<double, double> parms1(value_2/1.3, value_3/1.4);
-    // tuple<double, double> parms2(value_2/1.4, value_4/1.3);
-
     auto [ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev] = 
         calc_radial_time_response<double>(array_1, value_1, array_2, array_3,
             array_4, array_5, array_6);
     J[f_name]["test_1"] = {{"input", {array_1, value_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {ldisk_disp, lseed_disp, lheat,
         ldisk_rev, lseed_rev}}};
+}
 
-    // tie(tau, lfreq, q, rms) =
-    //     calc_timing_params<double>(array_1, 7 * value_5, value_1, value_6,
-    //         value_4, tparms1, tparms2, "continuous", parms);
-    // J[f_name]["test_02"] = {{"input", {array_1, 7 * value_5, value_1, value_6,
-    //     value_4, tparms1, tparms2, "continuous", parms}}, {"output", {tau,
-    //     lfreq, q, rms}}};
+void calc_irfs_mono(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_back((double) (myrandom(10))/10);
+        array_3.push_back((double) (myrandom(10))/10);
+        array_4.push_back((double) (myrandom(10))/10);
+        array_5.push_back((double) (myrandom(10))/10);
+        array_6.push_back((double) (myrandom(10))/10);
+    }
+
+    tuple<double, double> parms(value_2/1.3, value_3/1.4);
+
+    auto [gamma_mean1, gamma_irf1, flux_irf1, disk_irf1, seed_irf1] = 
+        calc_irfs_mono<double, Array<list<double>, double>>(parms, value_3,
+            array_1, array_2, array_3, array_4, array_5, array_6);
+    J[f_name]["test_1"] = {{"input", {parms, value_3, array_1, array_2, array_3,
+        array_4, array_5, array_6}}, {"output", {gamma_mean1, gamma_irf1,
+        flux_irf1.get_matrix(), disk_irf1, seed_irf1}}};
+
+    auto [gamma_mean2, gamma_irf2, flux_irf2, disk_irf2, seed_irf2] =
+        calc_irfs_mono<double, Nested_Array<list<list<double>>, list<double>,
+                double>>(parms, value_3, array_1, array_2, array_3, array_4,
+                    array_5, array_6);
+    J[f_name]["test_2"] = {{"input", {parms, value_3, array_1, array_2, array_3,
+        array_4, array_5, array_6}}, {"output", {gamma_mean2, gamma_irf2,
+        flux_irf2.get_matrix(), disk_irf2, seed_irf2}}};
+}
+
+void linear_rebin_irf(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+    int value_5 = 1;
+    int value_6 = 4;
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_back((double) (myrandom(10))/10);
+        array_3.push_back((double) (myrandom(10))/10);
+        array_4.push_back((double) (myrandom(20))/10 - 1);
+        array_5.push_back((double) (myrandom(10))/10);
+        array_6.push_back((double) (myrandom(10))/10);
+    }
+
+    for (int i = 0; i < 1; i++) {
+        array_1.pop_back();
+    }
+
+    auto [rebinned_irf, flux_outer] = 
+        linear_rebin_irf<double>(value_4, 7 * value_5, array_6, array_4,
+            array_3, array_2, 6 * value_5);
+    J[f_name]["test_1"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
+       array_3, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+
+    tie(rebinned_irf, flux_outer) = 
+        linear_rebin_irf<double>(value_4, 7 * value_5, array_6, array_4,
+            array_1, array_2, 6 * value_5);
+    J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
+       array_1, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+}
+
+void calc_cross_psd(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+    int value_5 = 1;
+    int value_6 = 4;
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_back((double) (myrandom(10))/10);
+        array_3.push_back((double) (myrandom(10))/10);
+        array_4.push_back((double) (myrandom(10))/10);
+        array_5.push_back((double) (myrandom(10))/10);
+        array_6.push_back((double) (myrandom(10))/10);
+    }
+
+    // tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
+    // list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
+
+    // tuple<double, double> parms(value_2/1.3, value_3/1.4);
+    // tuple<double, double> parms2(value_2/1.4, value_4/1.3);
+
+    // auto [rebinned_irf, flux_outer] = 
+    //     calc_cross_psd<double>(value_4, 7 * value_5, array_6, array_4,
+    //         array_3, array_2, 6 * value_5);
+    // J[f_name]["test_1"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
+    //     array_3, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+
+    // tie(rebinned_irf, flux_outer) = 
+    //     calc_cross_psd<double>(value_4, 7 * value_5, array_6, array_4,
+    //         array_1, array_2, 6 * value_5);
+    // J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
+    //    array_1, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
 }
 
 int myrandom (int i) { return std::rand()%i;}

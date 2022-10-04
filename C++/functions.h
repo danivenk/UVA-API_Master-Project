@@ -322,8 +322,7 @@ tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
     lheat_sum = 0, lseed_sum = 0;
 
     for (heat = lheat.begin(), seed_disp = lseed_disp.begin(),
-            seed_rev = lseed_rev.begin(); heat = lheat.end(),
-            seed_disp = lseed_disp.end(), seed_rev = lseed_rev.end(); heat++,
+            seed_rev = lseed_rev.begin(); heat != lheat.end(); heat++,
             seed_disp++, seed_rev++) {
         lheat_sum += *heat; lseed_sum += *seed_disp + *seed_rev;
     }
@@ -332,7 +331,7 @@ tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
     u = gamma_mean * get<1>(gamma_par);
     v = gamma_mean - 1;
 
-    for (energy_value = energy.begin(); energy_value = energy.end();
+    for (energy_value = energy.begin(); energy_value != energy.end();
             energy_value++) {
         seed_column.push_back(1-u*log((*energy_value)/e_seed) + (u/v));
         heat_column.push_back(u*log((*energy_value)/e_seed) - (u/v));
@@ -340,16 +339,14 @@ tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
 
     for (seed_disp = lseed_disp.begin(), seed_rev = lseed_rev.begin(),
             heat = lheat.begin(), disk_disp = ldisk_disp.begin(),
-            disk_rev = ldisk_rev.begin(); seed_disp = lseed_disp.end(),
-            seed_rev = lseed_rev.end(), heat = lheat.end(),
-            disk_disp = ldisk_disp.end(), disk_rev = ldisk_rev.end();
+            disk_rev = ldisk_rev.begin(); seed_disp != lseed_disp.end();
             seed_disp++, seed_rev++, heat++, disk_disp++, disk_rev++) {
         gamma_irf.push_back(gamma_mean * get<1>(gamma_par) *
             ((*seed_disp + *seed_rev)/lseed_sum - *heat/lheat_sum));
         disk_irf.push_back(*disk_disp + *disk_rev);
         seed_irf.push_back(*seed_disp + *seed_rev);
         seed_div_sum_irf.push_back((*seed_disp + *seed_rev)/lseed_sum);
-        heat_div_sum_irf.push_back(*heat/lheat);
+        heat_div_sum_irf.push_back((*heat)/lheat_sum);
     }
 
     U firf_seed(seed_column, seed_div_sum_irf),
@@ -357,7 +354,7 @@ tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
 
     U flux_irf = firf_seed + firf_heat;
 
-    return make_tuple(gamma_mean, gamma_irf, disk_irf, seed_irf);
+    return make_tuple(gamma_mean, gamma_irf, flux_irf, disk_irf, seed_irf);
 }
 
 template <class T>
@@ -368,9 +365,10 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
 
     typename list<T>::iterator ds = deltau_scale.begin(),
         irf = input_irf.begin(), irf2 = input_irf2.begin(),
-        nbins = irf_nbins.begin(), rebinned, bef = irf_binedgefrac.begin();
+        nbins = irf_nbins.begin(), rebinned = rebinned_irf.begin(),
+        bef = irf_binedgefrac.begin();
     
-    for (int i = i_rsigmax; i > 0; i--) {
+    for (int i = i_rsigmax; i >= 0; i--) {
         if (*next(ds, i) > 0) {
             *next(irf2, i) = *next(irf, i) / *next(ds, i);
         }
@@ -379,7 +377,7 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
     int irfbin_start;
     int irfbin_stop;
 
-    for (int i = i_rsigmax; i > 0; i--) {
+    for (int i = i_rsigmax; i >= 0; i--) {
 
         T irfbin = 0;
 
@@ -387,17 +385,14 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
             irfbin += *next(nbins, j);
         }
 
-        int irfbin_start = static_cast<int>(irfbin) -(*next(nbins, i));
-        int irfbin_stop = irfbin - 1;
-
-        for (rebinned = rebinned_irf.begin(); rebinned = rebinned_irf.end();
-                rebinned++) {
-            *rebinned = *next(irf2, i);
-        }
-
-        rebinned = rebinned_irf.begin();
+        irfbin_start = static_cast<int>(irfbin - *next(nbins, i));
+        irfbin_stop = static_cast<int>(irfbin_start + *next(nbins, i) - 1);
 
         if (*next(ds, i) > 0) {
+            for (int j = irfbin_start; j <= irfbin_stop; j++) {
+                *next(rebinned, j) = *next(irf2, i);
+            }
+
             if (i < i_rsigmax && *next(bef, i) > 0) {
                 *next(rebinned, irfbin_start) = *next(irf2, i) +
                     (*next(bef, i) * (*next(irf2, i+1) - *next(irf2, i)));
@@ -407,7 +402,7 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
                     (*next(bef, i-1) * (*next(irf2, i) - *next(irf2, i-1)));
             }
         } else {
-            *next(rebinned, irfbin_stop+1) += *next(irf2, i);
+            *next(rebinned, irfbin_stop+1) += *next(irf, i);
         }
     }
 
@@ -416,7 +411,7 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
     T flux_outer = 0;
 
     if (i_rsigmax < input_irf.size() - 1) {
-        for (int i = i_rsigmax; i < input_irf.size(); i++) {
+        for (int i = i_rsigmax + 1; i < input_irf.size(); i++) {
             flux_outer += *next(irf, i);
         }
     }
