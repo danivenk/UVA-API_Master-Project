@@ -3,12 +3,22 @@
 #include <json.hpp>
 #include <ctime>
 #include <cstdlib>
+#include <sstream>
 
 using json = nlohmann::json;
 
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list);
 int myrandom (int i);
+template <class T>
+json to_json(complex<T> c);
+template <class T>
+list<json> to_json(list<complex<T>> c_list);
+template <class T>
+string to_string(complex<T> c);
+template <class T>
+list<string> to_string(list<complex<T>> c_list);
+
 
 void find_nearest(json &J, string f_name);
 void calc_dispfrac(json &J, string f_name);
@@ -23,12 +33,12 @@ void calc_cross_psd(json &J, string f_name);
 int main() {
     // time(0)
     srand (unsigned (0));
-    list<const char*> functions = {"find_nearest", "calc_dispfrac",
+    list<string> functions = {"find_nearest", "calc_dispfrac",
         "calc_illumination_fracs", "calc_timing_params",
         "calc_propagation_params", "calc_radial_time_response",
         "calc_irfs_mono", "linear_rebin_irf", "calc_cross_psd", "lorentz_qold",
         "lorentz_q", "calculate_stprod_mono"};
-    typename list<const char*>::iterator function = functions.begin();
+    typename list<string>::iterator function = functions.begin();
 
     json J;
 
@@ -40,9 +50,9 @@ int main() {
     calc_radial_time_response(J, *(function++));
     calc_irfs_mono(J, *(function++));
     linear_rebin_irf(J, *(function++));
+    calc_cross_psd(J, *(function++));
 
     cout << "next function: " << *(function) << endl;
-    calc_cross_psd(J, *(function++));
 
     ofstream out("cpp_out.txt");
     out << J << endl;
@@ -494,7 +504,8 @@ void linear_rebin_irf(json &J, string f_name) {
 }
 
 void calc_cross_psd(json &J, string f_name) {
-    list<double> array_1, array_2, array_3, array_4, array_5, array_6;
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7,
+        array_8, array_9;
     double value_1 = .37;
     double value_2 = 6.7;
     double value_3 = .7;
@@ -509,28 +520,124 @@ void calc_cross_psd(json &J, string f_name) {
         array_4.push_back((double) (myrandom(10))/10);
         array_5.push_back((double) (myrandom(10))/10);
         array_6.push_back((double) (myrandom(10))/10);
+        array_7.push_back((double) (myrandom(10))/10);
+        array_8.push_back((double) (myrandom(10))/10);
+        double x = (double) (myrandom(10))/10;
+        array_9.push_back(x == 0 ? x + .1 : x);
     }
 
-    // tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
-    // list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
+    for (int i = 1; i < 10; i++) {
+        array_2.push_back((double) (myrandom(10)/10));
+        array_3.push_back((double) (myrandom(10)/10));
+    }
 
-    // tuple<double, double> parms(value_2/1.3, value_3/1.4);
-    // tuple<double, double> parms2(value_2/1.4, value_4/1.3);
+    auto [wt_cross_spec, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd]
+        = calc_cross_psd<double>(array_7, value_4, array_2, array_3, 
+            array_5, array_6, 5 * value_5, array_8, array_9, array_1);
+    
+    list<json> wt_cross_spec_s = to_json(wt_cross_spec);
 
-    // auto [rebinned_irf, flux_outer] = 
-    //     calc_cross_psd<double>(value_4, 7 * value_5, array_6, array_4,
-    //         array_3, array_2, 6 * value_5);
-    // J[f_name]["test_1"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-    //     array_3, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
-
-    // tie(rebinned_irf, flux_outer) = 
-    //     calc_cross_psd<double>(value_4, 7 * value_5, array_6, array_4,
-    //         array_1, array_2, 6 * value_5);
-    // J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-    //    array_1, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+    J[f_name]["test_1"] = {{"input", {array_7, value_4, array_2, array_3,
+        array_5, array_6, 5 * value_5, array_8, array_9, array_1}}, {"output",
+        {wt_cross_spec_s, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd}}};
 }
 
+// void calc_cross_psd(json &J, string f_name) {
+//     list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7,
+//         array_8, array_9;
+//     double value_1 = .37;
+//     double value_2 = 6.7;
+//     double value_3 = .7;
+//     double value_4 = .13;
+//     int value_5 = 1;
+//     int value_6 = 4;
+
+//     for (int i = 1; i < 10; i++) {
+//         array_1.push_back((double) i/10);
+//         array_2.push_back((double) (myrandom(10))/10);
+//         array_3.push_back((double) (myrandom(10))/10);
+//         array_4.push_back((double) (myrandom(10))/10);
+//         array_5.push_back((double) (myrandom(10))/10);
+//         array_6.push_back((double) (myrandom(10))/10);
+//         array_7.push_back((double) (myrandom(10))/10);
+//         array_8.push_back((double) (myrandom(10))/10);
+//         double x = (double) (myrandom(10))/10;
+//         array_9.push_back(x == 0 ? x + .1 : x);
+//     }
+
+//     for (int i = 1; i < 10; i++) {
+//         array_2.push_back((double) (myrandom(10)/10));
+//         array_3.push_back((double) (myrandom(10)/10));
+//     }
+
+//     // tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
+//     // list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
+
+//     // tuple<double, double> parms(value_2/1.3, value_3/1.4);
+//     // tuple<double, double> parms2(value_2/1.4, value_4/1.3);
+
+//     auto [wt_cross_spec, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd]
+//         = calc_cross_psd<double>(array_7, value_4, array_2, array_3, 
+//             array_5, array_6, 5 * value_5, array_8, array_9, array_1);
+    
+//     list<json> wt_cross_spec_s = to_json(wt_cross_spec);
+
+//     J[f_name]["test_1"] = {{"input", {array_7, value_4, array_2, array_3,
+//         array_5, array_6, 5 * value_5, array_8, array_9, array_1}}, {"output",
+//         {wt_cross_spec_s, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd}}};
+
+//     // tie(rebinned_irf, flux_outer) = 
+//     //     calc_cross_psd<double>(value_4, 7 * value_5, array_6, array_4,
+//     //         array_1, array_2, 6 * value_5);
+//     // J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
+//     //    array_1, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+// }
+
 int myrandom (int i) { return std::rand()%i;}
+
+template <class T>
+json to_json(complex<T> c) {
+    return {{"real", c.real()}, {"imag", c.imag()}};
+}
+
+template <class T>
+list<json> to_json(list<complex<T>> c_list) {
+    typename list<complex<T>>::iterator c;
+    list<json> out;
+
+    for (c = c_list.begin(); c != c_list.end(); c++) {
+        out.push_back(to_json<T>(*c));
+    }
+
+    assert(c_list.size() == out.size());
+
+    return out;
+}
+
+template <class T>
+string to_string(complex<T> c) {
+    stringstream ss;
+    ss << c.real();
+    if (c.imag() >= 0) {
+        ss << "+";
+    }
+    ss << c.imag() << "j";
+    return ss.str();
+}
+
+template <class T>
+list<string> to_string(list<complex<T>> c_list) {
+    typename list<complex<T>>::iterator c;
+    list<string> out;
+    
+    for (c = c_list.begin(); c != c_list.end(); c++) {
+        out.push_back(to_string<T>(*c));
+    }
+    
+    assert(c_list.size() == out.size());
+    
+    return out;
+}
 
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list) {

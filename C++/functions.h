@@ -27,7 +27,7 @@ tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(Geometry<list<T>, U> ge
 template <class T>
 tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
     int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-    tuple<T, T> cor_tau_par, const char* lor_model, list<T> lor_par);
+    tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par);
 template <class T>
 list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
     tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par);
@@ -43,9 +43,9 @@ template <class T>
 tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
     list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
 template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq, T dt,
-    list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins, list<T> deltau_scale,
-    int i_rsigmax, list<T> f_pk, list<T> q, list<T> rms);
+tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
+    T dt, list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins,
+    list<T> deltau_scale, int i_rsigmax, list<T> f_pk, list<T> q, list<T> rms);
 template <class T, class U>
 U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms);
 template<class T>
@@ -134,7 +134,7 @@ tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
 template <class T>
 tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
         int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-        tuple<T, T> cor_tau_par, const char* lor_model, list<T> lor_par) {
+        tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par) {
     
     list<T> tau, lfreq, q_list, rms;
 
@@ -385,10 +385,9 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
             irfbin += *next(nbins, j);
         }
 
-        irfbin_start = static_cast<int>(irfbin - *next(nbins, i));
-        irfbin_stop = static_cast<int>(irfbin_start + *next(nbins, i) - 1);
-
-        if (*next(ds, i) > 0) {
+        if (*next(ds, i) > 0) { 
+            irfbin_start = static_cast<int>(irfbin - *next(nbins, i));
+            irfbin_stop = static_cast<int>(irfbin_start + *next(nbins, i) - 1);
             for (int j = irfbin_start; j <= irfbin_stop; j++) {
                 *next(rebinned, j) = *next(irf2, i);
             }
@@ -420,20 +419,20 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
 }
 
 template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq, T dt,
-        list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins,
+tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
+        T dt, list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins,
         list<T> deltau_scale, int i_rsigmax, list<T> f_pk, list<T> q,
         list<T> rms) {
     int nirf = ref_irf.size();
 
-    list<T> wt_cross_spec(nirf/2, 0), wt_pow_spec_ref(nirf/2, 0),
-        wt_pow_spec_ci(nirf/2, 0), mod_sig_psd(nirf/2, 0), ref_irf_dum,
-        ci_irf_dum;
+    list<T> wt_pow_spec_ref(nirf/2, 0), wt_pow_spec_ci(nirf/2, 0),
+        mod_sig_psd(nirf/2, 0), ref_irf_dum, ci_irf_dum;
+    list<complex<T>> wt_cross_spec(nirf/2, 0);
 
     typename list<T>::iterator ref, ci;
 
-    for (ref = ref_irf.begin(), ci = ci_irf.begin(); ref != ref_irf.end(),
-            ci = ci_irf.end(); ref++, ci++) {
+    for (ref = ref_irf.begin(), ci = ci_irf.begin(); ref != ref_irf.end();
+            ref++, ci++) {
         ref_irf_dum.push_back((*ref) * dt);
         ci_irf_dum.push_back((*ci) * dt);
     }
@@ -441,19 +440,22 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq, T dt,
     typename list<T>::iterator deltau = deltau_scale.begin(),
         nbins = irf_nbins.begin(), rms_val = rms.begin(),
         f_pk_val = f_pk.begin(), q_val = q.begin(),
-        wt_cross, lor, mod_sig, wt_ps_ref, wt_ps_ci;
+        lor, mod_sig, wt_ps_ref, wt_ps_ci;
 
-    typename list<complex<T>>::iterator ref_f, ci_f;
+    typename list<complex<T>>::iterator ref_f, ci_f, wt_cross;
 
     for (int i = i_rsigmax; i >= 0; i--) {
         if (i == i_rsigmax || *next(deltau, i+1) > 0) {
             if (i < i_rsigmax) {
-                int irfbin_start = -*next(nbins, i+1), irfbin_stop = -1;
+                T irf = -*next(nbins, i+1);
 
                 for (int j = i+1; j <= i_rsigmax; j++) {
-                    irfbin_start += *next(nbins, j);
-                    irfbin_stop += *next(nbins, j);
+                    irf += *next(nbins, j);
                 }
+
+                int irfbin_start = static_cast<int>(irf);
+                int irfbin_stop = static_cast<int>(irfbin_start +
+                    *next(nbins, i+1) - 1);
 
                 ref = ref_irf_dum.begin(); ci = ci_irf_dum.begin();
 
@@ -474,12 +476,8 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq, T dt,
                         mod_sig = mod_sig_psd.begin(),
                         wt_ps_ref = wt_pow_spec_ref.begin(),
                         wt_ps_ci = wt_pow_spec_ci.begin();
-                        ref_f != ref_fft.end(), ci_f != ci_fft.end(),
-                        wt_cross != wt_cross_spec.end(), lor != lor_psd.end(),
-                        mod_sig != mod_sig_psd.end(),
-                        wt_ps_ref != wt_pow_spec_ref.end(),
-                        wt_ps_ci != wt_pow_spec_ci.end(); ref_f++, ci_f++,
-                        wt_cross++, lor++, mod_sig++, wt_ps_ref++, wt_ps_ci++) {
+                        ref_f != ref_fft.end(); ref_f++, ci_f++, wt_cross++,
+                        lor++, mod_sig++, wt_ps_ref++, wt_ps_ci++) {
                     auto cross = conj(*ci_f) * (*ref_f);
                     *wt_cross += (*lor) * cross;
                     *mod_sig += *lor;
@@ -507,8 +505,7 @@ U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms) {
     int i = 0, j = 0;
 
     for (f_pk_val = f_pk.begin(), q_val = q.begin(), rms_val = rms.begin();
-            f_pk_val != f_pk.end(), q_val != q.end(), rms_val != rms.end(); 
-            f_pk_val++, q_val++, rms_val++) {
+            f_pk_val != f_pk.end(); f_pk_val++, q_val++, rms_val++) {
         T f_res = *f_pk_val / sqrt(1+(1/(4*pow(*q_val,2))));
         T r = *rms_val / sqrt(.5-atan(-2*(*q_val))/M_PI);
         T lorentz1 = (1/M_PI)*2*pow(r, 2)*(*q_val)*f_res;
@@ -533,9 +530,9 @@ list<T> lorentz_q(list<T> f, T f_pk, T q, T rms) {
 
     typename list<T>::iterator lor, f_val;
 
-    for (lor = lorentz.begin(), f_val = f.begin(); lor != lorentz.end(),
-                f_val = f.end(); lor++, f++) {
-        *lor = (1/M_PI*2*pow(r, 2)*1*f_res) / (pow(f_res, 2) +
+    for (lor = lorentz.begin(), f_val = f.begin(); lor != lorentz.end(); lor++,
+            f_val++) {
+        *lor = (1/M_PI*2*pow(r, 2)*q*f_res) / (pow(f_res, 2) +
             (4*pow(q, 2)*pow(*f_val - f_res, 2)));
     }
 

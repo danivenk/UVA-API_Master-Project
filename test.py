@@ -13,6 +13,20 @@ class File:
         with open(os.path.join(os.getcwd(), filename), "r") as file:
             self._data = json.load(file)
 
+            for function in self._data.values():
+                for test in function.values():
+                    for put in test.values():
+                        for i, parameter in enumerate(put):
+                            put[i] = self.check(parameter)
+
+    def check(self, l):
+        if type(l) == list:
+            for i, el in enumerate(l):
+                l[i] = self.check(el)
+        elif type(l) == dict and "real" in l and "imag" in l:
+            return complex(l["real"], l["imag"])
+        return l
+
     @property
     def data(self):
         return self._data
@@ -88,8 +102,12 @@ def checker(data1, data2, thresh = 0):
     try:
         assert len(data1) == len(data2)
     except AssertionError:
-        assert len(data1) == len(data2[0])
-        data2 = data2[0]
+        try:
+            assert len(data1) == len(data2[0])
+            data2 = data2[0]
+        except TypeError:
+            assert len(data1[0]) == len(data2)
+            data1 = data1[0]
 
     for i in range(len(data1)):
         if not (np.isscalar(data1[i]) and np.isscalar(data2[i])):
