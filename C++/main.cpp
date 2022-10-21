@@ -9,6 +9,8 @@ using json = nlohmann::json;
 
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list);
+template <class T>
+ostream& operator<<(ostream& os, const Matrix<list<T>, T> m);
 int myrandom (int i);
 template <class T>
 json to_json(complex<T> c);
@@ -29,6 +31,8 @@ void calc_radial_time_response(json &J, string f_name);
 void calc_irfs_mono(json &J, string f_name);
 void linear_rebin_irf(json &J, string f_name);
 void calc_cross_psd(json &J, string f_name);
+void lorentz_qold(json &J, string f_name);
+void lorentz_q(json &J, string f_name);
 
 int main() {
     // time(0)
@@ -51,6 +55,8 @@ int main() {
     calc_irfs_mono(J, *(function++));
     linear_rebin_irf(J, *(function++));
     calc_cross_psd(J, *(function++));
+    lorentz_qold(J, *(function++));
+    lorentz_q(J, *(function++));
 
     cout << "next function: " << *(function) << endl;
 
@@ -542,7 +548,50 @@ void calc_cross_psd(json &J, string f_name) {
         {wt_cross_spec_s, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd}}};
 }
 
-// void calc_cross_psd(json &J, string f_name) {
+void lorentz_qold(json &J, string f_name) {
+    list<double> array_1;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+    }
+
+    auto lorentz = lorentz_q<double>(array_1, value_1, value_2, value_3);
+
+    J[f_name]["test_1"] = {{"input", {array_1, value_1, value_2, value_3}},
+        {"output", {lorentz}}};
+}
+
+void lorentz_q(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4;
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+    }
+
+    for (int i = 1; i < 10; i++) {
+        array_2.push_back((double) (myrandom(10)));
+        array_4.push_back((double) (myrandom(10)));
+        double x = (double) (myrandom(10))/10;
+        array_3.push_back(x == 0 ? x + .1 : x);
+    }
+
+    auto lorentz_0 = lorentz_q<double, Array<list<double>, double>>(array_1,
+        array_2, array_3, array_4);
+
+    J[f_name]["test_1"] = {{"input", {array_1, array_2, array_3, array_4}},
+        {"output", {lorentz_0.get_matrix()}}};
+
+    auto lorentz_1 = lorentz_q<double, Nested_Array<list<list<double>>,
+        list<double>, double>>(array_1, array_2, array_3, array_4);
+
+    J[f_name]["test_2"] = {{"input", {array_1, array_2, array_3, array_4}},
+        {"output", {lorentz_1.get_matrix()}}};
+}
+
+// void calculate_stprod_mono(json &J, string f_name) {
 //     list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7,
 //         array_8, array_9;
 //     double value_1 = .37;
@@ -554,43 +603,26 @@ void calc_cross_psd(json &J, string f_name) {
 
 //     for (int i = 1; i < 10; i++) {
 //         array_1.push_back((double) i/10);
-//         array_2.push_back((double) (myrandom(10))/10);
-//         array_3.push_back((double) (myrandom(10))/10);
-//         array_4.push_back((double) (myrandom(10))/10);
-//         array_5.push_back((double) (myrandom(10))/10);
-//         array_6.push_back((double) (myrandom(10))/10);
-//         array_7.push_back((double) (myrandom(10))/10);
-//         array_8.push_back((double) (myrandom(10))/10);
-//         double x = (double) (myrandom(10))/10;
-//         array_9.push_back(x == 0 ? x + .1 : x);
 //     }
 
 //     for (int i = 1; i < 10; i++) {
-//         array_2.push_back((double) (myrandom(10)/10));
-//         array_3.push_back((double) (myrandom(10)/10));
+//         array_2.push_back((double) (myrandom(10)));
+//         array_4.push_back((double) (myrandom(10)));
+//         double x = (double) (myrandom(10))/10;
+//         array_3.push_back(x == 0 ? x + .1 : x);
 //     }
 
-//     // tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
-//     // list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
+//     // auto lorentz_0 = lorentz_q<double, Array<list<double>, double>>(array_1,
+//     //     array_2, array_3, array_4);
 
-//     // tuple<double, double> parms(value_2/1.3, value_3/1.4);
-//     // tuple<double, double> parms2(value_2/1.4, value_4/1.3);
+//     // J[f_name]["test_1"] = {{"input", {array_1, array_2, array_3, array_4}},
+//     //     {"output", {lorentz_0.get_matrix()}}};
 
-//     auto [wt_cross_spec, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd]
-//         = calc_cross_psd<double>(array_7, value_4, array_2, array_3, 
-//             array_5, array_6, 5 * value_5, array_8, array_9, array_1);
-    
-//     list<json> wt_cross_spec_s = to_json(wt_cross_spec);
+//     // auto lorentz_1 = lorentz_q<double, Nested_Array<list<list<double>>,
+//     //     list<double>, double>>(array_1, array_2, array_3, array_4);
 
-//     J[f_name]["test_1"] = {{"input", {array_7, value_4, array_2, array_3,
-//         array_5, array_6, 5 * value_5, array_8, array_9, array_1}}, {"output",
-//         {wt_cross_spec_s, wt_pow_spec_ci, wt_pow_spec_ref, mod_sig_psd}}};
-
-//     // tie(rebinned_irf, flux_outer) = 
-//     //     calc_cross_psd<double>(value_4, 7 * value_5, array_6, array_4,
-//     //         array_1, array_2, 6 * value_5);
-//     // J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-//     //    array_1, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+//     // J[f_name]["test_2"] = {{"input", {array_1, array_2, array_3, array_4}},
+//     //     {"output", {lorentz_1.get_matrix()}}};
 // }
 
 int myrandom (int i) { return std::rand()%i;}
@@ -643,6 +675,20 @@ template <class T>
 ostream& operator<<(ostream& os, const list<T> list) {
     for (auto& i: list) {
         os << i << " ";
+    }
+
+    return os;
+}
+
+template <class T>
+ostream& operator<<(ostream& os, const Matrix<list<T>, T> m) {
+    auto [x, y] = m.get_size();
+
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            os << m.get_element(i, j) << " ";
+        }
+        os << endl;
     }
 
     return os;

@@ -66,6 +66,8 @@ class Nested_Array : public Matrix<T, U> {
             }
         }
         Nested_Array(int n1, int n2) : Matrix<T, U>() {
+            this->size_1 = n1; this->size_2 = n2;
+
             for (int i = 0; i < this->size_1; i++) {
                 T row;
                 for (int j = 0; j < this->size_2; j++) {
@@ -82,7 +84,7 @@ class Nested_Array : public Matrix<T, U> {
 
     public:
         U& get_element(int i, int j) {
-            assert(0 <= i < this->size_1 && 0 <= j < this->size_2);
+            assert(0 <= i && i < this->size_1 && 0 <= j && j < this->size_2);
 
             this->_last_i = i; this->_last_j;
 
@@ -93,7 +95,7 @@ class Nested_Array : public Matrix<T, U> {
         }
 
         U get_element(int i, int j) const {
-            assert(0 <= i < this->size_1 && 0 <= j < this->size_2);
+            assert(0 <= i && i < this->size_1 && 0 <= j && j < this->size_2);
 
             typename T_T::const_iterator row = _matrix.begin();
             typename T::const_iterator element = (*next(row, i)).begin();
@@ -163,7 +165,7 @@ class Array : public Matrix<T, U> {
 
     public:
         U& get_element(int i, int j) {
-            assert(0 <= i < this->size_1 && 0 <= j < this->size_2);
+            assert(0 <= i && i < this->size_1 && 0 <= j && j < this->size_2);
 
             this->_last_i = i; this->_last_j;
 
@@ -173,7 +175,7 @@ class Array : public Matrix<T, U> {
         };
 
         U get_element(int i, int j) const {
-            assert(0 <= i < this->size_1 && 0 <= j < this->size_2);
+            assert(0 <= i && i < this->size_1 && 0 <= j && j < this->size_2);
 
             typename T::const_iterator element = _matrix.begin();
 

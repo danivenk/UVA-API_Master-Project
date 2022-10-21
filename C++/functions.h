@@ -495,14 +495,13 @@ tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
 
 template <class T, class U>
 U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms) {
+    assert(f_pk.size() == q.size() && q.size() == rms.size());
 
-    assert(f_pk.size() == q.size() == rms.size());
-
-    U lorentz(f.size(), f_pk.size());
+    U lorentz(f_pk.size(), f.size());
 
     typename list<T>::iterator f_val, f_pk_val, q_val, rms_val;
 
-    int i = 0, j = 0;
+    int i, j = 0;
 
     for (f_pk_val = f_pk.begin(), q_val = q.begin(), rms_val = rms.begin();
             f_pk_val != f_pk.end(); f_pk_val++, q_val++, rms_val++) {
@@ -510,15 +509,19 @@ U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms) {
         T r = *rms_val / sqrt(.5-atan(-2*(*q_val))/M_PI);
         T lorentz1 = (1/M_PI)*2*pow(r, 2)*(*q_val)*f_res;
 
+        i = 0;
+
         for (f_val = f.begin(); f_val != f.end(); f_val++) {
             T lorentz2 = 4*pow(*q_val, 2)*pow(*f_val - f_res, 2);
-            lorentz.get_item(i, j) = lorentz1 / (pow(f_res, 2) + lorentz2);
+            lorentz.get_element(j, i) = lorentz1 / (pow(f_res, 2) + lorentz2);
 
             i++;
         }
 
         j++;
     }
+
+    return lorentz;
 }
 
 template<class T>
