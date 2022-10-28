@@ -10,7 +10,7 @@ using json = nlohmann::json;
 template <class T>
 ostream& operator<<(ostream& os, const list<T> list);
 template <class T>
-ostream& operator<<(ostream& os, const Matrix<list<T>, T> m);
+ostream& operator<<(ostream& os, const Matrix<list, T> m);
 int myrandom (int i);
 template <class T>
 json to_json(complex<T> c);
@@ -33,6 +33,7 @@ void linear_rebin_irf(json &J, string f_name);
 void calc_cross_psd(json &J, string f_name);
 void lorentz_qold(json &J, string f_name);
 void lorentz_q(json &J, string f_name);
+void calculate_stprod_mono(json &J, string f_name);
 
 int main() {
     // time(0)
@@ -59,6 +60,7 @@ int main() {
     lorentz_q(J, *(function++));
 
     cout << "next function: " << *(function) << endl;
+    calculate_stprod_mono(J, *(function++));
 
     ofstream out("cpp_out.txt");
     out << J << endl;
@@ -459,16 +461,15 @@ void calc_irfs_mono(json &J, string f_name) {
     tuple<double, double> parms(value_2/1.3, value_3/1.4);
 
     auto [gamma_mean1, gamma_irf1, flux_irf1, disk_irf1, seed_irf1] = 
-        calc_irfs_mono<double, Array<list<double>, double>>(parms, value_3,
+        calc_irfs_mono<double, Array<list, double>>(parms, value_3,
             array_1, array_2, array_3, array_4, array_5, array_6);
     J[f_name]["test_1"] = {{"input", {parms, value_3, array_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {gamma_mean1, gamma_irf1,
         flux_irf1.get_matrix(), disk_irf1, seed_irf1}}};
 
     auto [gamma_mean2, gamma_irf2, flux_irf2, disk_irf2, seed_irf2] =
-        calc_irfs_mono<double, Nested_Array<list<list<double>>, list<double>,
-                double>>(parms, value_3, array_1, array_2, array_3, array_4,
-                    array_5, array_6);
+        calc_irfs_mono<double, Nested_Array<list, double>>(parms, value_3,
+            array_1, array_2, array_3, array_4, array_5, array_6);
     J[f_name]["test_2"] = {{"input", {parms, value_3, array_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {gamma_mean2, gamma_irf2,
         flux_irf2.get_matrix(), disk_irf2, seed_irf2}}};
@@ -578,52 +579,75 @@ void lorentz_q(json &J, string f_name) {
         array_3.push_back(x == 0 ? x + .1 : x);
     }
 
-    auto lorentz_0 = lorentz_q<double, Array<list<double>, double>>(array_1,
+    auto lorentz_0 = lorentz_q<double, Array<list, double>>(array_1,
         array_2, array_3, array_4);
 
     J[f_name]["test_1"] = {{"input", {array_1, array_2, array_3, array_4}},
         {"output", {lorentz_0.get_matrix()}}};
 
-    auto lorentz_1 = lorentz_q<double, Nested_Array<list<list<double>>,
-        list<double>, double>>(array_1, array_2, array_3, array_4);
+    auto lorentz_1 = lorentz_q<double, Nested_Array<list, double>>(array_1,
+        array_2, array_3, array_4);
 
     J[f_name]["test_2"] = {{"input", {array_1, array_2, array_3, array_4}},
         {"output", {lorentz_1.get_matrix()}}};
 }
 
-// void calculate_stprod_mono(json &J, string f_name) {
-//     list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7,
-//         array_8, array_9;
-//     double value_1 = .37;
-//     double value_2 = 6.7;
-//     double value_3 = .7;
-//     double value_4 = .13;
-//     int value_5 = 1;
-//     int value_6 = 4;
+void calculate_stprod_mono(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7,
+        array_8, array_9;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+    int value_5 = 1;
+    int value_6 = 4;
 
-//     for (int i = 1; i < 10; i++) {
-//         array_1.push_back((double) i/10);
-//     }
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) i/10);
+        array_2.push_back((double) (myrandom(10))/10);
+        array_4.push_back((double) (myrandom(10))/10);
+        array_5.push_back((double) (myrandom(10))/10);
+        array_6.push_back((double) (myrandom(10))/10);
+        array_7.push_back((double) (myrandom(10))/10);
+        array_8.push_back((double) (myrandom(10))/10);
+        double x = (double) (myrandom(10))/10;
+        array_3.push_back(x == 0 ? x + .1 : x);
+    }
 
-//     for (int i = 1; i < 10; i++) {
-//         array_2.push_back((double) (myrandom(10)));
-//         array_4.push_back((double) (myrandom(10)));
-//         double x = (double) (myrandom(10))/10;
-//         array_3.push_back(x == 0 ? x + .1 : x);
-//     }
+    list<double> array_two = {(double) (myrandom(10))/10,
+        (double) (myrandom(10))/10};
 
-//     // auto lorentz_0 = lorentz_q<double, Array<list<double>, double>>(array_1,
-//     //     array_2, array_3, array_4);
+    Array<list, int> matrix_1(10, 2);
+    Array<list, double> matrix_2(array_5, array_7);
 
-//     // J[f_name]["test_1"] = {{"input", {array_1, array_2, array_3, array_4}},
-//     //     {"output", {lorentz_0.get_matrix()}}};
+    auto [x, y] = matrix_1.get_size();
 
-//     // auto lorentz_1 = lorentz_q<double, Nested_Array<list<list<double>>,
-//     //     list<double>, double>>(array_1, array_2, array_3, array_4);
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            matrix_1.get_element(i, j) = myrandom(array_2.size());
+        }
+    }
 
-//     // J[f_name]["test_2"] = {{"input", {array_1, array_2, array_3, array_4}},
-//     //     {"output", {lorentz_1.get_matrix()}}};
-// }
+    auto [freq, phlag, tlag, psd_ci, psd_ref, mod_sig_psd, irf_nbins,
+        irf_binedgefrac, deltau_scale, dt, nirf, ci_irf, ci_mean, ci_outer] =
+            calculate_stprod_mono<double, Array<list, double>,
+                Array<list, int>>(value_6, array_2, matrix_1,
+                    matrix_2, array_4, array_5, array_6, value_3, 7*value_5,
+                    array_7, array_3, array_1, 2*value_4);
+
+    J[f_name]["test_1"] = {{"input", {value_6, array_2, matrix_1.get_matrix(),
+        matrix_2.get_matrix(), array_4, array_5, array_6, value_3, 7*value_5,
+        array_7, array_3, array_1, 2*value_4}}, {"output", {freq,
+        phlag.get_matrix(), tlag.get_matrix(), psd_ci.get_matrix(),
+        psd_ref.get_matrix(), mod_sig_psd, irf_nbins, irf_binedgefrac,
+        deltau_scale, dt, nirf, ci_irf.get_matrix(), ci_mean, ci_outer}}};
+
+    // auto lorentz_1 = lorentz_q<double, Nested_Array<list<list<double>>,
+    //     list<double>, double>>(array_1, array_2, array_3, array_4);
+
+    // J[f_name]["test_2"] = {{"input", {array_1, array_2, array_3, array_4}},
+    //     {"output", {lorentz_1.get_matrix()}}};
+}
 
 int myrandom (int i) { return std::rand()%i;}
 
@@ -681,7 +705,7 @@ ostream& operator<<(ostream& os, const list<T> list) {
 }
 
 template <class T>
-ostream& operator<<(ostream& os, const Matrix<list<T>, T> m) {
+ostream& operator<<(ostream& os, const Matrix<list, T> m) {
     auto [x, y] = m.get_size();
 
     for (int i = 0; i < x; i++) {

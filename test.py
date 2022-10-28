@@ -47,10 +47,10 @@ def main(argv):
     for function in functions:
         dbg += test_f(dbg, CPP, function, tresh)
 
-    if len(um.test) != len(um.tset):
-        print(", ".join(i for i in um.tset if i not in um.test))
-    else:
-        print("FINISHED!")
+    # if len(um.test) != len(um.tset):
+    #     print(", ".join(i for i in um.tset if i not in um.test))
+    # else:
+    #     print("FINISHED!")
 
     # print(dbg)
     return dbg
@@ -94,6 +94,7 @@ def test_f(dbg, CPP, function, thresh=0):
                     print(f"C++:    {np.array(test['output'][i])}")
             except IndexError:
                 print(f"{test1} != {test['output']}")
+            exit()
 
     return dbg
 

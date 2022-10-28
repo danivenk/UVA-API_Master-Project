@@ -50,10 +50,10 @@ template <class T, class U>
 U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms);
 template<class T>
 list<T> lorentz_q(list<T> f, T f_pk, T q, T rms);
-template<class T, class U>
+template<class T, class U, class V>
 tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
     list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
-    U encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf, list<T> deltau,
+    V encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf, list<T> deltau,
     T min_deltau_frac, int i_rsigmax, list<T> lfreq,  list<T> q, list<T> rms,
     T t_scale);
 
@@ -367,7 +367,7 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
         irf = input_irf.begin(), irf2 = input_irf2.begin(),
         nbins = irf_nbins.begin(), rebinned = rebinned_irf.begin(),
         bef = irf_binedgefrac.begin();
-    
+
     for (int i = i_rsigmax; i >= 0; i--) {
         if (*next(ds, i) > 0) {
             *next(irf2, i) = *next(irf, i) / *next(ds, i);
@@ -542,10 +542,10 @@ list<T> lorentz_q(list<T> f, T f_pk, T q, T rms) {
     return lorentz;
 }
 
-template<class T, class U>
+template<class T, class U, class V>
 tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
         list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
-        U encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf,
+        V encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf,
         list<T> deltau, T min_deltau_frac, int i_rsigmax, list<T> lfreq,
         list<T> q, list<T> rms, T t_scale) {
 
@@ -557,8 +557,8 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
 
     for (del = deltau.begin(); del != deltau.end(); del++) {
         deltau_scale.push_back(*del * t_scale);
-        if (*del > 0 && *del < del_min) {
-            del_min = *del;
+        if (*del * t_scale > 0 && *del * t_scale < del_min) {
+            del_min = *del * t_scale;
         }
 
         if (i < i_rsigmax + 1) { 
@@ -569,36 +569,42 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
     }
 
     T dt = min_deltau_frac * del_min;
-    int nirf = nirf_mult * pow(2, ceil(log2(deltau_sum_max)/dt));
+    int nirf = nirf_mult * pow(2, ceil(log2(deltau_sum_max/dt)));
 
     list<T> irf_nbins(deltau_scale.size(), 0),
         irf_binedgefrac(deltau_scale.size(), 0);
+
+    typename list<T>::iterator nbins = irf_nbins.begin(),
+        bef = irf_binedgefrac.begin();
     
     del = deltau_scale.begin();
 
     int i_irf_max, i_irf_min;
-    T del_sum_1 = 0, del_sum_2 = 0, irf_nbins_sum = 0;
+    T del_sum_1, del_sum_2, irf_nbins_sum = 0;
 
     for (i = 0; i <= i_rsigmax; i++) {
+        del_sum_1 = 0; del_sum_2 = 0;
         for (int j = 0; j < i; j++) {
-            del_sum_1 += *next(del, i);
-            del_sum_2 += *next(del, i);
+            del_sum_1 += *next(del, j);
+            del_sum_2 += *next(del, j);
         }
-        del_sum_2 += *next(del, i+1);
+        del_sum_2 += *next(del, i);
 
-        i_irf_max = (deltau_sum_max - del_sum_1)/dt - 1;
-        i_irf_min = (deltau_sum_max - del_sum_2)/dt;
+        i_irf_max =
+            static_cast<int>(round((deltau_sum_max - del_sum_1)/dt)) - 1;
+        i_irf_min =
+            static_cast<int>(round((deltau_sum_max - del_sum_2)/dt));
 
-        irf_nbins.push_back(i_irf_max - i_irf_min + 1);
+        *next(nbins, i) = i_irf_max - i_irf_min + 1;
         irf_nbins_sum += i_irf_max - i_irf_min + 1;
-        irf_binedgefrac.push_back((dt*irf_nbins_sum - del_sum_2)/dt);
+        *next(bef, i) = (dt*irf_nbins_sum - del_sum_2)/dt;
     }
 
     U ci_irf(energy.size()+1, nirf);
     list<T> ci_outer(energy.size()+1, 0), ci_mean(energy.size()+1, 1);
     typename list<T>::iterator outer = ci_outer.begin(), mean = ci_mean.begin();
 
-    auto [rebinned, flux_outer] = linear_rebin_irf(dt, i_rsigmax, irf_nbins,
+    auto [rebinned, flux_outer] = linear_rebin_irf<T>(dt, i_rsigmax, irf_nbins,
         irf_binedgefrac, disk_irf, deltau_scale, nirf);
     
     *outer = flux_outer;
@@ -613,35 +619,39 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
 
     *mean = dt * ci_sum + *outer;
 
-    list<T> flux;
+    list<T> flux(get<1>(flux_irf.get_size()), 0);
+    typename list<T>::iterator f = flux.begin();
 
     for (i = 1; i <= energy.size(); i++) {
         for (int j = 0; j < get<1>(flux_irf.get_size()); j++) {
-            flux.push_back(flux_irf.get_element(i - 1, j));
+            *next(f, j) = flux_irf.get_element(i - 1, j);
         }
 
-        auto [rebinned, flux_outer] = linear_rebin_irf(dt, i_rsigmax,
+        auto [rebinned, flux_outer] = linear_rebin_irf<T>(dt, i_rsigmax,
             irf_nbins, irf_binedgefrac, flux, deltau_scale, nirf);
+
+        irf = rebinned.begin();
 
         *next(outer, i) = flux_outer;
 
         for (int j = 0; j < rebinned.size(); j++) {
-            ci_irf.get_element(0, j) = *next(irf, j);
+            ci_irf.get_element(i, j) = *next(irf, j);
         }
     }
 
     T minfreq = 1/(dt * nirf);
     list<T> freq;
 
-    for (i = 0; i < nirf/2; i++) {
-        freq.push_back(minfreq+i);
+    for (i = 1; i <= nirf/2; i++) {
+        freq.push_back(minfreq*i);
     }
 
     U phlag(get<0>(encomb.get_size()), freq.size()),
         tlag(get<0>(encomb.get_size()), freq.size()),
         psd_ci(get<0>(encomb.get_size()), freq.size()),
         psd_ref(get<0>(encomb.get_size()), freq.size());
-    typename list<T>::iterator cross, ps_ci, ps_ref, freq_it = freq.begin();
+    typename list<T>::iterator ps_ci, ps_ref, freq_it = freq.begin();
+    typename list<complex<T>>::iterator cross;
 
     list<T> mod_sig_psd;
 
@@ -657,13 +667,14 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
         }
 
         auto [wt_cross_spec, wt_pow_spec_ci, wt_pow_spec_ref, msp] =
-            calc_cross_psd(freq, dt, irf_j, irf_k, irf_nbins, deltau_scale,
+            calc_cross_psd<T>(freq, dt, irf_j, irf_k, irf_nbins, deltau_scale,
                 i_rsigmax, lfreq, q, rms);
 
         mod_sig_psd = msp;
 
-        assert(freq.size() == wt_cross_spec.size() == wt_pow_spec_ci.size() == 
-            wt_pow_spec_ref.size());
+        assert(freq.size() == wt_cross_spec.size() && wt_pow_spec_ci.size() == 
+            wt_pow_spec_ref.size() && wt_cross_spec.size() ==
+            wt_pow_spec_ci.size());
 
         cross = wt_cross_spec.begin(); ps_ci = wt_pow_spec_ci.begin();
         ps_ref = wt_pow_spec_ref.begin();
