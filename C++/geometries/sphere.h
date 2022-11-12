@@ -1,33 +1,33 @@
 #include "geometry.h"
 
-template <class T, class U>
+template <template <typename...> class T, typename U>
 class Sphere : public Geometry<T, U> {
     public:
-        Sphere(T r, T r_area, U parms) : Geometry<T, U>(r, r_area, parms) {
+        Sphere(T<U> r, T<U> r_area, U r_cor, int ntheta, int nphi) :
+                Geometry<T, U>(r, r_area, r_cor) {
+            _ntheta = ntheta, _nphi = nphi;
             setup_geometry();
             this->initialize_area_lists();
         };
 
     private:
+        int _ntheta, _nphi;
+
         void setup_geometry() {
             
-            typename T::iterator omega, fcd, fdc, r;
+            typename T<U>::iterator omega, fcd, fdc, r;
 
-            assert(tuple_size<U>{} == 3);
+            double dtheta = M_PI/(2*_ntheta), dphi = 2*M_PI/_nphi;
 
-            auto [r_cor, ntheta, nphi] = this->_parms;
+            T<U> x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
 
-            double dtheta = M_PI/(2*ntheta), dphi = 2*M_PI/nphi;
+            for (double theta = 0; theta/dtheta < _ntheta; theta += dtheta) {
+                for (double phi = 0; phi/dphi < _nphi; phi += dphi) {
 
-            T x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
-
-            for (double theta = 0; theta/dtheta < ntheta; theta += dtheta) {
-                for (double phi = 0; phi/dphi < nphi; phi += dphi) {
-
-                    double x = sin(theta)*cos(phi)*r_cor;
-                    double y = sin(theta)*sin(phi)*r_cor;
-                    double z = cos(theta)*r_cor;
-                    double da = pow(r_cor, 2)*dtheta*dphi*sin(theta);
+                    double x = sin(theta)*cos(phi)*this->_r_cor;
+                    double y = sin(theta)*sin(phi)*this->_r_cor;
+                    double z = cos(theta)*this->_r_cor;
+                    double da = pow(this->_r_cor, 2)*dtheta*dphi*sin(theta);
 
                     x_arr.push_back(x); y_arr.push_back(y); z_arr.push_back(z);
                     da_arr.push_back(da);
@@ -39,7 +39,7 @@ class Sphere : public Geometry<T, U> {
                 }
             }
 
-            typename T::iterator x, y, z, da, ypos, zpos;
+            typename T<U>::iterator x, y, z, da, ypos, zpos;
 
             for (omega = this->_omega_cor.begin(),
                     fcd = this->_frad_cortodisk.begin(),
@@ -62,19 +62,19 @@ class Sphere : public Geometry<T, U> {
 
                     double daomega = (*da)*((*x)*(xpos/rpos) +
                         (*y)*(*ypos/rpos) + (*z)*(*zpos/rpos))/
-                        (pow(rpos, 2)*r_cor);
+                        (pow(rpos, 2)*this->_r_cor);
                     double daomegawt = daomega*abs(*zpos/rpos);
 
-                    if (daomega > 0 && *r > r_cor) {
+                    if (daomega > 0 && *r > this->_r_cor) {
                         *omega += daomega;
                     }
-                    if (daomegawt > 0 && *r > r_cor) {
+                    if (daomegawt > 0 && *r > this->_r_cor) {
                         omegawt += daomegawt;
                     }
                 }
 
                 *fdc = omegawt/M_PI;
-                *fcd = *fdc/(2*M_PI*pow(r_cor, 2));
+                *fcd = *fdc/(2*M_PI*pow(this->_r_cor, 2));
             }
         }
 };

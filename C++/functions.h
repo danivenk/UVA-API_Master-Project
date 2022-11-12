@@ -9,6 +9,7 @@
 #include <iterator>
 
 #include "includes.h"
+#include "geometries/geometry.h"
 #include "geometries/bknpow_emiss.h"
 #include "geometries/an_sphere.h"
 #include "geometries/sphere.h"
@@ -22,8 +23,9 @@ tuple<T, int> find_nearest(list<T> array, T value);
 template <class T>
 tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
     T rin, T rcor, T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind);
-template <class T, class U>
-tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(Geometry<list<T>, U> geomod);
+template <class T>
+tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
+    Geometry<list, T> geomod);
 template <class T>
 tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
     int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
@@ -120,9 +122,9 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
     return make_tuple(dispfrac, seed_frac_flow, heat_frac_flow);
 }
 
-template <class T, class U>
+template <class T>
 tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
-    Geometry<list<T>, U> geomod) {
+    Geometry<list, T> geomod) {
 
     list<T> omega_cor(geomod.get_omega_cor()),
         frad_disktocor(geomod.get_frad_disktocor()),

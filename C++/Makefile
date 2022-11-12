@@ -1,6 +1,7 @@
 TOP:= $(realpath ./)
 SOURCES:=${wildcard $(TOP)/*.cpp}
 SOURCES+=${wildcard $(TOP)/geometries/*.cpp}
+SOURCES := $(filter-out $(TOP)/pybind.cpp, $(SOURCES))
 
 BUILDDIR:=build
 

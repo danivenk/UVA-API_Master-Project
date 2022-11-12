@@ -1,31 +1,32 @@
 #include "geometry.h"
 
-template <class T, class U>
+template <template <typename...> class T, typename U>
 class Cylinder : public Geometry<T, U> {
     public:
-        Cylinder(T r, T r_area, U parms) : Geometry<T, U>(r, r_area, parms) {
+        Cylinder(T<U> r, T<U> r_area, U r_cor, U h_cor, int nz, int nphi) :
+                Geometry<T, U>(r, r_area, r_cor) {
+            _h_cor = h_cor, _nz = nz, _nphi = nphi;
             setup_geometry();
             this->initialize_area_lists();
         };
 
     private:
+        U _h_cor;
+        int _nz, _nphi;
+
         void setup_geometry() {
             
-            typename T::iterator omega, fcd, fdc, r;
+            typename T<U>::iterator omega, fcd, fdc, r;
 
-            assert(tuple_size<U>{} == 4);
+            double dz = _h_cor/_nz, dphi = 2*M_PI/_nphi;
 
-            auto [r_cor, h_cor, nz, nphi] = this->_parms;
+            T<U> x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
 
-            double dz = h_cor/nz, dphi = 2*M_PI/nphi;
-
-            T x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
-
-            for (double z = 0; z/dz < nz; z += dz) {
-                for (double phi = 0; phi/dphi < nphi; phi += dphi) {
-                    double x = cos(phi)*r_cor;
-                    double y = sin(phi)*r_cor;
-                    double da = dz*dphi*r_cor;
+            for (double z = 0; z/dz < _nz; z += dz) {
+                for (double phi = 0; phi/dphi < _nphi; phi += dphi) {
+                    double x = cos(phi)*this->_r_cor;
+                    double y = sin(phi)*this->_r_cor;
+                    double da = dz*dphi*this->_r_cor;
 
                     x_arr.push_back(x); y_arr.push_back(y); z_arr.push_back(z);
                     da_arr.push_back(da);
@@ -37,7 +38,7 @@ class Cylinder : public Geometry<T, U> {
                 }
             }
 
-            typename T::iterator x, y, z, da, ypos, zpos;
+            typename T<U>::iterator x, y, z, da, ypos, zpos;
 
             for (omega = this->_omega_cor.begin(),
                     fcd = this->_frad_cortodisk.begin(),
@@ -59,19 +60,20 @@ class Cylinder : public Geometry<T, U> {
                                       pow(*zpos, 2), .5);
 
                     double daomega = (*da)*((*x)*(xpos/rpos) +
-                        (*y)*(*ypos/rpos))/(pow(rpos, 2)*r_cor);
+                        (*y)*(*ypos/rpos))/(pow(rpos, 2)*this->_r_cor);
                     double daomegawt = daomega*abs(*zpos/rpos);
 
-                    if (daomega > 0 && *r > r_cor) {
+                    if (daomega > 0 && *r > this->_r_cor) {
                         *omega += daomega;
                     }
-                    if (daomegawt > 0 && *r > r_cor) {
+                    if (daomegawt > 0 && *r > this->_r_cor) {
                         omegawt += daomegawt;
                     }
                 }
 
                 *fdc = omegawt/M_PI;
-                *fcd = *fdc/((2*M_PI*r_cor*h_cor) + (M_PI*pow(r_cor, 2)));
+                *fcd = *fdc/((2*M_PI*this->_r_cor*_h_cor) +
+                    (M_PI*pow(this->_r_cor, 2)));
             }
         }
 };

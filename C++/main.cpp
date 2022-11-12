@@ -58,9 +58,9 @@ int main() {
     calc_cross_psd(J, *(function++));
     lorentz_qold(J, *(function++));
     lorentz_q(J, *(function++));
-
-    cout << "next function: " << *(function) << endl;
     calculate_stprod_mono(J, *(function++));
+
+    // cout << "next function: " << *(function) << endl;
 
     ofstream out("cpp_out.txt");
     out << J << endl;
@@ -155,70 +155,78 @@ void calc_illumination_fracs(json &J, string f_name) {
         array_2.push_front((double) i/10);
     }
 
-    parm1 parms1(value_1);
+    auto r1 = make_tuple(array_1, array_2);
 
-    Geometry<list<double>, parm1> geo1(array_1, array_2, parms1);
+    parm1 parms1(value_1);
+    auto f1 = tuple_cat(r1, parms1);
+
+    auto geo1 = make_from_tuple<Geometry<list, double>>(f1);
 
     auto [omega_cor, frad_disktocor, frad_cortodisk] =
-        calc_illumination_fracs<double, parm1>(geo1);
+        calc_illumination_fracs<double>(geo1);
     J[f_name]["test_1"] = {{"input", {array_1, array_2, "geometry", parms1}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
     
-    AN_Sphere<list<double>, parm1> geo2(array_1, array_2, parms1);
+    auto geo2 = make_from_tuple<AN_Sphere<list, double>>(f1);
 
     tie(omega_cor, frad_disktocor, frad_cortodisk) = 
-        calc_illumination_fracs<double, parm1>(geo2);
+        calc_illumination_fracs<double>(geo2);
     J[f_name]["test_2"] = {{"input", {array_1, array_2, "an_sphere", parms1}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 
     typedef tuple<double, double, double, double, double, double, double> parm2;
     parm2 parms2(value_4, value_1, value_3, value_2/3, value_2/7, value_2/11,
         value_2);
+    auto f2 = tuple_cat(r1, parms2);
 
-    BKNpow_Emiss<list<double>, parm2> geo3(array_1, array_2, parms2);
+    auto geo3 = make_from_tuple<BKNpow_Emiss<list, double>>(f2);
 
     tie(omega_cor, frad_disktocor, frad_cortodisk) = 
-        calc_illumination_fracs<double, parm2>(geo3);
+        calc_illumination_fracs<double>(geo3);
     J[f_name]["test_3"] = {{"input", {array_1, array_2, "bknpow_emiss", parms2}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 
     parm2 parms3(value_4, value_3, value_1, value_2/3, value_2/7, value_2/11,
         value_2);
+    auto f3 = tuple_cat(r1, parms3);
 
-    BKNpow_Emiss<list<double>, parm2> geo4(array_1, array_2, parms3);
+    auto geo4 = make_from_tuple<BKNpow_Emiss<list, double>>(f3);
 
     tie(omega_cor, frad_disktocor, frad_cortodisk) = 
-        calc_illumination_fracs<double, parm2>(geo4);
+        calc_illumination_fracs<double>(geo4);
     J[f_name]["test_4"] = {{"input", {array_1, array_2, "bknpow_emiss", parms3}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 
     typedef tuple<double, int, int> parm3;
     parm3 parms4(value_1, (int) value_2, (int) value_2);
+    auto f4 = tuple_cat(r1, parms4);
 
-    Sphere<list<double>, parm3> geo5(array_1, array_2, parms4);
+    auto geo5 = make_from_tuple<Sphere<list, double>>(f4);
 
     tie(omega_cor, frad_disktocor, frad_cortodisk) = 
-        calc_illumination_fracs<double, parm3>(geo5);
+        calc_illumination_fracs<double>(geo5);
     J[f_name]["test_5"] = {{"input", {array_1, array_2, "sphere", parms4}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 
     typedef tuple<double, double, int, int> parm4;
     parm4 parms5(value_1, 3*value_1, (int) value_2, (int) value_2);
+    auto f5 = tuple_cat(r1, parms5);
 
-    Cylinder<list<double>, parm4> geo6(array_1, array_2, parms5);
+    auto geo6 = make_from_tuple<Cylinder<list, double>>(f5);
 
     tie(omega_cor, frad_disktocor, frad_cortodisk) = 
-        calc_illumination_fracs<double, parm4>(geo6);
+        calc_illumination_fracs<double>(geo6);
     J[f_name]["test_6"] = {{"input", {array_1, array_2, "cylinder", parms5}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 
     typedef tuple<double, double, double, int, int> parm5;
     parm5 parms6(value_4, value_1, value_3, (int) value_2, (int) value_2);
+    auto f6 = tuple_cat(r1, parms6);
 
-    Inv_Cone<list<double>, parm5> geo7(array_1, array_2, parms6);
+    auto geo7 = make_from_tuple<Inv_Cone<list, double>>(f6);
 
     tie(omega_cor, frad_disktocor, frad_cortodisk) = 
-        calc_illumination_fracs<double, parm5>(geo7);
+        calc_illumination_fracs<double>(geo7);
     J[f_name]["test_7"] = {{"input", {array_1, array_2, "inv_cone", parms6}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 }
@@ -628,8 +636,9 @@ void calculate_stprod_mono(json &J, string f_name) {
         }
     }
 
-    auto [freq, phlag, tlag, psd_ci, psd_ref, mod_sig_psd, irf_nbins,
-        irf_binedgefrac, deltau_scale, dt, nirf, ci_irf, ci_mean, ci_outer] =
+    auto [freq1, phlag1, tlag1, psd_ci1, psd_ref1, mod_sig_psd1, irf_nbins1,
+        irf_binedgefrac1, deltau_scale1, dt1, nirf1, ci_irf1, ci_mean1,
+        ci_outer1] =
             calculate_stprod_mono<double, Array<list, double>,
                 Array<list, int>>(value_6, array_2, matrix_1,
                     matrix_2, array_4, array_5, array_6, value_3, 7*value_5,
@@ -637,16 +646,36 @@ void calculate_stprod_mono(json &J, string f_name) {
 
     J[f_name]["test_1"] = {{"input", {value_6, array_2, matrix_1.get_matrix(),
         matrix_2.get_matrix(), array_4, array_5, array_6, value_3, 7*value_5,
-        array_7, array_3, array_1, 2*value_4}}, {"output", {freq,
-        phlag.get_matrix(), tlag.get_matrix(), psd_ci.get_matrix(),
-        psd_ref.get_matrix(), mod_sig_psd, irf_nbins, irf_binedgefrac,
-        deltau_scale, dt, nirf, ci_irf.get_matrix(), ci_mean, ci_outer}}};
+        array_7, array_3, array_1, 2*value_4}}, {"output", {freq1,
+        phlag1.get_matrix(), tlag1.get_matrix(), psd_ci1.get_matrix(),
+        psd_ref1.get_matrix(), mod_sig_psd1, irf_nbins1, irf_binedgefrac1,
+        deltau_scale1, dt1, nirf1, ci_irf1.get_matrix(), ci_mean1, ci_outer1}}};
 
-    // auto lorentz_1 = lorentz_q<double, Nested_Array<list<list<double>>,
-    //     list<double>, double>>(array_1, array_2, array_3, array_4);
+    Nested_Array<list, int> matrix_3(10, 2);
+    Nested_Array<list, double> matrix_4(array_5, array_7);
 
-    // J[f_name]["test_2"] = {{"input", {array_1, array_2, array_3, array_4}},
-    //     {"output", {lorentz_1.get_matrix()}}};
+    tie(x, y) = matrix_3.get_size();
+
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            matrix_3.get_element(i, j) = myrandom(array_2.size());
+        }
+    }
+
+    auto [freq2, phlag2, tlag2, psd_ci2, psd_ref2, mod_sig_psd2, irf_nbins2,
+        irf_binedgefrac2, deltau_scale2, dt2, nirf2, ci_irf2, ci_mean2,
+        ci_outer2] =
+            calculate_stprod_mono<double, Nested_Array<list, double>,
+                Nested_Array<list, int>>(value_6, array_2, matrix_3,
+                    matrix_4, array_4, array_5, array_6, value_3, 7*value_5,
+                    array_7, array_3, array_1, 2*value_4);
+
+    J[f_name]["test_2"] = {{"input", {value_6, array_2, matrix_3.get_matrix(),
+        matrix_4.get_matrix(), array_4, array_5, array_6, value_3, 7*value_5,
+        array_7, array_3, array_1, 2*value_4}}, {"output", {freq2,
+        phlag2.get_matrix(), tlag2.get_matrix(), psd_ci2.get_matrix(),
+        psd_ref2.get_matrix(), mod_sig_psd2, irf_nbins2, irf_binedgefrac2,
+        deltau_scale2, dt2, nirf2, ci_irf2.get_matrix(), ci_mean2, ci_outer2}}};
 }
 
 int myrandom (int i) { return std::rand()%i;}
