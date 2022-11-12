@@ -234,7 +234,7 @@ def calc_timing_params(rad,i_rsigmax,rcor,i_rcor,t_scale,disk_tau_par,cor_tau_pa
     lfreq = np.zeros(len(rad))
     q = np.zeros(len(rad))
     rms = np.zeros(len(rad))
-    
+
     # Assign time-scales to radii depending on whether the radius is in the disk or corona
     for i in range(0, len(rad)):
         if (rad[i] > rcor):
@@ -258,7 +258,7 @@ def calc_timing_params(rad,i_rsigmax,rcor,i_rcor,t_scale,disk_tau_par,cor_tau_pa
                     if (rad[i] > rcor):
                         rms[i] = np.sqrt(lor_par[1]**2/((i_rsigmax+1)-i_rcor))
                     else:
-                        rms[i] = np.sqrt(lor_par[2]**2/i_rcor)                
+                        rms[i] = np.sqrt(lor_par[2]**2/i_rcor)
 
                 elif (lor_par[1] >= 0. and lor_par[2] < 0.):
                     rms[i] = np.sqrt(lor_par[1]**2/(i_rsigmax+1))
@@ -284,7 +284,7 @@ def calc_timing_params(rad,i_rsigmax,rcor,i_rcor,t_scale,disk_tau_par,cor_tau_pa
                 q[i] = lor_par[j+1]
                 if (i > i_rsigmax):
                     rms[i] = 0.
-                else:                
+                else:
                     rms[i] = lor_par[j+2]
                 
     elif (lor_model == 'multi_radius'):
@@ -342,7 +342,7 @@ def calc_radial_time_response(rad,rcor,disp_frac,disktocor_frac,cortodisk_frac,s
     # To conserve luminosity we should subtract the fraction entering the corona from the disk luminosity, the resulting
     # disk luminosity is therefore the angle-averaged value seen by the observer (not the intrinsic value).
     ldisk_disp[rad > rcor] = disp_frac[rad > rcor]*(1-disktocor_frac[rad > rcor])
-    
+
     # Within rcor the dissipated energy associated with the corona is split between internal coronal seed photons
     # and coronal heating. We need add the seed component to anything which may be present from the inner disk.
     # We must also correct for the fraction which is reprocessed and returned by the disk.
@@ -407,8 +407,8 @@ def linear_rebin_irf(dt,i_rsigmax,irf_nbins,irf_binedgefrac,input_irf,deltau_sca
 
     for i in range(i_rsigmax,-1,-1):
         if (deltau_scale[i] > 0):
-            irfbin_start = int(np.sum(irf_nbins[i:i_rsigmax+1]) - irf_nbins[i])
-            irfbin_stop = int((irfbin_start + irf_nbins[i])-1)
+            irfbin_start = int(np.round(np.sum(irf_nbins[i:i_rsigmax+1]) - irf_nbins[i]))
+            irfbin_stop = int(np.round((irfbin_start + irf_nbins[i])-1))
             # rebinned_irf[irfbin_start:irfbin_stop+1] = input_irf[i]/(dt*irf_nbins[i])
             rebinned_irf[irfbin_start:irfbin_stop+1] = input_irf2[i]
             if (i < i_rsigmax and irf_binedgefrac[i] > 0):
@@ -446,8 +446,8 @@ def calc_cross_psd(freq,dt,ci_irf,ref_irf,irf_nbins,deltau_scale,i_rsigmax,f_pk,
     for i in range(i_rsigmax,-1,-1):
         if (i == i_rsigmax or deltau_scale[i+1] > 0.):
             if (i < i_rsigmax):
-                irfbin_start = int(np.sum(irf_nbins[i+1:i_rsigmax+1]) - irf_nbins[i+1])
-                irfbin_stop = int((irfbin_start + irf_nbins[i+1])-1)
+                irfbin_start = int(round(np.sum(irf_nbins[i+1:i_rsigmax+1]) - irf_nbins[i+1]))
+                irfbin_stop = int(round((irfbin_start + irf_nbins[i+1])-1))
                 ref_irf_dum[irfbin_start:irfbin_stop+1] = 0.
                 ci_irf_dum[irfbin_start:irfbin_stop+1] = 0.
             if (rms[i] > 0.):
@@ -523,8 +523,8 @@ def calculate_stprod_mono(nirf_mult,energy,encomb,flux_irf,disk_irf,gamma_irf,de
     irf_binedgefrac = np.zeros(len(deltau_scale))
     deltau_sum_max = np.sum(deltau_scale[:i_rsigmax+1])
     for i in range(0,i_rsigmax+1):
-        i_irf_max = int((deltau_sum_max - np.sum(deltau_scale[:i]))/dt)-1
-        i_irf_min = int((deltau_sum_max - np.sum(deltau_scale[:i+1]))/dt)
+        i_irf_max = int(np.round((deltau_sum_max - np.sum(deltau_scale[:i]))/dt))-1
+        i_irf_min = int(np.round((deltau_sum_max - np.sum(deltau_scale[:i+1]))/dt))
         irf_nbins[i] = (i_irf_max-i_irf_min)+1
         irf_binedgefrac[i] = (dt*np.sum(irf_nbins[:i+1])-np.sum(deltau_scale[:i+1]))/dt
 
@@ -535,7 +535,7 @@ def calculate_stprod_mono(nirf_mult,energy,encomb,flux_irf,disk_irf,gamma_irf,de
         if i == 0:  # For 0 use the disk irf
             ci_irf[i,:], ci_outer[i] = linear_rebin_irf(dt,i_rsigmax,irf_nbins,irf_binedgefrac,disk_irf,deltau_scale,nirf)
             ci_mean[i] = dt*np.sum(ci_irf[i,:])+ci_outer[i]
-        else:            
+        else:
             ci_irf[i,:], ci_outer[i] = linear_rebin_irf(dt,i_rsigmax,irf_nbins,irf_binedgefrac,flux_irf[(i-1),:],
                                                 deltau_scale,nirf)
             ci_mean[i] = 1.0 # The PL IRF is already normalised by the mean PL flux at each energy

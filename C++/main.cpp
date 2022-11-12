@@ -507,15 +507,15 @@ void linear_rebin_irf(json &J, string f_name) {
 
     auto [rebinned_irf, flux_outer] = 
         linear_rebin_irf<double>(value_4, 7 * value_5, array_6, array_4,
-            array_3, array_2, 6 * value_5);
+            array_3, array_2, 7 * value_5);
     J[f_name]["test_1"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-       array_3, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+       array_3, array_2, 7 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
 
     tie(rebinned_irf, flux_outer) = 
         linear_rebin_irf<double>(value_4, 7 * value_5, array_6, array_4,
-            array_1, array_2, 6 * value_5);
+            array_1, array_2, 7 * value_5);
     J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-       array_1, array_2, 6 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+       array_1, array_2, 7 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
 }
 
 void calc_cross_psd(json &J, string f_name) {

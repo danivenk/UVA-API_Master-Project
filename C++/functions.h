@@ -388,8 +388,10 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
         }
 
         if (*next(ds, i) > 0) { 
-            irfbin_start = static_cast<int>(irfbin - *next(nbins, i));
-            irfbin_stop = static_cast<int>(irfbin_start + *next(nbins, i) - 1);
+            irfbin_start = static_cast<int>(round(irfbin - *next(nbins, i)));
+            irfbin_stop = static_cast<int>(round(irfbin_start +
+                *next(nbins, i) - 1));
+
             for (int j = irfbin_start; j <= irfbin_stop; j++) {
                 *next(rebinned, j) = *next(irf2, i);
             }
@@ -455,9 +457,9 @@ tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
                     irf += *next(nbins, j);
                 }
 
-                int irfbin_start = static_cast<int>(irf);
-                int irfbin_stop = static_cast<int>(irfbin_start +
-                    *next(nbins, i+1) - 1);
+                int irfbin_start = static_cast<int>(round(irf));
+                int irfbin_stop = static_cast<int>(round(irfbin_start +
+                    *next(nbins, i+1) - 1));
 
                 ref = ref_irf_dum.begin(); ci = ci_irf_dum.begin();
 
