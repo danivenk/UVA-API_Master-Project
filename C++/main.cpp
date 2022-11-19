@@ -469,15 +469,15 @@ void calc_irfs_mono(json &J, string f_name) {
     tuple<double, double> parms(value_2/1.3, value_3/1.4);
 
     auto [gamma_mean1, gamma_irf1, flux_irf1, disk_irf1, seed_irf1] = 
-        calc_irfs_mono<double, Array<list, double>>(parms, value_3,
-            array_1, array_2, array_3, array_4, array_5, array_6);
+        calc_irfs_mono<double, Array<list, double>>(parms, value_3, array_1, array_2, array_3,
+            array_4, array_5, array_6);
     J[f_name]["test_1"] = {{"input", {parms, value_3, array_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {gamma_mean1, gamma_irf1,
         flux_irf1.get_matrix(), disk_irf1, seed_irf1}}};
 
     auto [gamma_mean2, gamma_irf2, flux_irf2, disk_irf2, seed_irf2] =
-        calc_irfs_mono<double, Nested_Array<list, double>>(parms, value_3,
-            array_1, array_2, array_3, array_4, array_5, array_6);
+        calc_irfs_mono<double, Nested_Array<list, double>>(parms, value_3, array_1, array_2, array_3,
+            array_4, array_5, array_6);
     J[f_name]["test_2"] = {{"input", {parms, value_3, array_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {gamma_mean2, gamma_irf2,
         flux_irf2.get_matrix(), disk_irf2, seed_irf2}}};

@@ -29,7 +29,7 @@ tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
 template <class T>
 tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
     int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-    tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par);
+    tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par, bool dbg=false);
 template <class T>
 list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
     tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par);
@@ -57,7 +57,7 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
     list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
     V encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf, list<T> deltau,
     T min_deltau_frac, int i_rsigmax, list<T> lfreq,  list<T> q, list<T> rms,
-    T t_scale);
+    T t_scale, bool dbg=false);
 
 template <class T>
 tuple<T, int> find_nearest(list<T> array, T value) {
@@ -136,7 +136,7 @@ tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
 template <class T>
 tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
         int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-        tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par) {
+        tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par, bool dbg) {
     
     list<T> tau, lfreq, q_list, rms;
 
@@ -240,9 +240,11 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
                         *next(rms_value, i) = *next(lor, j+3);
                     }
 
-                    cout << "Signal radius for " << *next(lor, j+1) <<
-                        " Hz is " << *next(r, i) << endl << "with rms " <<
-                        *next(rms_value, i) << endl;
+                    if (dbg) {
+                        cout << "Signal radius for " << *next(lor, j+1)
+                            << " Hz is " << *next(r, i) << endl << "with rms "
+                            << *next(rms_value, i) << endl;
+                    }
                 }
             }
         }
@@ -310,11 +312,12 @@ tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_response(
 }
 
 template <class T, class U>
-tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
-        T e_seed, list<T> energy, list<T> ldisk_disp, list<T> lseed_disp,
-        list<T> lheat, list<T> ldisk_rev, list <T> lseed_rev) {
+tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(
+        tuple<T, T> gamma_par, T e_seed, list<T> energy, list<T> ldisk_disp,
+        list<T> lseed_disp, list<T> lheat, list<T> ldisk_rev,
+        list <T> lseed_rev) {
 
-    double lheat_sum, lseed_sum, gamma_mean, u, v, n;
+    double lheat_sum, lseed_sum, gamma_mean, u, v;
     list<T> gamma_irf, disk_irf, seed_irf, seed_div_sum_irf, heat_div_sum_irf,
         seed_column, heat_column;
 
@@ -376,8 +379,8 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
         }
     }
     
-    int irfbin_start;
-    int irfbin_stop;
+    int irfbin_start = 0;
+    int irfbin_stop = 0;
 
     for (int i = i_rsigmax; i >= 0; i--) {
 
@@ -551,7 +554,12 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
         list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
         V encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf,
         list<T> deltau, T min_deltau_frac, int i_rsigmax, list<T> lfreq,
-        list<T> q, list<T> rms, T t_scale) {
+        list<T> q, list<T> rms, T t_scale, bool dbg) {
+
+    if (dbg) {
+        cout << "#######################################" << endl;
+        cout << "Calculating mono-energetic spectral-timing products" << endl;
+    }
 
     int i = 0;
     T del_min(1E100), deltau_sum_max = 0;
@@ -574,6 +582,12 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
 
     T dt = min_deltau_frac * del_min;
     int nirf = nirf_mult * pow(2, ceil(log2(deltau_sum_max/dt)));
+
+    if (dbg) {
+        cout << "Time bin size dt is: " << dt << endl;
+        cout << "The maximum propagation delay is: " << deltau_sum_max
+            << " and there are " << nirf << " irf bins. " << endl;
+    }
 
     list<T> irf_nbins(deltau_scale.size(), 0),
         irf_binedgefrac(deltau_scale.size(), 0);
@@ -663,6 +677,12 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
         int j = encomb.get_element(i, 0);
         int k = encomb.get_element(i, 1);
 
+        if (dbg) {
+            cout << "CI mean, ref mean, CI outer, ref outer : "
+                << *next(mean, j) << " " << *next(mean, k) << " "
+                << *next(outer, j) << " " << " " << *next(outer, k) << endl;
+        }
+
         list<T> irf_j, irf_k;
 
         for (int l = 0; l < get<1>(ci_irf.get_size()); l++) {
@@ -689,6 +709,22 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
                 (2*M_PI*(*next(freq_it, l)));
             psd_ci.get_element(i, l) = *next(ps_ci, l)/pow(*next(mean, j), 2);
             psd_ref.get_element(i, l) = *next(ps_ref, l)/pow(*next(mean, k), 2);
+        }
+
+        if (dbg) {
+            cout << "Calculated for energies [";
+            
+            auto lmax = get<1>(encomb.get_size());
+
+            for (int l = 0; l < lmax; l++) {
+                cout << encomb.get_element(i, l);
+                if (l != lmax - 1) {
+                    cout << " ";
+                }
+                else {
+                    cout << "]" << endl;
+                }
+            }
         }
     }
 

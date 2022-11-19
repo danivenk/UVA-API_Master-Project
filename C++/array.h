@@ -86,7 +86,7 @@ class Nested_Array : public Matrix<T, U> {
         U& get_element(int i, int j) {
             assert(0 <= i && i < this->size_1 && 0 <= j && j < this->size_2);
 
-            this->_last_i = i; this->_last_j;
+            this->_last_i = i; this->_last_j = j;
 
             typename T<T<U>>::iterator row = _matrix.begin();
             typename T<U>::iterator element = (*next(row, i)).begin();
@@ -168,7 +168,7 @@ class Array : public Matrix<T, U> {
         U& get_element(int i, int j) {
             assert(0 <= i && i < this->size_1 && 0 <= j && j < this->size_2);
 
-            this->_last_i = i; this->_last_j;
+            this->_last_i = i; this->_last_j = j;
 
             typename T<U>::iterator element = _matrix.begin();
 
