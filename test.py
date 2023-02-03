@@ -3,7 +3,7 @@ import os
 import json
 import numpy as np
 from scipy.fft import fft
-import mono_lags.um21_lagmodel as um
+import mono_lags.um_lagmodel as um
 from matplotlib import pyplot
 
 class File:
@@ -24,6 +24,8 @@ class File:
             for i, el in enumerate(l):
                 l[i] = self.check(el)
         elif type(l) == dict and "real" in l and "imag" in l:
+            if l["real"] == None or l["imag"] == None:
+                return None
             return complex(l["real"], l["imag"])
         return l
 
@@ -100,21 +102,28 @@ def test_f(dbg, CPP, function, thresh=0):
 
 
 def checker(data1, data2, thresh = 0):
-    try:
-        assert len(data1) == len(data2)
-    except AssertionError:
+    if np.ndim(data1) != 0 and np.ndim(data2) != 0:
         try:
-            assert len(data1) == len(data2[0])
-            data2 = data2[0]
-        except TypeError:
-            assert len(data1[0]) == len(data2)
-            data1 = data1[0]
+            assert len(data1) == len(data2)
+        except AssertionError:
+            try:
+                assert len(data1) == len(data2[0])
+                data2 = data2[0]
+            except TypeError:
+                assert len(data1[0]) == len(data2)
+                data1 = data1[0]
+
 
     for i in range(len(data1)):
-        if not (np.isscalar(data1[i]) and np.isscalar(data2[i])):
+        if (np.ndim(data1[i]) != 0 and np.ndim(data2[i]) != 0):
             if checker(data1[i], data2[i], thresh):
                 print("cheker fault")
                 return True
+        # elif np.iscomplexobj(data1[i]) and np.iscomplexobj(data2[i]):
+        #     if abs(data1[i] - data2[i]) > thresh:
+        #         print(data1[i], data2[i], data1[i] - data2[i], ">", thresh)
+        #         print("not the same!")
+        #         return True
         elif abs(data1[i] - data2[i]) > thresh:
             print(data1[i], data2[i], data1[i] - data2[i], ">", thresh)
             print("not the same!")

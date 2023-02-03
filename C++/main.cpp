@@ -229,6 +229,34 @@ void calc_illumination_fracs(json &J, string f_name) {
         calc_illumination_fracs<double>(geo7);
     J[f_name]["test_7"] = {{"input", {array_1, array_2, "inv_cone", parms6}},
         {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
+
+    // typedef tuple<double, double, double, double, double, double, double, double> parm6;
+    // parm6 parms7(value_4, 1.1, .2, value_2/7, value_3, 2*value_4, value_2/7, value_3);
+    // auto f7 = tuple_cat(r1, parms7);
+
+    // cout << get<3>(parms7) << "HAHA" << endl;
+
+    // auto geo8 = make_from_tuple<Piecewise_Emiss<list, double>>(f7);
+
+    // tie(omega_cor, frad_disktocor, frad_cortodisk) =
+    //     calc_illumination_fracs<double>(geo8);
+    // J[f_name]["test_8"] = {{"input", {array_1, array_2, "piecewise_emiss", parms7}},
+    //     {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
+
+    // cout << "AHAHAH" << endl;
+
+    // typedef tuple<double, double, double, double, double, double, double,
+    //     double, double, double, double> parm7;
+    // parm7 parms8(value_4, 1.1, .2, value_2/3, value_3,
+    //     3*value_4, value_2/7, value_3, 4*value_4, value_2/11, value_3);
+    // auto f8 = tuple_cat(r1, parms8);
+
+    // auto geo9 = make_from_tuple<Piecewise_Emiss<list, double>>(f8);
+
+    // tie(omega_cor, frad_disktocor, frad_cortodisk) =
+    //     calc_illumination_fracs<double>(geo9);
+    // J[f_name]["test_9"] = {{"input", {array_1, array_2, "piecewise_emiss", parms8}},
+    //     {"output", {omega_cor, frad_disktocor, frad_cortodisk}}};
 }
 
 void calc_timing_params(json &J, string f_name) {
@@ -427,7 +455,7 @@ void calc_propagation_params(json &J, string f_name) {
 }
 
 void calc_radial_time_response(json &J, string f_name) {
-    list<double> array_1, array_2, array_3, array_4, array_5, array_6;
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7;
     double value_1 = .37;
     double value_2 = 6.7;
     double value_3 = .7;
@@ -440,14 +468,15 @@ void calc_radial_time_response(json &J, string f_name) {
         array_4.push_back((double) (myrandom(10))/10);
         array_5.push_back((double) (myrandom(10))/10);
         array_6.push_back((double) (myrandom(10))/10);
+        array_7.push_back((double) (myrandom(10))/10);
     }
 
     auto [ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev] = 
         calc_radial_time_response<double>(array_1, value_1, array_2, array_3,
-            array_4, array_5, array_6);
+            array_4, array_5, array_6, array_7);
     J[f_name]["test_1"] = {{"input", {array_1, value_1, array_2, array_3,
-        array_4, array_5, array_6}}, {"output", {ldisk_disp, lseed_disp, lheat,
-        ldisk_rev, lseed_rev}}};
+        array_4, array_5, array_6, array_7}}, {"output", {ldisk_disp, lseed_disp,
+        lheat, ldisk_rev, lseed_rev}}};
 }
 
 void calc_irfs_mono(json &J, string f_name) {
@@ -469,15 +498,15 @@ void calc_irfs_mono(json &J, string f_name) {
     tuple<double, double> parms(value_2/1.3, value_3/1.4);
 
     auto [gamma_mean1, gamma_irf1, flux_irf1, disk_irf1, seed_irf1] = 
-        calc_irfs_mono<double, Array<list, double>>(parms, value_3, array_1, array_2, array_3,
-            array_4, array_5, array_6);
+        calc_irfs_mono<double, Array<list, double>>(parms, value_3, array_1,
+            array_2, array_3, array_4, array_5, array_6);
     J[f_name]["test_1"] = {{"input", {parms, value_3, array_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {gamma_mean1, gamma_irf1,
-        flux_irf1.get_matrix(), disk_irf1, seed_irf1}}};
+        flux_irf1.get_matrix_unfold(), disk_irf1, seed_irf1}}};
 
     auto [gamma_mean2, gamma_irf2, flux_irf2, disk_irf2, seed_irf2] =
-        calc_irfs_mono<double, Nested_Array<list, double>>(parms, value_3, array_1, array_2, array_3,
-            array_4, array_5, array_6);
+        calc_irfs_mono<double, Nested_Array<list, double>>(parms, value_3,
+            array_1, array_2, array_3, array_4, array_5, array_6);
     J[f_name]["test_2"] = {{"input", {parms, value_3, array_1, array_2, array_3,
         array_4, array_5, array_6}}, {"output", {gamma_mean2, gamma_irf2,
         flux_irf2.get_matrix(), disk_irf2, seed_irf2}}};
@@ -535,10 +564,12 @@ void calc_cross_psd(json &J, string f_name) {
         array_4.push_back((double) (myrandom(10))/10);
         array_5.push_back((double) (myrandom(10))/10);
         array_6.push_back((double) (myrandom(10))/10);
-        array_7.push_back((double) (myrandom(10))/10);
-        array_8.push_back((double) (myrandom(10))/10);
         double x = (double) (myrandom(10))/10;
-        array_9.push_back(x == 0 ? x + .1 : x);
+        array_7.push_back(x == 0 ? x + .1 : x);
+        double y = (double) (myrandom(10))/10;
+        array_8.push_back(y == 0 ? y + .1 : y);
+        double z = (double) (myrandom(10))/10;
+        array_9.push_back(z == 0 ? z + .1 : z);
     }
 
     for (int i = 1; i < 10; i++) {
@@ -591,7 +622,7 @@ void lorentz_q(json &J, string f_name) {
         array_2, array_3, array_4);
 
     J[f_name]["test_1"] = {{"input", {array_1, array_2, array_3, array_4}},
-        {"output", {lorentz_0.get_matrix()}}};
+        {"output", {lorentz_0.get_matrix_unfold()}}};
 
     auto lorentz_1 = lorentz_q<double, Nested_Array<list, double>>(array_1,
         array_2, array_3, array_4);
@@ -644,12 +675,14 @@ void calculate_stprod_mono(json &J, string f_name) {
                     matrix_2, array_4, array_5, array_6, value_3, 7*value_5,
                     array_7, array_3, array_1, 2*value_4);
 
-    J[f_name]["test_1"] = {{"input", {value_6, array_2, matrix_1.get_matrix(),
-        matrix_2.get_matrix(), array_4, array_5, array_6, value_3, 7*value_5,
-        array_7, array_3, array_1, 2*value_4}}, {"output", {freq1,
-        phlag1.get_matrix(), tlag1.get_matrix(), psd_ci1.get_matrix(),
-        psd_ref1.get_matrix(), mod_sig_psd1, irf_nbins1, irf_binedgefrac1,
-        deltau_scale1, dt1, nirf1, ci_irf1.get_matrix(), ci_mean1, ci_outer1}}};
+    J[f_name]["test_1"] = {{"input", {value_6, array_2,
+        matrix_1.get_matrix_unfold(), matrix_2.get_matrix_unfold(), array_4,
+        array_5, array_6, value_3, 7*value_5, array_7, array_3, array_1,
+        2*value_4}}, {"output", {freq1, phlag1.get_matrix_unfold(),
+        tlag1.get_matrix_unfold(), psd_ci1.get_matrix_unfold(),
+        psd_ref1.get_matrix_unfold(), mod_sig_psd1, irf_nbins1, irf_binedgefrac1,
+        deltau_scale1, dt1, nirf1, ci_irf1.get_matrix_unfold(), ci_mean1,
+        ci_outer1}}};
 
     Nested_Array<list, int> matrix_3(10, 2);
     Nested_Array<list, double> matrix_4(array_5, array_7);

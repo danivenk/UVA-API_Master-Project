@@ -15,52 +15,51 @@
 #include "geometries/sphere.h"
 #include "geometries/cylinder.h"
 #include "geometries/inv_cone.h"
+#include "geometries/piecewise_emiss.h"
 #include "FFT/FFT.h"
 #include "array.h"
 
-template <class T>
-tuple<T, int> find_nearest(list<T> array, T value);
-template <class T>
-tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
-    T rin, T rcor, T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind);
-template <class T>
-tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
-    Geometry<list, T> geomod);
-template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
-    int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-    tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par, bool dbg=false);
-template <class T>
-list<T> calc_propagation_parms(list<T> rad, list<T> rad_edge, T rcor,
+template <typename T, template <typename...> class U>
+tuple<T, int> find_nearest(U<T> array, T value);
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>> calc_dispfrac(U<T> rad, U<T> rad_area, T rin, T rcor,
+    T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind);
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>> calc_illumination_fracs(Geometry<U, T> geomod);
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>, U<T>> calc_timing_params(U<T> rad, int i_rsigmax,
+    T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
+    tuple<T, T> cor_tau_par, string lor_model, U<T> lor_par, bool dbg=false);
+template <typename T, template <typename...> class U>
+U<T> calc_propagation_parms(U<T> rad, U<T> rad_edge, T rcor,
     tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par);
-template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_reponse(
-    list<T> rad, T rcor, list<T> disp_frac, list<T> disktocor_frac,
-    list<T> cortodisk_frac, list<T> seed_frac_flow, list<T> heat_frac_flow);
-template <class T, class U>
-tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(tuple<T, T> gamma_par,
-    T e_seed, list<T> energy, list<T> ldisk_disp, list<T> lseed_disp,
-    list<T> lheat, list<T> ldisk_rev, list <T> lseed_rev);
-template <class T>
-tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
-    list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale, int nirf);
-template <class T>
-tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
-    T dt, list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins,
-    list<T> deltau_scale, int i_rsigmax, list<T> f_pk, list<T> q, list<T> rms);
-template <class T, class U>
-U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms);
-template<class T>
-list<T> lorentz_q(list<T> f, T f_pk, T q, T rms);
-template<class T, class U, class V>
-tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
-    list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
-    V encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf, list<T> deltau,
-    T min_deltau_frac, int i_rsigmax, list<T> lfreq,  list<T> q, list<T> rms,
-    T t_scale, bool dbg=false);
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>, U<T>, U<T>> calc_radial_time_response(U<T> rad, T rcor,
+    U<T> disp_frac, U<T> disktocor_frac, U<T> cortodisk_frac, U<T> thermal_frac,
+    U<T> seed_frac_flow, U<T> heat_frac_flow);
+template <typename T, class U, template <typename...> class V>
+tuple<T, V<T>, U, V<T>, V<T>> calc_irfs_mono(tuple<T, T> gamma_par, T e_seed,
+    V<T> energy, V<T> ldisk_disp, V<T> lseed_disp, V<T> lheat, V<T> ldisk_rev,
+    V<T> lseed_rev);
+template <typename T, template <typename...> class U>
+tuple<U<T>, T> linear_rebin_irf(T dt, int i_rsigmax, U<T> irf_nbins,
+    U<T> irf_binedgefrac, U<T> input_irf, U<T> deltau_scale, int nirf);
+template <typename T, template <typename...> class U>
+tuple<U<complex<T>>, U<T>, U<T>, U<T>> calc_cross_psd(U<T> freq, T dt,
+    U<T> ci_irf, U<T> ref_irf, U<T> irf_nbins, U<T> deltau_scale,int i_rsigmax,
+    U<T> f_pk, U<T> q, U<T> rms);
+template <typename T, class U, template <typename...> class V>
+U lorentz_q(V<T> f, V<T> f_pk, V<T> q, V<T> rms);
+template<class T, template <typename...> class U>
+U<T> lorentz_q(U<T> f, T f_pk, T q, T rms);
+template<typename T, class U, class V, template <typename...> class W>
+tuple<W<T>, U, U, U, U, W<T>, W<T>, W<T>, W<T>, T, int, U, W<T>, W<T>>
+    calculate_stprod_mono(int nirf_mult, W<T> energy, V encomb, U flux_irf,
+        W<T> disk_irf, W<T> gamma_irf, W<T> deltau, T min_deltau_frac,
+        int i_rsigmax, W<T> lfreq,  W<T> q, W<T> rms, T t_scale, bool dbg = false);
 
-template <class T>
-tuple<T, int> find_nearest(list<T> array, T value) {
+template <typename T, template <typename...> class U>
+tuple<T, int> find_nearest(U<T> array, T value) {
 
     T smallest = numeric_limits<T>::max();
     T small_diff = numeric_limits<T>::max();
@@ -83,19 +82,18 @@ tuple<T, int> find_nearest(list<T> array, T value) {
     return make_tuple(smallest, idx);
 }
 
-template <class T>
-tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
-        T rin, T rcor, T seedff_norm, T seedff_ind, T heatff_norm,
-        T heatff_ind) {
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>> calc_dispfrac(U<T> rad, U<T> rad_area, T rin, T rcor,
+        T seedff_norm, T seedff_ind, T heatff_norm, T heatff_ind) {
 
     assert (rad.size() == rad_area.size());
 
     T disptotal = 0;
-    list<T> dispfrac(rad.size(), 0);
-    list<T> seed_frac_flow(rad.size(), 0);
-    list<T> heat_frac_flow(rad.size(), 0);
+    U<T> dispfrac(rad.size(), 0);
+    U<T> seed_frac_flow(rad.size(), 0);
+    U<T> heat_frac_flow(rad.size(), 0);
 
-    typename list<T>::iterator disp, seed, heat, r, area;
+    typename U<T>::iterator disp, seed, heat, r, area;
 
     for (disp = dispfrac.begin(), seed = seed_frac_flow.begin(),
             heat = heat_frac_flow.begin(), r = rad.begin(),
@@ -122,25 +120,24 @@ tuple<list<T>, list<T>, list<T>> calc_dispfrac(list<T> rad, list<T> rad_area,
     return make_tuple(dispfrac, seed_frac_flow, heat_frac_flow);
 }
 
-template <class T>
-tuple<list<T>, list<T>, list<T>> calc_illumination_fracs(
-    Geometry<list, T> geomod) {
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>> calc_illumination_fracs(Geometry<U, T> geomod) {
 
-    list<T> omega_cor(geomod.get_omega_cor()),
+    U<T> omega_cor(geomod.get_omega_cor()),
         frad_disktocor(geomod.get_frad_disktocor()),
         frad_cortodisk (geomod.get_frad_cortodisk_area());
 
     return make_tuple(omega_cor, frad_disktocor, frad_cortodisk);
 }
 
-template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>, U<T>> calc_timing_params(U<T> rad,
         int i_rsigmax, T rcor, int i_rcor, T t_scale, tuple<T, T> disk_tau_par,
-        tuple<T, T> cor_tau_par, string lor_model, list<T> lor_par, bool dbg) {
-    
-    list<T> tau, lfreq, q_list, rms;
+        tuple<T, T> cor_tau_par, string lor_model, U<T> lor_par, bool dbg) {
 
-    typename list<T>::iterator r, lor = lor_par.begin();
+    U<T> tau, lfreq, q_list, rms;
+
+    typename U<T>::iterator r, lor = lor_par.begin();
     int i;
 
     for (r = rad.begin(), i = 0; r != rad.end(); r++, i++) {
@@ -159,7 +156,7 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
 
     r = rad.begin();
 
-    typename list<T>::iterator t = tau.begin(), freq = lfreq.begin(),
+    typename U<T>::iterator t = tau.begin(), freq = lfreq.begin(),
         q = q_list.begin(), rms_value = rms.begin();
 
     if (lor_model == "continuous") {
@@ -253,17 +250,18 @@ tuple<list<T>, list<T>, list<T>, list<T>> calc_timing_params(list<T> rad,
     return make_tuple(tau, lfreq, q_list, rms);
 }
 
-template <class T>
-list<T> calc_propagation_params(list<T> rad, list<T> rad_edge, T rcor,
+template <typename T, template <typename...> class U>
+U<T> calc_propagation_params(U<T> rad, U<T> rad_edge, T rcor,
         tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par) {
-    list<T> deltau;
+    U<T> deltau;
 
-    typename list<T>::iterator r, edge;
+    typename U<T>::iterator r, edge;
 
     for (r = rad.begin(), edge = rad_edge.begin(); r != rad.end(); r++,
             edge++) {
         if (*r <= rcor) {
-            deltau.push_back(get<0>(cor_prop_par) * (*next(edge, 1) - *edge) * pow(*r, .5) * pow(*r/rcor, get<1>(cor_prop_par)));
+            deltau.push_back(get<0>(cor_prop_par) * (*next(edge, 1) - *edge) *
+                pow(*r, .5) * pow(*r/rcor, get<1>(cor_prop_par)));
         } else {
             deltau.push_back(get<0>(disk_prop_par) * (*next(edge, 1) - *edge) * 
                 pow(*r, .5) * pow(*r/rcor, get<1>(disk_prop_par)));
@@ -273,14 +271,14 @@ list<T> calc_propagation_params(list<T> rad, list<T> rad_edge, T rcor,
     return deltau;
 }
 
-template <class T>
-tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_response(
-        list<T> rad, T rcor, list<T> disp_frac, list<T> disktocor_frac,
-        list<T> cortodisk_frac, list<T> seed_frac_flow, list<T> heat_frac_flow) {
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>, U<T>, U<T>> calc_radial_time_response(U<T> rad, T rcor,
+        U<T> disp_frac, U<T> disktocor_frac, U<T> cortodisk_frac,
+        U<T> thermal_frac, U<T> seed_frac_flow, U<T> heat_frac_flow) {
     
-    list<T> ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev;
+    U<T> ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev;
 
-    typename list<T>::iterator r, disp, fdc, fcd, seed, heat;
+    typename U<T>::iterator r, disp, fdc, fcd, thermal, seed, heat;
 
     double f_rev = 0, f_return = 0;
 
@@ -290,38 +288,35 @@ tuple<list<T>, list<T>, list<T>, list<T>, list<T>> calc_radial_time_response(
     }
 
     for (r = rad.begin(), disp = disp_frac.begin(),
-            fdc = disktocor_frac.begin(), seed = seed_frac_flow.begin(),
-            heat = heat_frac_flow.begin(); r != rad.end(); r++, disp++, fdc++,
-            seed++, heat++) {
+            fdc = disktocor_frac.begin(), thermal = thermal_frac.begin(),
+            seed = seed_frac_flow.begin(), heat = heat_frac_flow.begin();
+            r != rad.end(); r++, disp++, fdc++, thermal++, seed++, heat++) {
         if (*r > rcor) {
             ldisk_disp.push_back((*disp) * (1 - *fdc));
         } else {
             ldisk_disp.push_back(0);
         }
 
-        lseed_disp.push_back((*disp) * (*fdc + *seed) * (1 - f_rev));
-        lheat.push_back((*disp) * (*heat) * (1 - f_rev));
+        lseed_disp.push_back((*disp) * (*fdc + *seed));
+        lheat.push_back((*disp) * (*heat));
 
-        lseed_rev.push_back(f_return * (1 - f_rev) * (*disp) *
-            (*fdc + *seed + *heat)/(1 - f_return));
-        ldisk_rev.push_back((f_rev - f_return) * (*disp) *
-            (*fdc + *seed + *heat)/(1 - f_return));
+        lseed_rev.push_back((*thermal) * f_return * ((*disp) * (*fdc + *seed) + (*disp) * (*heat))/(1 - f_return));
+        ldisk_rev.push_back((*thermal) * (f_rev - f_return) * ((*disp) * (*fdc + *seed) + (*disp) * (*heat))/(1 - f_return));
     }
 
     return make_tuple(ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev);
 }
 
-template <class T, class U>
-tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(
-        tuple<T, T> gamma_par, T e_seed, list<T> energy, list<T> ldisk_disp,
-        list<T> lseed_disp, list<T> lheat, list<T> ldisk_rev,
-        list <T> lseed_rev) {
+template <typename T, class U, template <typename...> class V>
+tuple<T, V<T>, U, V<T>, V<T>> calc_irfs_mono(tuple<T, T> gamma_par, T e_seed,
+        V<T> energy, V<T> ldisk_disp, V<T> lseed_disp, V<T> lheat,
+        V<T> ldisk_rev, V<T> lseed_rev) {
 
     double lheat_sum, lseed_sum, gamma_mean, u, v;
-    list<T> gamma_irf, disk_irf, seed_irf, seed_div_sum_irf, heat_div_sum_irf,
+    V<T> gamma_irf, disk_irf, seed_irf, seed_div_sum_irf, heat_div_sum_irf,
         seed_column, heat_column;
 
-    typename list<T>::iterator heat, seed_disp, seed_rev, disk_disp, disk_rev,
+    typename V<T>::iterator heat, seed_disp, seed_rev, disk_disp, disk_rev,
         energy_value;
 
     lheat_sum = 0, lseed_sum = 0;
@@ -362,13 +357,13 @@ tuple<T, list<T>, U, list<T>, list<T>> calc_irfs_mono(
     return make_tuple(gamma_mean, gamma_irf, flux_irf, disk_irf, seed_irf);
 }
 
-template <class T>
-tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
-        list<T> irf_binedgefrac, list<T> input_irf, list<T> deltau_scale,
-        int nirf) {
-    list<T> rebinned_irf(nirf, 0), input_irf2(input_irf.size(), 0);
 
-    typename list<T>::iterator ds = deltau_scale.begin(),
+template <typename T, template <typename...> class U>
+tuple<U<T>, T> linear_rebin_irf(T dt, int i_rsigmax, U<T> irf_nbins,
+        U<T> irf_binedgefrac, U<T> input_irf, U<T> deltau_scale, int nirf) {
+    U<T> rebinned_irf(nirf, 0), input_irf2(input_irf.size(), 0);
+
+    typename U<T>::iterator ds = deltau_scale.begin(),
         irf = input_irf.begin(), irf2 = input_irf2.begin(),
         nbins = irf_nbins.begin(), rebinned = rebinned_irf.begin(),
         bef = irf_binedgefrac.begin();
@@ -425,18 +420,17 @@ tuple<list<T>, T> linear_rebin_irf(T dt, int i_rsigmax, list<T> irf_nbins,
     return make_tuple(rebinned_irf, flux_outer);
 }
 
-template <class T>
-tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
-        T dt, list<T> ci_irf, list<T> ref_irf, list <T> irf_nbins,
-        list<T> deltau_scale, int i_rsigmax, list<T> f_pk, list<T> q,
-        list<T> rms) {
+template <typename T, template <typename...> class U>
+tuple<U<complex<T>>, U<T>, U<T>, U<T>> calc_cross_psd(U<T> freq, T dt,
+        U<T> ci_irf, U<T> ref_irf, U<T> irf_nbins, U<T> deltau_scale,
+        int i_rsigmax, U<T> f_pk, U<T> q, U<T> rms) {
     int nirf = ref_irf.size();
 
-    list<T> wt_pow_spec_ref(nirf/2, 0), wt_pow_spec_ci(nirf/2, 0),
+    U<T> wt_pow_spec_ref(nirf/2, 0), wt_pow_spec_ci(nirf/2, 0),
         mod_sig_psd(nirf/2, 0), ref_irf_dum, ci_irf_dum;
-    list<complex<T>> wt_cross_spec(nirf/2, 0);
+    U<complex<T>> wt_cross_spec(nirf/2, 0);
 
-    typename list<T>::iterator ref, ci;
+    typename U<T>::iterator ref, ci;
 
     for (ref = ref_irf.begin(), ci = ci_irf.begin(); ref != ref_irf.end();
             ref++, ci++) {
@@ -444,12 +438,13 @@ tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
         ci_irf_dum.push_back((*ci) * dt);
     }
 
-    typename list<T>::iterator deltau = deltau_scale.begin(),
+    typename U<T>::iterator deltau = deltau_scale.begin(),
         nbins = irf_nbins.begin(), rms_val = rms.begin(),
         f_pk_val = f_pk.begin(), q_val = q.begin(),
         lor, mod_sig, wt_ps_ref, wt_ps_ci;
 
-    typename list<complex<T>>::iterator ref_f, ci_f, wt_cross;
+    typename list<complex<T>>::iterator ref_f, ci_f;
+    typename U<complex<T>>::iterator wt_cross;
 
     for (int i = i_rsigmax; i >= 0; i--) {
         if (i == i_rsigmax || *next(deltau, i+1) > 0) {
@@ -473,10 +468,10 @@ tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
             }
 
             if (*next(rms_val, i) > 0) {
-                auto lor_psd = lorentz_q<T>(freq, *next(f_pk_val, i),
+                auto lor_psd = lorentz_q<T, U>(freq, *next(f_pk_val, i),
                     *next(q_val, i), *next(rms_val, i));
-                auto ref_fft = FFT<list<T>, T>(ref_irf_dum);
-                auto ci_fft = FFT<list<T>, T>(ci_irf_dum);
+                auto ref_fft = FFT<U<T>, T>(ref_irf_dum);
+                auto ci_fft = FFT<U<T>, T>(ci_irf_dum);
 
                 for (ref_f = ref_fft.begin(), ci_f = ci_fft.begin(),
                         wt_cross = wt_cross_spec.begin(), lor = lor_psd.begin(),
@@ -500,13 +495,13 @@ tuple<list<complex<T>>, list<T>, list<T>, list<T>> calc_cross_psd(list<T> freq,
         mod_sig_psd);
 }
 
-template <class T, class U>
-U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms) {
+template <typename T, class U, template <typename...> class V>
+U lorentz_q(V<T> f, V<T> f_pk, V<T> q, V<T> rms) {
     assert(f_pk.size() == q.size() && q.size() == rms.size());
 
     U lorentz(f_pk.size(), f.size());
 
-    typename list<T>::iterator f_val, f_pk_val, q_val, rms_val;
+    typename V<T>::iterator f_val, f_pk_val, q_val, rms_val;
 
     int i, j = 0;
 
@@ -531,14 +526,14 @@ U lorentz_q(list<T> f, list<T> f_pk, list<T> q, list<T> rms) {
     return lorentz;
 }
 
-template<class T>
-list<T> lorentz_q(list<T> f, T f_pk, T q, T rms) {
+template<typename T, template <typename...> class U>
+U<T> lorentz_q(U<T> f, T f_pk, T q, T rms) {
     T f_res = f_pk / sqrt(1+(1/(4*pow(q, 2))));
     T r = rms / sqrt(.5-atan(-2*q)/M_PI);
 
-    list<T> lorentz(f.size(), 0);
+    U<T> lorentz(f.size(), 0);
 
-    typename list<T>::iterator lor, f_val;
+    typename U<T>::iterator lor, f_val;
 
     for (lor = lorentz.begin(), f_val = f.begin(); lor != lorentz.end(); lor++,
             f_val++) {
@@ -549,12 +544,11 @@ list<T> lorentz_q(list<T> f, T f_pk, T q, T rms) {
     return lorentz;
 }
 
-template<class T, class U, class V>
-tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
-        list<T>, list<T>> calculate_stprod_mono(int nirf_mult, list<T> energy,
-        V encomb, U flux_irf, list<T> disk_irf, list<T> gamma_irf,
-        list<T> deltau, T min_deltau_frac, int i_rsigmax, list<T> lfreq,
-        list<T> q, list<T> rms, T t_scale, bool dbg) {
+template<typename T, class U, class V, template <typename...> class W>
+tuple<W<T>, U, U, U, U, W<T>, W<T>, W<T>, W<T>, T, int, U, W<T>, W<T>>
+        calculate_stprod_mono(int nirf_mult, W<T> energy, V encomb, U flux_irf,
+            W<T> disk_irf, W<T> gamma_irf, W<T> deltau, T min_deltau_frac,
+            int i_rsigmax, W<T> lfreq,  W<T> q, W<T> rms, T t_scale, bool dbg) {
 
     if (dbg) {
         cout << "#######################################" << endl;
@@ -563,9 +557,9 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
 
     int i = 0;
     T del_min(1E100), deltau_sum_max = 0;
-    list<T> deltau_scale;
+    W<T> deltau_scale;
 
-    typename list<T>::iterator del;
+    typename W<T>::iterator del;
 
     for (del = deltau.begin(); del != deltau.end(); del++) {
         deltau_scale.push_back(*del * t_scale);
@@ -589,10 +583,10 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
             << " and there are " << nirf << " irf bins. " << endl;
     }
 
-    list<T> irf_nbins(deltau_scale.size(), 0),
+    W<T> irf_nbins(deltau_scale.size(), 0),
         irf_binedgefrac(deltau_scale.size(), 0);
 
-    typename list<T>::iterator nbins = irf_nbins.begin(),
+    typename W<T>::iterator nbins = irf_nbins.begin(),
         bef = irf_binedgefrac.begin();
     
     del = deltau_scale.begin();
@@ -619,15 +613,15 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
     }
 
     U ci_irf(energy.size()+1, nirf);
-    list<T> ci_outer(energy.size()+1, 0), ci_mean(energy.size()+1, 1);
-    typename list<T>::iterator outer = ci_outer.begin(), mean = ci_mean.begin();
+    W<T> ci_outer(energy.size()+1, 0), ci_mean(energy.size()+1, 1);
+    typename W<T>::iterator outer = ci_outer.begin(), mean = ci_mean.begin();
 
-    auto [rebinned, flux_outer] = linear_rebin_irf<T>(dt, i_rsigmax, irf_nbins,
-        irf_binedgefrac, disk_irf, deltau_scale, nirf);
+    auto [rebinned, flux_outer] = linear_rebin_irf<T, W>(dt, i_rsigmax,
+        irf_nbins, irf_binedgefrac, disk_irf, deltau_scale, nirf);
     
     *outer = flux_outer;
 
-    typename list<T>::iterator irf = rebinned.begin();
+    typename W<T>::iterator irf = rebinned.begin();
     T ci_sum = 0;
 
     for (i = 0; i < rebinned.size(); i++) {
@@ -637,15 +631,15 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
 
     *mean = dt * ci_sum + *outer;
 
-    list<T> flux(get<1>(flux_irf.get_size()), 0);
-    typename list<T>::iterator f = flux.begin();
+    W<T> flux(get<1>(flux_irf.get_size()), 0);
+    typename W<T>::iterator f = flux.begin();
 
     for (i = 1; i <= energy.size(); i++) {
         for (int j = 0; j < get<1>(flux_irf.get_size()); j++) {
             *next(f, j) = flux_irf.get_element(i - 1, j);
         }
 
-        auto [rebinned, flux_outer] = linear_rebin_irf<T>(dt, i_rsigmax,
+        auto [rebinned, flux_outer] = linear_rebin_irf<T, W>(dt, i_rsigmax,
             irf_nbins, irf_binedgefrac, flux, deltau_scale, nirf);
 
         irf = rebinned.begin();
@@ -658,7 +652,7 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
     }
 
     T minfreq = 1/(dt * nirf);
-    list<T> freq;
+    W<T> freq;
 
     for (i = 1; i <= nirf/2; i++) {
         freq.push_back(minfreq*i);
@@ -668,10 +662,10 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
         tlag(get<0>(encomb.get_size()), freq.size()),
         psd_ci(get<0>(encomb.get_size()), freq.size()),
         psd_ref(get<0>(encomb.get_size()), freq.size());
-    typename list<T>::iterator ps_ci, ps_ref, freq_it = freq.begin();
-    typename list<complex<T>>::iterator cross;
+    typename W<T>::iterator ps_ci, ps_ref, freq_it = freq.begin();
+    typename W<complex<T>>::iterator cross;
 
-    list<T> mod_sig_psd;
+    W<T> mod_sig_psd;
 
     for (i = 0; i < get<0>(encomb.get_size()); i++) {
         int j = encomb.get_element(i, 0);
@@ -683,7 +677,7 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
                 << *next(outer, j) << " " << " " << *next(outer, k) << endl;
         }
 
-        list<T> irf_j, irf_k;
+        W<T> irf_j, irf_k;
 
         for (int l = 0; l < get<1>(ci_irf.get_size()); l++) {
             irf_j.push_back(ci_irf.get_element(j, l));
@@ -691,8 +685,8 @@ tuple<list<T>, U, U, U, U, list<T>, list<T>, list<T>, list<T>, T, int, U,
         }
 
         auto [wt_cross_spec, wt_pow_spec_ci, wt_pow_spec_ref, msp] =
-            calc_cross_psd<T>(freq, dt, irf_j, irf_k, irf_nbins, deltau_scale,
-                i_rsigmax, lfreq, q, rms);
+            calc_cross_psd<T, W>(freq, dt, irf_j, irf_k, irf_nbins,
+                deltau_scale, i_rsigmax, lfreq, q, rms);
 
         mod_sig_psd = msp;
 

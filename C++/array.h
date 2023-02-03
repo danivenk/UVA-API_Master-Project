@@ -39,10 +39,11 @@ template <template <typename...> class T, typename U>
 class Nested_Array : public Matrix<T, U> {
 
     public:
-        Nested_Array(T<U> arr1, T<U> arr2) : Matrix<T, U>() {
+        template <template <typename...> class V>
+        Nested_Array(V<U> arr1, V<U> arr2) : Matrix<T, U>() {
             this->size_1 = arr1.size(); this->size_2 = arr2.size();
 
-            typename T<U>::iterator a1 = arr1.begin(), a2 = arr2.begin();
+            typename V<U>::iterator a1 = arr1.begin(), a2 = arr2.begin();
 
             for (int i = 0; i < this->size_1; i++) {
                 T<U> row;
@@ -102,6 +103,7 @@ class Nested_Array : public Matrix<T, U> {
 
             return *next(element, j);
         }
+        void set_element(int i, int j, U val) { get_element(i, j) = val; };
 
         T<T<U>> get_matrix() const { return _matrix; };
 
@@ -130,10 +132,11 @@ template <template <typename...> class T, typename U>
 class Array : public Matrix<T, U> {
 
     public:
-        Array(T<U> arr1, T<U> arr2) : Matrix<T, U>() {
+        template <template <typename...> class V>
+        Array(V<U> arr1, V<U> arr2) : Matrix<T, U>() {
             this->size_1 = arr1.size(); this->size_2 = arr2.size();
 
-            typename T<U>::iterator a1 = arr1.begin(), a2 = arr2.begin();
+            typename V<U>::iterator a1 = arr1.begin(), a2 = arr2.begin();
 
             for (int i = 0; i < this->size_1; i++) {
                 for (int j = 0; j < this->size_2; j++) {
@@ -158,7 +161,7 @@ class Array : public Matrix<T, U> {
                     _matrix.push_back(0);
                 }
             }
-        }
+        };
         ~Array() {};
 
     private:
@@ -182,8 +185,14 @@ class Array : public Matrix<T, U> {
 
             return *next(element, j + i * this->size_2);
         };
+        void set_element(int i, int j, U val) { get_element(i, j) = val; };
 
-        T<T<U>> get_matrix() const {
+        U* get_element_ptr(int i, int j) { return &get_element(i, j); };
+        U* get_element_ptr(int i, int j) const { return &get_element(i, j); };
+
+        T<U>& get_matrix() { return _matrix; };
+
+        T<T<U>> get_matrix_unfold() const {
             auto [size1, size2] = this->get_size();
 
             T<T<U>> out;
@@ -200,6 +209,26 @@ class Array : public Matrix<T, U> {
             }
 
             return out;
+        }
+
+        void load_raw(T<U> arr) {
+            auto [size1, size2] = this->get_size();
+            
+            assert (size1 * size2 == arr.size());
+
+            _matrix = arr;
+        }
+        void load_raw(T<T<U>> arr) {
+            auto [size1, size2] = this->get_size();
+
+            assert (size1 == arr.size() && size2 == arr[0].size());
+            
+            int index = 0;
+            
+            for (auto row : arr) {
+                copy(row.begin(), row.end(), _matrix.begin() + index);
+                index += row.size();
+            }
         }
 
         friend Array operator+(Array& matrix1, Array& matrix2) {
