@@ -261,11 +261,12 @@ def calc_timing_params(rad,i_rsigmax,rcor,i_rcor,t_scale,disk_tau_par,cor_tau_pa
     rms = np.zeros(len(rad))
     
     # Assign time-scales to radii depending on whether the radius is in the disk or corona
+    # Normalisation is defined as value at 10 r_g (whether or not disk or corona reach 10 r_g)
     for i in range(0, len(rad)):
         if (rad[i] > rcor):
-            tau[i] = (disk_tau_par[0]*(rad[i]/rcor)**disk_tau_par[1])*rad[i]**1.5
+            tau[i] = (disk_tau_par[0]*(rad[i]/10)**disk_tau_par[1])*rad[i]**1.5
         else:
-            tau[i] = (cor_tau_par[0]*(rad[i]/rcor)**cor_tau_par[1])*rad[i]**1.5
+            tau[i] = (cor_tau_par[0]*(rad[i]/10)**cor_tau_par[1])*rad[i]**1.5
 
     # The continuous model assigns a Lorentzian to every radial bin inside (and including) the maximum signal radius.
     # The rms is calculated by splitting the rms^2 equally between all bins, so produce the required total rms.
@@ -348,8 +349,8 @@ def calc_propagation_params(rad,rad_edge,rcor,disk_prop_par,cor_prop_par):
     whether the radius is inside or outside the coronal radius rcor. """
     deltau = np.zeros(len(rad))
     delrad = np.diff(rad_edge)
-    deltau[rad <= rcor] = cor_prop_par[0]*delrad[rad <= rcor]*np.sqrt(rad[rad <= rcor])*(rad[rad <= rcor]/rcor)**cor_prop_par[1]
-    deltau[rad > rcor] = disk_prop_par[0]*delrad[rad > rcor]*np.sqrt(rad[rad > rcor])*(rad[rad > rcor]/rcor)**disk_prop_par[1]
+    deltau[rad <= rcor] = cor_prop_par[0]*delrad[rad <= rcor]*np.sqrt(rad[rad <= rcor])*(rad[rad <= rcor]/10)**cor_prop_par[1]
+    deltau[rad > rcor] = disk_prop_par[0]*delrad[rad > rcor]*np.sqrt(rad[rad > rcor])*(rad[rad > rcor]/10)**disk_prop_par[1]
     return deltau            
     
     

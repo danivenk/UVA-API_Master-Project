@@ -28,7 +28,9 @@ void calc_illumination_fracs(json &J, string f_name);
 void calc_timing_params(json &J, string f_name);
 void calc_propagation_params(json &J, string f_name);
 void calc_radial_time_response(json &J, string f_name);
+void calc_disk_band(json &J, string f_name);
 void calc_irfs_mono(json &J, string f_name);
+void bb_phflux(json &J, string f_name);
 void linear_rebin_irf(json &J, string f_name);
 void calc_cross_psd(json &J, string f_name);
 void lorentz_qold(json &J, string f_name);
@@ -41,8 +43,8 @@ int main() {
     list<string> functions = {"find_nearest", "calc_dispfrac",
         "calc_illumination_fracs", "calc_timing_params",
         "calc_propagation_params", "calc_radial_time_response",
-        "calc_irfs_mono", "linear_rebin_irf", "calc_cross_psd", "lorentz_qold",
-        "lorentz_q", "calculate_stprod_mono"};
+        "calc_irfs_mono", "calc_disk_band", "bb_phflux", "linear_rebin_irf",
+        "calc_cross_psd", "lorentz_qold", "lorentz_q", "calculate_stprod_mono"};
     typename list<string>::iterator function = functions.begin();
 
     json J;
@@ -54,11 +56,13 @@ int main() {
     calc_propagation_params(J, *(function++));
     calc_radial_time_response(J, *(function++));
     calc_irfs_mono(J, *(function++));
+    calc_disk_band(J, *(function++));
+    bb_phflux(J, *(function++));
     linear_rebin_irf(J, *(function++));
     calc_cross_psd(J, *(function++));
     lorentz_qold(J, *(function++));
     lorentz_q(J, *(function++));
-    calculate_stprod_mono(J, *(function++));
+    // calculate_stprod_mono(J, *(function++));
 
     // cout << "next function: " << *(function) << endl;
 
@@ -466,16 +470,16 @@ void calc_radial_time_response(json &J, string f_name) {
         array_2.push_back((double) (myrandom(10))/10);
         array_3.push_back((double) (myrandom(10))/10);
         array_4.push_back((double) (myrandom(10))/10);
-        array_5.push_back((double) (myrandom(10))/10);
+        // array_5.push_back((double) (myrandom(10))/10);
         array_6.push_back((double) (myrandom(10))/10);
         array_7.push_back((double) (myrandom(10))/10);
     }
 
     auto [ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev] = 
         calc_radial_time_response<double>(array_1, value_1, array_2, array_3,
-            array_4, array_5, array_6, array_7);
+            array_4, value_3, array_6, array_7);
     J[f_name]["test_1"] = {{"input", {array_1, value_1, array_2, array_3,
-        array_4, array_5, array_6, array_7}}, {"output", {ldisk_disp, lseed_disp,
+        array_4, value_3, array_6, array_7}}, {"output", {ldisk_disp, lseed_disp,
         lheat, ldisk_rev, lseed_rev}}};
 }
 
@@ -512,6 +516,53 @@ void calc_irfs_mono(json &J, string f_name) {
         flux_irf2.get_matrix(), disk_irf2, seed_irf2}}};
 }
 
+void calc_disk_band(json &J, string f_name) {
+    list<double> array_1, array_2, array_3, array_4, array_5, array_6, array_7,
+        array_8;
+    double value_1 = .37;
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+    tuple<double, double> pair1 = make_tuple(value_4, value_2);
+
+    for (int i = 1; i < 10; i++) {
+        array_1.push_back((double) (myrandom(10))/80);
+        array_2.push_back((double) (myrandom(10))/80);
+        array_3.push_back((double) (myrandom(10))/80);
+        array_4.push_back((double) (myrandom(10))/80);
+        array_5.push_back((double) (myrandom(10))/80);
+        // array_6.push_back((double) (myrandom(10))/80);
+        array_7.push_back((double) i/10);
+        array_8.push_front((double) i/10);
+    }
+
+    auto [band_frac, kT_rad, ldisk_band, lseed_band, ldiskband_disp,
+        ldiskband_rev] = calc_disk_band<double, list>(array_1, array_2, array_3,
+            array_4, array_5, value_3, value_1, array_7, array_8, pair1, true);
+
+    J[f_name]["test_1"] = {{"input", {array_1, array_2, array_3, array_4,
+        array_5, value_3, value_1,array_7, array_8, pair1, true}}, {"output",
+        {band_frac, kT_rad, ldisk_band, lseed_band, ldiskband_disp,
+        ldiskband_rev}}};
+}
+
+void bb_phflux(json &J, string f_name) {
+    double value_2 = 6.7;
+    double value_3 = .7;
+    double value_4 = .13;
+
+    auto val = bb_phflux<double>(value_4, value_2, value_3, 1000, true);
+    
+    J[f_name]["test_1"] = {{"input", {value_4, value_2, value_3, 1000, true}},
+        {"output", {val}}};
+    
+    
+    val = bb_phflux<double>(value_4, value_2, value_3, 1000, false);
+    
+    J[f_name]["test_2"] = {{"input", {value_4, value_2, value_3, 1000, false}},
+        {"output", {val}}};
+}
+
 void linear_rebin_irf(json &J, string f_name) {
     list<double> array_1, array_2, array_3, array_4, array_5, array_6;
     double value_1 = .37;
@@ -527,7 +578,7 @@ void linear_rebin_irf(json &J, string f_name) {
         array_3.push_back((double) (myrandom(10))/10);
         array_4.push_back((double) (myrandom(20))/10 - 1);
         array_5.push_back((double) (myrandom(10))/10);
-        array_6.push_back((double) (myrandom(10))/10);
+        array_6.push_back((double) (myrandom(10))/(7 * value_5));
     }
 
     for (int i = 0; i < 1; i++) {
@@ -536,15 +587,15 @@ void linear_rebin_irf(json &J, string f_name) {
 
     auto [rebinned_irf, flux_outer] = 
         linear_rebin_irf<double>(value_4, 7 * value_5, array_6, array_4,
-            array_3, array_2, 7 * value_5);
+            array_3, array_2, 8 * value_5);
     J[f_name]["test_1"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-       array_3, array_2, 7 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+       array_3, array_2, 8 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
 
     tie(rebinned_irf, flux_outer) = 
         linear_rebin_irf<double>(value_4, 7 * value_5, array_6, array_4,
-            array_1, array_2, 7 * value_5);
+            array_1, array_2, 8 * value_5);
     J[f_name]["test_2"] = {{"input", {value_4, 7 * value_5, array_6, array_4,
-       array_1, array_2, 7 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
+       array_1, array_2, 8 * value_5}}, {"output", {rebinned_irf, flux_outer}}};
 }
 
 void calc_cross_psd(json &J, string f_name) {

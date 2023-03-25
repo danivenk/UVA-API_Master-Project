@@ -1,3 +1,4 @@
+#include <variant>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <pybind11/functional.h>
@@ -13,8 +14,10 @@ template<class T, class U>
 py::array_t<T> as_array(U &m) {
     auto [row, col] = m.get_size();
     auto ptr_val = m.get_matrix().data();
+    auto data_copy = std::make_unique<T[]>(row * col);
+    std::memcpy(data_copy.get(), ptr_val, row * col * sizeof(T));
     return py::array_t<T>({row, col}, {sizeof(T) * col, sizeof(T)},
-        ptr_val, py::cast(m));
+        data_copy.get());
 }
 
 template<class T, class U>
@@ -130,22 +133,22 @@ PYBIND11_MODULE(lagmodel, m) {
                 py::array_t<double> disp_frac,
                 py::array_t<double> disktocor_frac,
                 py::array_t<double> cortodisk_frac,
-                py::array_t<double> seed_frac_flow,
+                double thermal_frac, py::array_t<double> seed_frac_flow,
                 py::array_t<double> heat_frac_flow){
             auto [ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev] =
                 calc_radial_time_response<double, vector>(vfa(rad), rcor,
                     vfa(disp_frac), vfa(disktocor_frac), vfa(cortodisk_frac),
-                    vfa(seed_frac_flow), vfa(heat_frac_flow));
+                    thermal_frac, vfa(seed_frac_flow), vfa(heat_frac_flow));
         
             return py::make_tuple(afv(ldisk_disp), afv(lseed_disp), afv(lheat),
                 afv(ldisk_rev), afv(lseed_rev));
         },
         "calculate the radial time response;\n\n"
         "calc_radial_time_repsonse(rad, rcor, disp_frac, disktocor_frac, "
-        "cortodisk_frac, seed_frac_flow, heat_frac_flow) -> (ldisk_disp, "
-        "lseed_disp, lheat, ldisk_rev, lseed_rev)", "rad"_a, "rcor"_a,
-        "disp_frac"_a, "disktocor_frac"_a, "cortodisk_frac"_a,
-        "seed_frac_flow"_a, "heat_frac_flow"_a);
+        "cortodisk_frac, thermal_frac, seed_frac_flow, heat_frac_flow) -> "
+        "(ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev)", "rad"_a,
+        "rcor"_a, "disp_frac"_a, "disktocor_frac"_a, "cortodisk_frac"_a,
+        "thermal_frac"_a, "seed_frac_flow"_a, "heat_frac_flow"_a);
     m.def("calc_irfs_mono", [](tuple<double, double> gamma_par, double e_seed,
                 py::array_t<double> energy, py::array_t<double> ldisk_disp,
                 py::array_t<double> lseed_disp, py::array_t<double> lheat,
@@ -172,6 +175,33 @@ PYBIND11_MODULE(lagmodel, m) {
         "ldisk_disp"_a, "lseed_disp"_a, "lheat"_a, "ldisk_rev"_a,
         "lseed_rev"_a, "return_internal"_a = false);
     // m.def("calc_irfs_mono", &calc_irfs_mono<double, Nested_Array<list, double>>);
+    m.def("calc_disk_band", [](py::array_t<double> disp_frac,
+                py::array_t<double> cortodisk_frac,
+                py::array_t<double> disktocor_frac,
+                py::array_t<double> lseed_disp, py::array_t<double> lheat,
+                double thermal_frac, double rcor, py::array_t<double> rad,
+                py::array_t<double> rad_area,  tuple<double, double> eband,
+                bool kTvar){
+
+            auto [band_frac, kT_rad, ldisk_band, lseed_band, ldiskband_disp, ldiskband_rev] = calc_disk_band<double, vector>(vfa(disp_frac),
+                vfa(cortodisk_frac), vfa(disktocor_frac), vfa(lseed_disp),
+                vfa(lheat), thermal_frac, rcor, vfa(rad), vfa(rad_area), eband,
+                kTvar);
+
+            return py::make_tuple(afv(band_frac), afv(kT_rad), afv(ldisk_band),
+                afv(lseed_band), afv(ldiskband_disp), afv(ldiskband_rev));
+        },
+        "calculate the disk band;\n\n"
+        "calc_disk_band(disp_frac, cortodisk_frac, disktocor_frac, lseed_disp, "
+        "lheat, thermal_frac, rcor, rad, rad_area, eband, kTvar) -> (band_frac, "
+        "kT_rad, ldisk_band, lseed_band, ldiskband_disp, ldiskband_rev)",
+        "disp_frac"_a, "cortodisk_frac"_a, "disktocor_frac"_a, "lseed_disp"_a,
+        "lheat"_a, "thermal_frac"_a, "rcor"_a, "rad"_a, "rad_area"_a, "eband"_a,
+        "kTvar"_a);
+    m.def("bb_phflux", &bb_phflux<double>,
+        "calculate the black box photon flux;\n\n"
+        "bb_phflux(E_min, E_max, kT, nE, kTvar) -> (val)", "E_min"_a, "E_max"_a,
+        "kT"_a, "nE"_a, "kTvar"_a);
     m.def("linear_rebin_irf", [](double dt, int i_rsigmax,
                 py::array_t<double> irf_nbins,
                 py::array_t<double> irf_binedgefrac,
@@ -215,11 +245,14 @@ PYBIND11_MODULE(lagmodel, m) {
                 lorentz_q<double, Array<vector, double>, vector>(vfa(f),
                     vfa(f_pk), vfa(q), vfa(rms));
 
+            variant<py::array_t<double>, Array<vector, double>> result;
             if (return_internal) {
-                return lorentz;
+                result = lorentz;
             } else {
-                return as_array<double, Array<vector, double>>(lorentz);
+                result = as_array<double, Array<vector, double>>(lorentz);
             }
+
+            return result;
         },
         "f"_a, "f_pk"_a, "q"_a , "rms"_a, "return_internal"_a = false);
     m.def("lorentz_q", [](py::array_t<double> f, double f_pk, double q,
@@ -242,9 +275,23 @@ PYBIND11_MODULE(lagmodel, m) {
             auto en = as_matrix<Array<vector, int>, int>(encomb);
             auto flux = as_matrix<Array<vector, double>, double>(flux_irf);
 
-            auto [freq, phlag, tlag, psd_ci, psd_ref, mod_sig_psd, irf_nbins, irf_binedgefrac, deltau_scale, dt, nirf, ci_irf, ci_mean, ci_outer] = calculate_stprod_mono<double, Array<vector, double>, Array<vector, int>>(nirf_mult, vfa(energy), en, flux, vfa(disk_irf), vfa(gamma_irf), vfa(deltau), min_deltau_frac, i_rsigmax, vfa(lfreq), vfa(q), vfa(rms), t_scale, dbg);
+            auto [freq, phlag, tlag, psd_ci, psd_ref, mod_sig_psd, irf_nbins,
+                irf_binedgefrac, deltau_scale, dt, nirf, ci_irf, ci_mean,
+                ci_outer] = calculate_stprod_mono<double, Array<vector, double>,
+                    Array<vector, int>>(nirf_mult, vfa(energy), en, flux,
+                        vfa(disk_irf), vfa(gamma_irf), vfa(deltau),
+                        min_deltau_frac, i_rsigmax, vfa(lfreq), vfa(q), vfa(rms),
+                        t_scale, dbg);
             
-            return py::make_tuple(afv(freq), as_array<double, Array<vector, double>>(phlag), as_array<double, Array<vector, double>>(tlag), as_array<double, Array<vector, double>>(psd_ci), as_array<double, Array<vector, double>>(psd_ref), afv(mod_sig_psd), afv(irf_nbins), afv(irf_binedgefrac), afv(deltau_scale), dt, nirf, as_array<double, Array<vector, double>>(ci_irf), afv(ci_mean), afv(ci_outer));
+            return py::make_tuple(afv(freq),
+                as_array<double, Array<vector, double>>(phlag),
+                as_array<double, Array<vector, double>>(tlag),
+                as_array<double, Array<vector, double>>(psd_ci),
+                as_array<double, Array<vector, double>>(psd_ref),
+                afv(mod_sig_psd), afv(irf_nbins), afv(irf_binedgefrac),
+                afv(deltau_scale), dt, nirf,
+                as_array<double, Array<vector, double>>(ci_irf), afv(ci_mean),
+                afv(ci_outer));
         },
         "calculates mono-energetic spectral-timing products;\n\n"
         "calculate_stprod_mono(nirf_mult, energy, encomb, flux_irf, disk_irf, "

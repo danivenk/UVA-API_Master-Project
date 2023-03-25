@@ -35,12 +35,19 @@ U<T> calc_propagation_parms(U<T> rad, U<T> rad_edge, T rcor,
     tuple<T, T> disk_prop_par, tuple<T, T> cor_prop_par);
 template <typename T, template <typename...> class U>
 tuple<U<T>, U<T>, U<T>, U<T>, U<T>> calc_radial_time_response(U<T> rad, T rcor,
-    U<T> disp_frac, U<T> disktocor_frac, U<T> cortodisk_frac, U<T> thermal_frac,
+    U<T> disp_frac, U<T> disktocor_frac, U<T> cortodisk_frac, T thermal_frac,
     U<T> seed_frac_flow, U<T> heat_frac_flow);
 template <typename T, class U, template <typename...> class V>
 tuple<T, V<T>, U, V<T>, V<T>> calc_irfs_mono(tuple<T, T> gamma_par, T e_seed,
     V<T> energy, V<T> ldisk_disp, V<T> lseed_disp, V<T> lheat, V<T> ldisk_rev,
     V<T> lseed_rev);
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>, U<T>, U<T>, U<T>> calc_disk_band(U<T> disp_frac,
+    U<T> cortodisk_frac, U<T> disktocor_frac, U<T> lseed_disp, U<T> lheat,
+    T thermal_frac, T rcor, U<T> rad, U<T> rad_area, tuple<T, T> eband,
+    bool kTvar);
+template <typename T>
+T bb_phflux(T E_min, T E_max, T kT, int nE, bool kTvar);
 template <typename T, template <typename...> class U>
 tuple<U<T>, T> linear_rebin_irf(T dt, int i_rsigmax, U<T> irf_nbins,
     U<T> irf_binedgefrac, U<T> input_irf, U<T> deltau_scale, int nirf);
@@ -57,6 +64,8 @@ tuple<W<T>, U, U, U, U, W<T>, W<T>, W<T>, W<T>, T, int, U, W<T>, W<T>>
     calculate_stprod_mono(int nirf_mult, W<T> energy, V encomb, U flux_irf,
         W<T> disk_irf, W<T> gamma_irf, W<T> deltau, T min_deltau_frac,
         int i_rsigmax, W<T> lfreq,  W<T> q, W<T> rms, T t_scale, bool dbg = false);
+template<typename T>
+T nan_to_num(T val);
 
 template <typename T, template <typename...> class U>
 tuple<T, int> find_nearest(U<T> array, T value) {
@@ -142,7 +151,7 @@ tuple<U<T>, U<T>, U<T>, U<T>> calc_timing_params(U<T> rad,
 
     for (r = rad.begin(), i = 0; r != rad.end(); r++, i++) {
         if (*r > rcor) {
-            tau.push_back(get<0>(disk_tau_par) * pow((*r/rcor), 
+            tau.push_back(get<0>(disk_tau_par) * pow((*r/rcor),
                 get<1>(disk_tau_par))*pow(*r, 1.5));
         } else {
             tau.push_back(get<0>(cor_tau_par) * pow((*r/rcor),
@@ -274,11 +283,11 @@ U<T> calc_propagation_params(U<T> rad, U<T> rad_edge, T rcor,
 template <typename T, template <typename...> class U>
 tuple<U<T>, U<T>, U<T>, U<T>, U<T>> calc_radial_time_response(U<T> rad, T rcor,
         U<T> disp_frac, U<T> disktocor_frac, U<T> cortodisk_frac,
-        U<T> thermal_frac, U<T> seed_frac_flow, U<T> heat_frac_flow) {
+        T thermal_frac, U<T> seed_frac_flow, U<T> heat_frac_flow) {
     
     U<T> ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev;
 
-    typename U<T>::iterator r, disp, fdc, fcd, thermal, seed, heat;
+    typename U<T>::iterator r, disp, fdc, fcd, seed, heat;
 
     double f_rev = 0, f_return = 0;
 
@@ -288,9 +297,9 @@ tuple<U<T>, U<T>, U<T>, U<T>, U<T>> calc_radial_time_response(U<T> rad, T rcor,
     }
 
     for (r = rad.begin(), disp = disp_frac.begin(),
-            fdc = disktocor_frac.begin(), thermal = thermal_frac.begin(),
-            seed = seed_frac_flow.begin(), heat = heat_frac_flow.begin();
-            r != rad.end(); r++, disp++, fdc++, thermal++, seed++, heat++) {
+            fdc = disktocor_frac.begin(), seed = seed_frac_flow.begin(),
+            heat = heat_frac_flow.begin(); r != rad.end(); r++, disp++, fdc++,
+            seed++, heat++) {
         if (*r > rcor) {
             ldisk_disp.push_back((*disp) * (1 - *fdc));
         } else {
@@ -300,8 +309,10 @@ tuple<U<T>, U<T>, U<T>, U<T>, U<T>> calc_radial_time_response(U<T> rad, T rcor,
         lseed_disp.push_back((*disp) * (*fdc + *seed));
         lheat.push_back((*disp) * (*heat));
 
-        lseed_rev.push_back((*thermal) * f_return * ((*disp) * (*fdc + *seed) + (*disp) * (*heat))/(1 - f_return));
-        ldisk_rev.push_back((*thermal) * (f_rev - f_return) * ((*disp) * (*fdc + *seed) + (*disp) * (*heat))/(1 - f_return));
+        lseed_rev.push_back((thermal_frac) * f_return * ((*disp) *
+            (*fdc + *seed) + (*disp) * (*heat))/(1 - f_return));
+        ldisk_rev.push_back((thermal_frac) * (f_rev - f_return) *
+            ((*disp) * (*fdc + *seed) + (*disp) * (*heat))/(1 - f_return));
     }
 
     return make_tuple(ldisk_disp, lseed_disp, lheat, ldisk_rev, lseed_rev);
@@ -357,6 +368,128 @@ tuple<T, V<T>, U, V<T>, V<T>> calc_irfs_mono(tuple<T, T> gamma_par, T e_seed,
     return make_tuple(gamma_mean, gamma_irf, flux_irf, disk_irf, seed_irf);
 }
 
+template <typename T, template <typename...> class U>
+tuple<U<T>, U<T>, U<T>, U<T>, U<T>, U<T>> calc_disk_band(U<T> disp_frac,
+        U<T> cortodisk_frac, U<T> disktocor_frac, U<T> lseed_disp, U<T> lheat,
+        T thermal_frac, T rcor, U<T> rad, U<T> rad_area, tuple<T, T> eband,
+        bool kTvar) {
+    double C_apery = 1.2020569031595942;
+    double bb_phintnorm = kTvar ? 1.5 * C_apery * 15/pow(M_PI, 4) :
+        2 * C_apery * 15/pow(M_PI, 4);
+
+    typename U<T>::iterator disp, fcd, fdc, seed, heat, r, area, kT;
+    U<T> kT_rad, band_frac, ldiskband_disp, lseedband_disp,
+        ldisk_band, lseed_band;
+    T f_rev = 0, f_return = 0, C_radldisk_rev = 0, radldisk_rev = 0, kT_max = 0,
+        kT_val = 0, band = 0, diskband = 0, seedband = 0, diskband_rev_val = 0,
+        seedband_rev_val = 0;
+
+    for (fcd = cortodisk_frac.begin(), fdc = disktocor_frac.begin(),
+            heat = lheat.begin(), seed = lseed_disp.begin();
+            fcd != cortodisk_frac.end(), fdc != disktocor_frac.end(),
+            heat != lheat.end(), seed != lseed_disp.end(); fcd++, fdc++, heat++,
+            seed++) {
+        f_rev += *fcd; f_return += (*fcd) * (*fdc);
+        C_radldisk_rev += (*seed + *heat);
+    }
+
+    C_radldisk_rev /= (1-f_return);
+    auto [E_min, E_max] = eband;
+
+    U<T> ldiskband_rev(rad.size(), 0), lseedband_rev(rad.size(), 0);
+    typename U<T>::iterator diskband_rev = ldiskband_rev.begin(),
+        seedband_rev = lseedband_rev.begin();
+    int i = 0, j = 0;
+
+    for (area = rad_area.begin(), disp = disp_frac.begin(),
+            fcd = cortodisk_frac.begin(), r = rad.begin();
+            area != rad_area.end(), disp != disp_frac.end(),
+            fcd != cortodisk_frac.end(), r != rad.end(); area++, disp++, fcd++,
+            r++) {
+        if (*r > rcor) {
+            radldisk_rev = (*fcd)*(thermal_frac)*C_radldisk_rev;
+            kT_val = pow((*disp + radldisk_rev)/(*area), .25);
+            kT_rad.push_back(kT_val);
+            kT_max = kT_max < kT_val ? kT_val : kT_max;
+        } else {
+            kT_val = 0;
+            kT_rad.push_back(0);
+        }
+    }
+
+    for (kT = kT_rad.begin(); kT != kT_rad.end(); kT++) { *kT /= kT_max; }
+
+    for (disp = disp_frac.begin(), fcd = cortodisk_frac.begin(),
+            fdc = disktocor_frac.begin(), kT = kT_rad.begin(), r = rad.begin();
+            disp != disp_frac.end(), fcd != cortodisk_frac.end(),
+            fdc != disktocor_frac.end(), kT != kT_rad.end(), r != rad.end();
+            disp++, fcd++, fdc++, kT++, r++) {
+        if (*r > rcor) {
+            band = bb_phflux<T>(E_min, E_max, *kT, 1000, kTvar) /
+                (bb_phintnorm/(*kT));
+
+            band_frac.push_back(band);
+        } else {
+            band = 0; band_frac.push_back(0);
+        }
+
+        diskband = *disp * (1 - *fdc) * band;
+        seedband = *disp * (*fdc) * band;
+
+        ldiskband_disp.push_back(diskband);
+        lseedband_disp.push_back(seedband);
+
+        j = 0;
+
+        for (seed = lseed_disp.begin(), heat = lheat.begin();
+                seed != lseed_disp.end(), heat != lheat.end(); seed++, heat++) {
+            diskband_rev_val = thermal_frac * band * (*fcd * (1 - *fdc)) *
+                (*seed + *heat) / (1-f_return);
+            seedband_rev_val = thermal_frac * band * (*fcd) * (*fdc) *
+                (*seed + *heat) / (1-f_return);
+
+            *next(diskband_rev, j) += diskband_rev_val;
+            *next(seedband_rev, j) += seedband_rev_val;
+            j++;
+        }
+
+        i++;
+    }
+
+    assert(ldiskband_disp.size() == ldiskband_rev.size() &&
+        lseedband_disp.size() == lseedband_rev.size());
+
+    for (i = 0; i < ldiskband_disp.size(); i++) {
+        ldisk_band.push_back(*next(ldiskband_disp.begin(), i) +
+            *next(ldiskband_rev.begin(), i));
+        lseed_band.push_back(*next(lseedband_disp.begin(), i) +
+            *next(lseedband_rev.begin(), i));
+    }
+
+    return make_tuple(band_frac, kT_rad, ldisk_band, lseed_band, ldiskband_disp,
+        ldiskband_rev);
+}
+
+template <typename T>
+T bb_phflux(T E_min, T E_max, T kT, int nE, bool kTvar) {
+    T logstep = (log10(E_max) - log10(E_min))/nE, E = 0, dE = 0, bb_flux = 0;
+
+    for (int i = 1; i <= nE; i++) {
+        E = sqrt(pow(10, log10(E_min) + i*logstep) *
+            pow(10, log10(E_min) + (i-1)*logstep));
+        dE = pow(10, log10(E_min) + i*logstep) -
+            pow(10, log10(E_min) + (i-1)*logstep);
+
+        if (kTvar) {
+            bb_flux += nan_to_num(dE*.25*(pow(E, 3)/pow(kT, 5))*exp(E/kT)*
+                pow(exp(E/kT) - 1, -2));
+        } else {
+            bb_flux += nan_to_num(dE*(pow(E, 2)/pow(kT, 4))/(exp(E/kT) - 1));
+        }
+    }
+
+    return bb_flux/(pow(M_PI, 4)/15);
+}
 
 template <typename T, template <typename...> class U>
 tuple<U<T>, T> linear_rebin_irf(T dt, int i_rsigmax, U<T> irf_nbins,
@@ -386,9 +519,10 @@ tuple<U<T>, T> linear_rebin_irf(T dt, int i_rsigmax, U<T> irf_nbins,
         }
 
         if (*next(ds, i) > 0) { 
-            irfbin_start = static_cast<int>(round(irfbin - *next(nbins, i)));
-            irfbin_stop = static_cast<int>(round(irfbin_start +
-                *next(nbins, i) - 1));
+            irfbin_start = static_cast<int>(round(irfbin - *next(nbins, i)
+                - 2E-15));
+            irfbin_stop = static_cast<int>(round(irfbin_start + *next(nbins, i)
+                - 1 - 2E-15));
 
             for (int j = irfbin_start; j <= irfbin_stop; j++) {
                 *next(rebinned, j) = *next(irf2, i);
@@ -455,9 +589,9 @@ tuple<U<complex<T>>, U<T>, U<T>, U<T>> calc_cross_psd(U<T> freq, T dt,
                     irf += *next(nbins, j);
                 }
 
-                int irfbin_start = static_cast<int>(round(irf));
+                int irfbin_start = static_cast<int>(round(irf + 2E-16));
                 int irfbin_stop = static_cast<int>(round(irfbin_start +
-                    *next(nbins, i+1) - 1));
+                    *next(nbins, i+1) - 1 + 2E-16));
 
                 ref = ref_irf_dum.begin(); ci = ci_irf_dum.begin();
 
@@ -725,6 +859,11 @@ tuple<W<T>, U, U, U, U, W<T>, W<T>, W<T>, W<T>, T, int, U, W<T>, W<T>>
     return make_tuple(freq, phlag, tlag, psd_ci, psd_ref, mod_sig_psd,
         irf_nbins, irf_binedgefrac, deltau_scale, dt, nirf, ci_irf, ci_mean,
         ci_outer);
+}
+
+template<typename T>
+T nan_to_num(T val) {
+    return isinf(val) ? numeric_limits<T>::max() : isnan(val) ? 0 : val;
 }
 
 #endif

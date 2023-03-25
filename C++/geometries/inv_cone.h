@@ -24,25 +24,29 @@ class Inv_Cone : public Geometry<T, U> {
                 ypos_arr, zpos_arr;
                 
             double cone_angle = atan((_r_top-this->_r_cor)/_h_cor);
+            double z_val = 0, phi_val = 0;
 
-            for (double z = 0; z/dz < _nz; z += dz) {
-                for (double phi = 0; phi/dphi < _nphi; phi += dphi) {
+            for (double i = 0; i < _nz; i++) {
+                for (double j = 0; j < _nphi; j++) {
                     double r_cone = this->_r_cor +
-                        z*(_r_top-this->_r_cor)/_h_cor;
+                        z_val*(_r_top-this->_r_cor)/_h_cor;
                     double da = dphi*r_cone*dz/cos(cone_angle);
 
-                    double x = cos(phi)*r_cone;
-                    double y = sin(phi)*r_cone;
+                    double x = cos(phi_val)*r_cone;
+                    double y = sin(phi_val)*r_cone;
                     double _z = -r_cone*(_r_top-this->_r_cor)/_h_cor;
 
                     r_cone_arr.push_back(r_cone); da_arr.push_back(da);
                     x_arr.push_back(x); y_arr.push_back(y); z_arr.push_back(_z);
 
                     double ypos = -y;
-                    double zpos = -z;
+                    double zpos = -z_val;
                     
                     ypos_arr.push_back(ypos); zpos_arr.push_back(zpos);
+
+                    phi_val += dphi;
                 }
+                z_val += dz;
             }
 
             typename T<U>::iterator r_cone, da, x, y, z, ypos, zpos;
