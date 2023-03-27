@@ -3,9 +3,9 @@
 template <template <typename...> class T, typename U>
 class Inv_Cone : public Geometry<T, U> {
     public:
-        Inv_Cone(T<U> r, T<U> r_area, U r_cor, U h_cor, U r_top, int nz,
-                int nphi) : Geometry<T, U>(r, r_area, r_cor) {
-            _h_cor = h_cor, _r_top = r_top, _nz = nz, _nphi = nphi;
+        Inv_Cone(T<U> r, T<U> r_area, U r_cor, U h_cor, U r_top, int nphi,
+                int nz) : Geometry<T, U>(r, r_area, r_cor) {
+            _h_cor = h_cor, _r_top = r_top, _nphi = nphi, _nz = nz;
             setup_geometry();
             this->initialize_area_lists();
         };
@@ -24,10 +24,10 @@ class Inv_Cone : public Geometry<T, U> {
                 ypos_arr, zpos_arr;
                 
             double cone_angle = atan((_r_top-this->_r_cor)/_h_cor);
-            double z_val = 0, phi_val = 0;
+            double z_val = dz/2, phi_val = dphi/2;
 
-            for (double i = 0; i < _nz; i++) {
-                for (double j = 0; j < _nphi; j++) {
+            for (int i = 0; i < _nz; i++) {
+                for (int j = 0; j < _nphi; j++) {
                     double r_cone = this->_r_cor +
                         z_val*(_r_top-this->_r_cor)/_h_cor;
                     double da = dphi*r_cone*dz/cos(cone_angle);

@@ -114,14 +114,14 @@ def sphere(r,params):
     """ Calculates (numerically) solid angle, illumination fractions for a spherical 'solid' corona with single
     parameter, the coronal radius r_cor. The model finds solid angle and illumination fractions by numerical
     integration using the approach given in Appendix in the UM20 paper. Number of cell spacings on latitudinal
-    and azimuthal axes given by ntheta and nphi respectively (params[1] and params[2])."""
+    and azimuthal axes given by nphi and ntheta respectively (params[1] and params[2])."""
     r_cor = params[0]
-    ntheta = params[1]
-    nphi = params[2]
+    nphi = int(params[1])
+    ntheta = int(params[2])
     dtheta = np.pi/(2.*ntheta)
     dphi = 2.*np.pi/nphi
-    theta = np.arange(0,np.pi/2.,dtheta)
-    phi = np.arange(0,2*np.pi,dphi)
+    theta = np.linspace(dtheta/2,(np.pi-dtheta)/2.,ntheta)
+    phi = np.linspace(dphi/2,2*np.pi-(dphi/2),nphi)
     phi_arr, theta_arr = np.meshgrid(phi, theta)
     x = np.multiply(np.multiply(np.sin(theta_arr), np.cos(phi_arr)),r_cor)
     y = np.multiply(np.multiply(np.sin(theta_arr), np.sin(phi_arr)),r_cor)
@@ -183,17 +183,17 @@ def inv_cone(r,params):
     """ Calculates (numerically) solid angle, illumination fractions for a (frustrum of) an inverted conical
     'solid' corona with base radius r_cor, height h_cor, radius at the top r_top. The model finds solid angle
     and illumination fractions by numerical integration using the approach given in Appendix in
-    the UM20 paper. Number of cell spacings on vertical and azimuthal axes given by nz and nphi respectively
+    the UM20 paper. Number of cell spacings on vertical and azimuthal axes given by nphi and nz respectively
     (params[3] and params[4])"""
     r_cor = params[0]
     h_cor = params[1]
     r_top = params[2]
-    nz = params[3]
-    nphi = params[4]
+    nphi = int(params[3])
+    nz = int(params[4])
     dz = h_cor/nz
     dphi = 2.*np.pi/nphi
-    z = np.arange(0,h_cor,dz)
-    phi = np.arange(0,2*np.pi,dphi)
+    z = np.linspace(dz/2,h_cor-dz/2,nz)
+    phi = np.linspace(dphi/2,2*np.pi-(dphi/2),nphi)
     phi_arr, z_arr = np.meshgrid(phi, z)
     cone_angle = np.arctan((r_top-r_cor)/h_cor)
     r_cone = r_cor + z_arr*(r_top-r_cor)/h_cor
@@ -264,9 +264,9 @@ def calc_timing_params(rad,i_rsigmax,rcor,i_rcor,t_scale,disk_tau_par,cor_tau_pa
     # Normalisation is defined as value at 10 r_g (whether or not disk or corona reach 10 r_g)
     for i in range(0, len(rad)):
         if (rad[i] > rcor):
-            tau[i] = (disk_tau_par[0]*(rad[i]/10)**disk_tau_par[1])*rad[i]**1.5
+            tau[i] = (disk_tau_par[0]*(rad[i]/rcor)**disk_tau_par[1])*rad[i]**1.5
         else:
-            tau[i] = (cor_tau_par[0]*(rad[i]/10)**cor_tau_par[1])*rad[i]**1.5
+            tau[i] = (cor_tau_par[0]*(rad[i]/rcor)**cor_tau_par[1])*rad[i]**1.5
 
     # The continuous model assigns a Lorentzian to every radial bin inside (and including) the maximum signal radius.
     # The rms is calculated by splitting the rms^2 equally between all bins, so produce the required total rms.
@@ -349,8 +349,8 @@ def calc_propagation_params(rad,rad_edge,rcor,disk_prop_par,cor_prop_par):
     whether the radius is inside or outside the coronal radius rcor. """
     deltau = np.zeros(len(rad))
     delrad = np.diff(rad_edge)
-    deltau[rad <= rcor] = cor_prop_par[0]*delrad[rad <= rcor]*np.sqrt(rad[rad <= rcor])*(rad[rad <= rcor]/10)**cor_prop_par[1]
-    deltau[rad > rcor] = disk_prop_par[0]*delrad[rad > rcor]*np.sqrt(rad[rad > rcor])*(rad[rad > rcor]/10)**disk_prop_par[1]
+    deltau[rad <= rcor] = cor_prop_par[0]*delrad[rad <= rcor]*np.sqrt(rad[rad <= rcor])*(rad[rad <= rcor]/rcor)**cor_prop_par[1]
+    deltau[rad > rcor] = disk_prop_par[0]*delrad[rad > rcor]*np.sqrt(rad[rad > rcor])*(rad[rad > rcor]/rcor)**disk_prop_par[1]
     return deltau            
     
     

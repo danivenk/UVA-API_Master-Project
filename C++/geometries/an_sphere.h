@@ -1,4 +1,6 @@
+// include for base class
 #include "geometry.h"
+
 
 template <template <typename...> class T, typename U>
 class AN_Sphere : public Geometry<T, U> {

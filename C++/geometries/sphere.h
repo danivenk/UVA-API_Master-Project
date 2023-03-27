@@ -3,9 +3,9 @@
 template <template <typename...> class T, typename U>
 class Sphere : public Geometry<T, U> {
     public:
-        Sphere(T<U> r, T<U> r_area, U r_cor, int ntheta, int nphi) :
+        Sphere(T<U> r, T<U> r_area, U r_cor, int nphi, int ntheta) :
                 Geometry<T, U>(r, r_area, r_cor) {
-            _ntheta = ntheta, _nphi = nphi;
+            _nphi = nphi, _ntheta = ntheta;
             setup_geometry();
             this->initialize_area_lists();
         };
@@ -21,13 +21,15 @@ class Sphere : public Geometry<T, U> {
 
             T<U> x_arr, y_arr, z_arr, da_arr, ypos_arr, zpos_arr;
 
-            for (double theta = 0; theta/dtheta < _ntheta; theta += dtheta) {
-                for (double phi = 0; phi/dphi < _nphi; phi += dphi) {
+            double theta_val = dtheta/2, phi_val = dphi/2;
 
-                    double x = sin(theta)*cos(phi)*this->_r_cor;
-                    double y = sin(theta)*sin(phi)*this->_r_cor;
-                    double z = cos(theta)*this->_r_cor;
-                    double da = pow(this->_r_cor, 2)*dtheta*dphi*sin(theta);
+            for (int i = 0; i < _ntheta; i++) {
+                for (int j = 0; j < _nphi; j++) {
+
+                    double x = sin(theta_val)*cos(phi_val)*this->_r_cor;
+                    double y = sin(theta_val)*sin(phi_val)*this->_r_cor;
+                    double z = cos(theta_val)*this->_r_cor;
+                    double da = pow(this->_r_cor, 2)*dtheta*dphi*sin(theta_val);
 
                     x_arr.push_back(x); y_arr.push_back(y); z_arr.push_back(z);
                     da_arr.push_back(da);
@@ -36,7 +38,10 @@ class Sphere : public Geometry<T, U> {
                     double zpos = -z;
                     
                     ypos_arr.push_back(ypos); zpos_arr.push_back(zpos);
+
+                    phi_val += dphi;
                 }
+                theta_val += dtheta;
             }
 
             typename T<U>::iterator x, y, z, da, ypos, zpos;
