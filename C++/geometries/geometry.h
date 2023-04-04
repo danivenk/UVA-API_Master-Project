@@ -7,8 +7,12 @@
 
 /**
  * @brief Describes a geometry which can be used in the calc_illumination_frac
- *        it calculates the solid angle, corona to disk fraction & disk to
- *        corona fraction for each radial bin. 
+ *        function.
+ *        It calculates the solid angle, corona to disk fraction & disk to
+ *        corona fraction for each radial bin.
+ * 
+ * @tparam T is the container type
+ * @tparam U is the value type
  */
 template <template <typename...> class T, typename U>
 class Geometry {
@@ -49,8 +53,7 @@ class Geometry {
         };
 
         /**
-         * @brief Set the up geometry
-         * 
+         * @brief Set up the geometry
          */
         virtual void setup_geometry() {};
 
