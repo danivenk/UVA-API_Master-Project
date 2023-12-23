@@ -1,0 +1,48 @@
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 208
+    # data points      = 84
+    # variables        = 7
+    chi-square         = 221.851091
+    reduced chi-square = 2.88118300
+    Akaike info crit   = 95.5799261
+    Bayesian info crit = 112.595644
+[[Variables]]
+    rin:                   2.23129394 +/- 4169.60856 (186869.53%) (init = 2.96)
+    rcor:                  25.9838387 +/- 48557.8677 (186877.19%) (init = 7.96)
+    hcor:                  5.06193271 +/- 9458.99773 (186865.34%) (init = 10.23)
+    cone_angle:            59.9925776 +/- 41.5426064 (69.25%) (init = 30)
+    seedff_norm:           0 (fixed)
+    thermal_frac:          0.92784297 +/- 1.49282795 (160.89%) (init = 1.44)
+    pow_disk_frac:         1 (fixed)
+    disk_en:               1.75134081 +/- 0.37513385 (21.42%) (init = 2.5)
+    band_mult:             1.5 (fixed)
+    disk_tau_norm:         42.9018191 +/- 120253.264 (280298.75%) (init = 55)
+    disk_tau_ind:          1.8 (fixed)
+    delay_tau_scale:       1 (fixed)
+    disp_ind:             -3 (fixed)
+    disksoft_psdrat_norm:  1 (fixed)
+    softhard_psdrat_norm:  1 (fixed)
+    lor_q1:                1 (fixed)
+    lor_freq1:             0.03 (fixed)
+    lor_rms1:              0.1 (fixed)
+    lor_q2:                1 (fixed)
+    lor_freq2:             0.5 (fixed)
+    lor_rms2:              0.1 (fixed)
+    lor_q3:                1 (fixed)
+    lor_freq3:             2 (fixed)
+    lor_rms3:              0.1 (fixed)
+[[Correlations]] (unreported correlations are < 0.100)
+    C(hcor, disk_tau_norm)      = -1.000
+    C(rcor, disk_tau_norm)      = -1.000
+    C(rin, hcor)                = 1.000
+    C(rcor, hcor)               = 1.000
+    C(rin, disk_tau_norm)       = -1.000
+    C(rin, rcor)                = 1.000
+    C(cone_angle, thermal_frac) = 0.914
+    C(thermal_frac, disk_en)    = 0.420
+    C(cone_angle, disk_en)      = 0.252
+    C(rin, disk_en)             = 0.247
+    C(hcor, disk_en)            = 0.247
+    C(rcor, disk_en)            = 0.247
+    C(disk_en, disk_tau_norm)   = -0.247

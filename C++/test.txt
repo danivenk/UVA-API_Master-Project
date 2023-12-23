@@ -1,0 +1,9 @@
+HI
+J
+IH
+Difference: Postive = python slower, Negative = C++ slower
+Ratio: bigger than 1 = python slower, smaller than 1 = C++ slower
+0: bb_phflux; 1: calc_cross_psd; 2: calc_disk_band; 3: calc_dispfrac; 4: calc_illumination_fracs; 5: calc_irfs_mono; 6: calc_propagation_params; 7: calc_radial_time_response; 8: calc_timing_params; 9: find_nearest; 10: linear_rebin_irf; 11: lorentz_q; 12: lorentz_qold
+----- linear_rebin_irf
+HIII
+IIIH

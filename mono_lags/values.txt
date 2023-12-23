@@ -1,0 +1,133 @@
+LM:
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 119
+    # data points      = 70
+    # variables        = 7
+    chi-square         = 211.874725
+    reduced chi-square = 3.36309087
+    Akaike info crit   = 91.5249956
+    Bayesian info crit = 107.264462
+[[Variables]]
+    rin:                   3.39816223 +/- 14356.6104 (422481.61%) (init = 2.96)
+    rcor:                  6.90447807 +/- 29169.9042 (422478.05%) (init = 7.96)
+    hcor:                  9.07046632 +/- 38317.5654 (422443.17%) (init = 10.23)
+    cone_angle:            0.14509039 +/- 28.2581421 (19476.23%) (init = 30)
+    seedff_norm:           0 (fixed)
+    thermal_frac:          2.99961485 +/- 1.42693279 (47.57%) (init = 1.44)
+    pow_disk_frac:         1 (fixed)
+    disk_en:               1.50000706 +/- 0.45366576 (30.24%) (init = 2.5)
+    band_mult:             1.5 (fixed)
+    disk_tau_norm:         79.0838939 +/- 501152.894 (633697.80%) (init = 55)
+    disk_tau_ind:          1.8 (fixed)
+    delay_tau_scale:       1 (fixed)
+    disp_ind:             -3 (fixed)
+    disksoft_psdrat_norm:  1 (fixed)
+    softhard_psdrat_norm:  1 (fixed)
+    lor_q1:                1 (fixed)
+    lor_freq1:             0.03 (fixed)
+    lor_rms1:              0.1 (fixed)
+    lor_q2:                1 (fixed)
+    lor_freq2:             0.5 (fixed)
+    lor_rms2:              0.1 (fixed)
+    lor_q3:                1 (fixed)
+    lor_freq3:             2 (fixed)
+    lor_rms3:              0.1 (fixed)
+[[Correlations]] (unreported correlations are < 0.100)
+    C(rin, rcor)                   = 1.000
+    C(rcor, disk_tau_norm)         = -1.000
+    C(rin, disk_tau_norm)          = -1.000
+    C(hcor, disk_tau_norm)         = -1.000
+    C(rcor, hcor)                  = 1.000
+    C(rin, hcor)                   = 1.000
+    C(rin, disk_en)                = 0.861
+    C(rcor, disk_en)               = 0.861
+    C(disk_en, disk_tau_norm)      = -0.861
+    C(hcor, disk_en)               = 0.861
+    C(thermal_frac, disk_en)       = 0.748
+    C(rin, thermal_frac)           = 0.537
+    C(rcor, thermal_frac)          = 0.537
+    C(thermal_frac, disk_tau_norm) = -0.537
+    C(hcor, thermal_frac)          = 0.537
+    C(cone_angle, thermal_frac)    = 0.385
+    C(cone_angle, disk_en)         = 0.285
+    C(cone_angle, disk_tau_norm)   = -0.170
+    C(rcor, cone_angle)            = 0.170
+    C(rin, cone_angle)             = 0.170
+    C(hcor, cone_angle)            = 0.170
+17 minutes
+
+calc_disk_band: 1.87e-02s
+calc_illumination_fracs: 5.26e+00s
+calc_irfs_mono: 3.75e-05s
+calc_propagation_params: 1.26e-05s
+calc_radial_time_response: 2.38e-05s
+calc_timing_params: 5.17e-05s
+
+ULM:
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 136
+    # data points      = 70
+    # variables        = 7
+    chi-square         = 188.174486
+    reduced chi-square = 2.98689660
+    Akaike info crit   = 83.2212085
+    Bayesian info crit = 98.9606752
+[[Variables]]
+    rin:                   3.25373313 +/- 13898.7823 (427164.17%) (init = 2.96)
+    rcor:                  7.21413800 +/- 30813.2076 (427122.51%) (init = 7.96)
+    hcor:                  7.33152885 +/- 31317.7631 (427165.52%) (init = 10.23)
+    cone_angle:            1.02463479 +/- 40.4498666 (3947.74%) (init = 30)
+    seedff_norm:           0 (fixed)
+    thermal_frac:          2.97349853 +/- 1.58776074 (53.40%) (init = 1.44)
+    pow_disk_frac:         1 (fixed)
+    disk_en:               1.50202830 +/- 0.57534305 (38.30%) (init = 2.5)
+    band_mult:             1.5 (fixed)
+    disk_tau_norm:         94.6736378 +/- 606604.634 (640732.36%) (init = 55)
+    disk_tau_ind:          1.8 (fixed)
+    delay_tau_scale:       1 (fixed)
+    disp_ind:             -3 (fixed)
+    disksoft_psdrat_norm:  1 (fixed)
+    softhard_psdrat_norm:  1 (fixed)
+    lor_q1:                1 (fixed)
+    lor_freq1:             0.03 (fixed)
+    lor_rms1:              0.1 (fixed)
+    lor_q2:                1 (fixed)
+    lor_freq2:             0.5 (fixed)
+    lor_rms2:              0.1 (fixed)
+    lor_q3:                1 (fixed)
+    lor_freq3:             2 (fixed)
+    lor_rms3:              0.1 (fixed)
+[[Correlations]] (unreported correlations are < 0.100)
+    C(rin, disk_tau_norm)          = -1.000
+    C(hcor, disk_tau_norm)         = -1.000
+    C(rin, hcor)                   = 1.000
+    C(rin, rcor)                   = 1.000
+    C(rcor, disk_tau_norm)         = -1.000
+    C(rcor, hcor)                  = 1.000
+    C(cone_angle, disk_en)         = -0.799
+    C(cone_angle, thermal_frac)    = 0.658
+    C(hcor, thermal_frac)          = 0.544
+    C(thermal_frac, disk_tau_norm) = -0.543
+    C(rin, thermal_frac)           = 0.543
+    C(rcor, thermal_frac)          = 0.543
+    C(rcor, disk_en)               = 0.294
+    C(rin, disk_en)                = 0.294
+    C(disk_en, disk_tau_norm)      = -0.293
+    C(hcor, disk_en)               = 0.293
+    C(thermal_frac, disk_en)       = -0.223
+    C(hcor, cone_angle)            = 0.165
+    C(cone_angle, disk_tau_norm)   = -0.165
+    C(rin, cone_angle)             = 0.165
+    C(rcor, cone_angle)            = 0.164
+38 minutes
+
+
+bb_phflux: 8.37e-05s
+calc_disk_band: 1.48e-02s
+calc_illumination_fracs: 1.29e+01s
+calc_irfs_mono: 6.22e-05s
+calc_propagation_params: 9.59e-05s
+calc_radial_time_response: 5.25e-05s
+calc_timing_params: 3.98e-04s

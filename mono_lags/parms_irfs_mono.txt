@@ -1,0 +1,56 @@
+The maximum propagation delay is:  33.163688279963736  and there are  524288  irf bins.
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 112
+    # data points      = 70
+    # variables        = 7
+    chi-square         = 202.723887
+    reduced chi-square = 3.21783948
+    Akaike info crit   = 88.4344756
+    Bayesian info crit = 104.173942
+[[Variables]]
+    rin:                   3.16244932 +/- 12269.1078 (387962.19%) (init = 2.96)
+    rcor:                  9.60241732 +/- 37251.9384 (387943.34%) (init = 7.96)
+    hcor:                  8.71554950 +/- 33810.7554 (387936.01%) (init = 10.23)
+    cone_angle:            27.2724073 +/- 47.6654388 (174.78%) (init = 30)
+    seedff_norm:           0 (fixed)
+    thermal_frac:          1.54085829 +/- 0.83476436 (54.18%) (init = 1.44)
+    pow_disk_frac:         0 (fixed)
+    disk_en:               1.56089708 +/- 0.37141502 (23.79%) (init = 1.87)
+    band_mult:             1.5 (fixed)
+    disk_tau_norm:         57.2887895 +/- 333379.664 (581928.27%) (init = 55)
+    disk_tau_ind:          1.8 (fixed)
+    delay_tau_scale:       1 (fixed)
+    disp_ind:             -3 (fixed)
+    disksoft_psdrat_norm:  1 (fixed)
+    softhard_psdrat_norm:  1 (fixed)
+    lor_q1:                1 (fixed)
+    lor_freq1:             0.03 (fixed)
+    lor_rms1:              0.1 (fixed)
+    lor_q2:                1 (fixed)
+    lor_freq2:             0.5 (fixed)
+    lor_rms2:              0.1 (fixed)
+    lor_q3:                1 (fixed)
+    lor_freq3:             2 (fixed)
+    lor_rms3:              0.1 (fixed)
+[[Correlations]] (unreported correlations are < 0.100)
+    C(rcor, hcor)                  = 1.000
+    C(rin, rcor)                   = 1.000
+    C(rin, hcor)                   = 1.000
+    C(rin, disk_tau_norm)          = -1.000
+    C(hcor, disk_tau_norm)         = -1.000
+    C(rcor, disk_tau_norm)         = -1.000
+    C(thermal_frac, disk_en)       = 0.765
+    C(rin, disk_en)                = 0.647
+    C(rcor, disk_en)               = 0.647
+    C(hcor, disk_en)               = 0.647
+    C(disk_en, disk_tau_norm)      = -0.647
+    C(rin, thermal_frac)           = 0.504
+    C(rcor, thermal_frac)          = 0.504
+    C(hcor, thermal_frac)          = 0.504
+    C(thermal_frac, disk_tau_norm) = -0.504
+    C(cone_angle, disk_tau_norm)   = -0.279
+    C(rin, cone_angle)             = 0.279
+    C(hcor, cone_angle)            = 0.279
+    C(rcor, cone_angle)            = 0.279
+    C(cone_angle, disk_en)         = -0.254

@@ -217,6 +217,8 @@ def inv_cone(r,params):
     phi = np.linspace(dphi/2,2*np.pi-(dphi/2),nphi)
     phi_arr, z_arr = np.meshgrid(phi, z)
     cone_angle = np.arctan((r_top-r_cor)/h_cor)
+    # print("python")
+    # print(z, len(z))
     r_cone = r_cor + z_arr*(r_top-r_cor)/h_cor
     da = dphi*r_cone*dz/np.cos(cone_angle)
     x1 = np.multiply(np.cos(phi_arr),r_cone)

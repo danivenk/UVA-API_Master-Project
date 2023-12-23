@@ -1,0 +1,1048 @@
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83460950005167 349.83460950094695
+-8.952838470577262e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83460950005167 349.83460950094695
+-8.952838470577262e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83460950005167 349.83460950094695
+-8.952838470577262e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0021400468822605763
+The maximum propagation delay is:  32.29628806131298  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0021400468822605763
+The maximum propagation delay is:  32.29628806131298  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83460609364914 349.8346060945449
+-8.957385944086127e-10
+Parameters([('rin', <Parameter 'rin', value=2.9600000099756114, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839365153144 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0021400468884129786
+The maximum propagation delay is:  32.29628877883072  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839365153144 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0021400468884129786
+The maximum propagation delay is:  32.29628877883072  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83461117203916 349.834611172934
+-8.948290997068398e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.960000097073688, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83461982746593 349.834619828362
+-8.960796549217775e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.230000354232555, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83460954406695 349.83460954496314
+-8.961933417594992e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.000000447034836, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.8346103115311 349.8346103124266
+-8.955112207331695e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.440000003103756, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.71839315451066 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046877148988
+The maximum propagation delay is:  32.29628819661545  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.834616266667 349.8346162675623
+-8.952838470577262e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.8700000104437808, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=54.99999999999999, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.7183923254798 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046936718129
+The maximum propagation delay is:  32.29628840800362  and there are  524288  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  74.7183923254798 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.002140046936718129
+The maximum propagation delay is:  32.29628840800362  and there are  524288  irf bins.
+Phil >0; Dani <0
+349.83459545479985 349.83459545569474
+-8.948859431257006e-10
+Parameters([('rin', <Parameter 'rin', value=2.96, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=7.96, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=10.229999999999999, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=30.0, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.44, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.87, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=55.00000201381614, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  85.4520359433446 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.025
+The maximum propagation delay is:  32.0450762176757  and there are  32768  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  85.4520359433446 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.025
+The maximum propagation delay is:  32.0450762176757  and there are  32768  irf bins.
+Phil >0; Dani <0
+2389.5924097073266 2389.592409711933
+-4.6065906644798815e-09
+Parameters([('rin', <Parameter 'rin', value=1.5933211831690999, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=22.803058581152776, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=5.9922397421153795, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=40.89909291354201, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.5392731259995198, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.8182277628629013, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=234.81920488272624, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  101.47440185875938 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.017282179216611026
+The maximum propagation delay is:  33.12195640201351  and there are  65536  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  101.47440185875938 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.017282179216611026
+The maximum propagation delay is:  33.12195640201351  and there are  65536  irf bins.
+Phil >0; Dani <0
+1196.3892411395327 1167.4037482713065
+28.985492868226174
+Parameters([('rin', <Parameter 'rin', value=2.356612402076353, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=19.57471134505522, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.127618685767218, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=41.29071618246188, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.511267319124426, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.8145006885052162, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=101.18245330804307, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  147.02832215776075 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.02017043440014351
+The maximum propagation delay is:  31.0463107726578  and there are  65536  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  147.02832215776075 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.02017043440014351
+The maximum propagation delay is:  31.0463107726578  and there are  65536  irf bins.
+Phil >0; Dani <0
+2650.7528478977506 2650.7528478945424
+3.2082425605040044e-09
+Parameters([('rin', <Parameter 'rin', value=1.7129869833414828, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=27.778548557166243, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.350456755186045, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=25.390106920649814, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=2.951149005957733, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.7970786983892444, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=55.8835364343298, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.1958371966004 331.19583719757384
+-9.734435479913373e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765078670925
+The maximum propagation delay is:  33.04215368468638  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765078670925
+The maximum propagation delay is:  33.04215368468638  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.1958465562827 331.1958465572571
+-9.74409886111971e-10
+Parameters([('rin', <Parameter 'rin', value=3.1024368516722465, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.23029136699142 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0076667650740245225
+The maximum propagation delay is:  33.04215382034643  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.23029136699142 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0076667650740245225
+The maximum propagation delay is:  33.04215382034643  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.19583086774907 331.1958308687247
+-9.756604413269088e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.61467006194978, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.1958581916699 331.1958581926425
+-9.725908967084251e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.074281604540005, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.1958373074107 331.1958373083839
+-9.731593308970332e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722138540006, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.1958374549243 331.19583745589875
+-9.744667295308318e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3546015572319976, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.2302912939709 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007666765068836167
+The maximum propagation delay is:  33.042153766310186  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.19583366494777 331.19583366592195
+-9.741825124365278e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320163128536, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252218437726, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.23029019673243 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0076667652473675595
+The maximum propagation delay is:  33.042154059776315  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.23029019673243 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0076667652473675595
+The maximum propagation delay is:  33.042154059776315  and there are  131072  irf bins.
+Phil >0; Dani <0
+331.19581643169545 331.195816432669
+-9.735572348290589e-10
+Parameters([('rin', <Parameter 'rin', value=3.10243684366389, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.614670041398952, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.07428130167245, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.49722122293503, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.354601552901853, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5542320018698732, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=60.89252422156057, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  101.0700416236196 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.009535347260757809
+The maximum propagation delay is:  33.50368459212267  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  101.0700416236196 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.009535347260757809
+The maximum propagation delay is:  33.50368459212267  and there are  131072  irf bins.
+Phil >0; Dani <0
+670.5317002651973 670.5317002696647
+-4.4674379751086235e-09
+Parameters([('rin', <Parameter 'rin', value=3.0848393255835864, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.721490850907507, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.395674924897456, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=21.50141064654125, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.2202069620627571, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5534137450009622, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=77.2095321096314, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.25956146658125 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007853736923085837
+The maximum propagation delay is:  33.56406337967762  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.25956146658125 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007853736923085837
+The maximum propagation delay is:  33.56406337967762  and there are  131072  irf bins.
+Phil >0; Dani <0
+500.63917134776443 500.6391713518474
+-4.082949089934118e-09
+Parameters([('rin', <Parameter 'rin', value=3.093110515534712, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.659939669532445, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.9813238934474615, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.392171140951948, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.347834390140878, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5609580793326812, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=63.03812737225322, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.35509794804346 323.3550979489855
+-9.420091373613104e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491048969279
+The maximum propagation delay is:  33.105088729262555  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491048969279
+The maximum propagation delay is:  33.105088729262555  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.3551104415972 323.3551104425378
+-9.405880518897902e-10
+Parameters([('rin', <Parameter 'rin', value=3.1012395850378027, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699879911579 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491044263665
+The maximum propagation delay is:  33.105088865146186  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699879911579 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491044263665
+The maximum propagation delay is:  33.105088865146186  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.35508952385516 323.35508952479483
+-9.396785571880173e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.620356666490284, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.3551183398792 323.35511834081933
+-9.401333045389038e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062610044455745, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.355098020897 323.3550980218381
+-9.410996426595375e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306377756254, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.35509823633413 323.3550982372762
+-9.420659807801712e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810692428955, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699872649329 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007688491039083191
+The maximum propagation delay is:  33.10508881124564  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.3550946877027 323.35509468864467
+-9.419522939424496e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537961725468, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099004564579, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699763449195 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0076884912174487955
+The maximum propagation delay is:  33.10508910417264  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.11699763449195 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0076884912174487955
+The maximum propagation delay is:  33.10508910417264  and there are  131072  irf bins.
+Phil >0; Dani <0
+323.3550652992348 323.35506530017756
+-9.42748101806501e-10
+Parameters([('rin', <Parameter 'rin', value=3.101239577012614, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.62035664602306, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.062609741970709, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480306215080407, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3540810649053792, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5552537817415406, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.14099208351169, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.5434141477812 307.5434141486714
+-8.901679393602535e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547220559392
+The maximum propagation delay is:  33.17957908247722  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547220559392
+The maximum propagation delay is:  33.17957908247722  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.5434301402406 307.5434301411298
+-8.892016012396198e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007248910165, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805190847342 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547215774524
+The maximum propagation delay is:  33.17957921864196  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805190847342 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547215774524
+The maximum propagation delay is:  33.17957921864196  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.54340343772674 307.5434034386165
+-8.897700354282279e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000294249972, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.54343303477884 307.54343303567026
+-8.914184945751913e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.04079809646931, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.543414149889 307.54341415077937
+-8.903953130356967e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.46000161054406, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.5434144299981 307.5434144308887
+-8.905658432922792e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176209362463, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805183635565 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547210610075
+The maximum propagation delay is:  33.1795791649415  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.54341130534914 307.5434113062399
+-8.907363735488616e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365307785063, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.39553655729445, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805074961745 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547388801753
+The maximum propagation delay is:  33.17957945740644  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  108.00805074961745 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007710547388801753
+The maximum propagation delay is:  33.17957945740644  and there are  131072  irf bins.
+Phil >0; Dani <0
+307.543367929164 307.54336793005467
+-8.906795301300008e-10
+Parameters([('rin', <Parameter 'rin', value=3.0995007168413875, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.628000273895136, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=8.040797794703138, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.460001447615348, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3529176165822574, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5570365163684092, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.395538595835895, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.8566927664997 287.8566927672665
+-7.668177204323001e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271873277785
+The maximum propagation delay is:  33.28073789215988  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271873277785
+The maximum propagation delay is:  33.28073789215988  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.85670442798255 287.85670442874806
+-7.655103217985015e-10
+Parameters([('rin', <Parameter 'rin', value=3.096834790337618, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185319279583 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007737227182427012
+The maximum propagation delay is:  33.28073802873063  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185319279583 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007737227182427012
+The maximum propagation delay is:  33.28073802873063  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.85668493646796 287.8566849372337
+-7.657376954739448e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.639056968847513, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.856710352523 287.8567103532876
+-7.646008270967286e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794541608952, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.85669272201574 287.85669272278176
+-7.660219125682488e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168287247656, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.8566931040771 287.85669310484326
+-7.661355994059704e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216561980576, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185312138525 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372271772890916
+The maximum propagation delay is:  33.280737975332045  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.85669070312866 287.85669070389497
+-7.663061296625528e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5602392076027853, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70664826887407, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185204096928 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372273552634525
+The maximum propagation delay is:  33.28073826732274  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.88185204096928 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077372273552634525
+The maximum propagation delay is:  33.28073826732274  and there are  131072  irf bins.
+Phil >0; Dani <0
+287.85665931494964 287.8566593157163
+-7.666471901757177e-10
+Parameters([('rin', <Parameter 'rin', value=3.0968347822505384, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.63905694865528, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.998794241241992, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.470168124445525, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3502216518059256, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.560239193230307, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.70665030820874, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.62740807008107 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007791145387753996
+The maximum propagation delay is:  33.48065527318982  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.62740807008107 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007791145387753996
+The maximum propagation delay is:  33.48065527318982  and there are  131072  irf bins.
+Phil >0; Dani <0
+387.5956874108865 381.35603881332514
+6.23964859756137
+Parameters([('rin', <Parameter 'rin', value=3.091727924642578, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.660710183604316, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.915249819334998, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.653978071058123, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3410780582648136, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5654631545716713, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=62.335120631171236, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.4553971241083 283.45539712486556
+-7.572680260636844e-10
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.00774348088070103
+The maximum propagation delay is:  33.304745007959816  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.00774348088070103
+The maximum propagation delay is:  33.304745007959816  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.4554046892121 283.4554046899686
+-7.564722181996331e-10
+Parameters([('rin', <Parameter 'rin', value=3.096200627430287, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.8526548998689 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007743480875772369
+The maximum propagation delay is:  33.30474514462568  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.8526548998689 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007743480875772369
+The maximum propagation delay is:  33.30474514462568  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.4553919712301 283.4553919719874
+-7.573248694825452e-10
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719073404303, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Phil >0; Dani <0
+288.194770343014 283.455414856347
+4.739355486667023
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987380146541519, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.45539708358973 283.4553970843467
+-7.569838089693803e-10
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719504040252, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.4553974430121 283.4553974437685
+-7.564153747807723e-10
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697642408622, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265482862748 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077434808706412775
+The maximum propagation delay is:  33.304745091300745  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.45539513779676 283.4553951385536
+-7.568701221316587e-10
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055140224265, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77958103869799, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265374968338 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007743481048564454
+The maximum propagation delay is:  33.30474538318291  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85265374968338 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007743481048564454
+The maximum propagation delay is:  33.30474538318291  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.45537754142237 283.4553775421786
+-7.562448445241898e-10
+Parameters([('rin', <Parameter 'rin', value=3.0962006193343026, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.641719053251226, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846558227, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480719341369554, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493697598366852, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561055125861382, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.779583078213484, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.80574326646185 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077539528913507455
+The maximum propagation delay is:  33.347496129221994  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.80574326646185 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077539528913507455
+The maximum propagation delay is:  33.347496129221994  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.9582026396168 283.95820264041066
+-7.938751878100447e-10
+Parameters([('rin', <Parameter 'rin', value=3.095030644243426, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.646712148414064, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379782380776, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.51093542825377, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3471864540912604, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.563312145057475, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.901757200307806, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.83077630243733 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007748371714939832
+The maximum propagation delay is:  33.32477412432916  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.83077630243733 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007748371714939832
+The maximum propagation delay is:  33.32477412432916  and there are  131072  irf bins.
+Phil >0; Dani <0
+284.3314607550725 284.3314607558615
+-7.889866537880152e-10
+Parameters([('rin', <Parameter 'rin', value=3.095651127971665, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.644064018159987, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.98737981606658, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.493539812320748, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.348343625496236, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5621203744868013, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.83663670122691, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.8445926926387 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007745284471656447
+The maximum propagation delay is:  33.31214340199407  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.8445926926387 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.007745284471656447
+The maximum propagation delay is:  33.31214340199407  and there are  131072  irf bins.
+Phil >0; Dani <0
+286.15878462524716 286.15878462603547
+-7.883045327616856e-10
+Parameters([('rin', <Parameter 'rin', value=3.0959973853419855, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.64258635703804, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379835209543, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.48518853049695, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3489898945659384, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561450054574781, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.80062029556548, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.8516752315654 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077437001006938535
+The maximum propagation delay is:  33.305645106118135  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.8516752315654 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.0077437001006938535
+The maximum propagation delay is:  33.305645106118135  and there are  131072  irf bins.
+Phil >0; Dani <0
+286.68669801672695 286.6866980175139
+-7.869402907090262e-10
+Parameters([('rin', <Parameter 'rin', value=3.0961758796440924, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.6418246307719, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379845172326, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.481246599897272, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.349323490911512, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.561103254743575, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.78213830851037, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85255677557225 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.00774350281554842
+The maximum propagation delay is:  33.304835191833675  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85255677557225 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.00774350281554842
+The maximum propagation delay is:  33.304835191833675  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.4469178641078 283.44691786486334
+-7.555627234978601e-10
+Parameters([('rin', <Parameter 'rin', value=3.09619814244531, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.64172962347442, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846419422, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480771921475345, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493651271037628, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5610599450845866, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77983702015273, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85255677557225 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.00774350281554842
+The maximum propagation delay is:  33.304835191833675  and there are  131072  irf bins.
+Minimum frequency = 0.01 Hz and maximum signal radius =  107.85255677557225 Rg
+Disk band IRF PL frac:  0.0
+Disk band total PL frac:  [0.]
+#######################################
+Time bin size dt is:  0.00774350281554842
+The maximum propagation delay is:  33.304835191833675  and there are  131072  irf bins.
+Phil >0; Dani <0
+283.4469178641078 283.44691786486334
+-7.555627234978601e-10
+Parameters([('rin', <Parameter 'rin', value=3.09619814244531, bounds=[1.3:6.0]>), ('rcor', <Parameter 'rcor', value=16.64172962347442, bounds=[6.0:30.0]>), ('hcor', <Parameter 'hcor', value=7.987379846419422, bounds=[5.0:100.0]>), ('cone_angle', <Parameter 'cone_angle', value=18.480771921475345, bounds=[0.0:60.0]>), ('seedff_norm', <Parameter 'seedff_norm', value=0.0 (fixed), bounds=[0.0:0.5]>), ('thermal_frac', <Parameter 'thermal_frac', value=1.3493651271037628, bounds=[0.3:3.0]>), ('pow_disk_frac', <Parameter 'pow_disk_frac', value=0.0 (fixed), bounds=[0.0:100.0]>), ('disk_en', <Parameter 'disk_en', value=1.5610599450845866, bounds=[0.18700000000000003:5.0]>), ('band_mult', <Parameter 'band_mult', value=1.5 (fixed), bounds=[1.001:3.0]>), ('disk_tau_norm', <Parameter 'disk_tau_norm', value=61.77983702015273, bounds=[10.0:500.0]>), ('disk_tau_ind', <Parameter 'disk_tau_ind', value=1.8 (fixed), bounds=[0.0:2.5]>), ('delay_tau_scale', <Parameter 'delay_tau_scale', value=1.0 (fixed), bounds=[0.2:5.0]>), ('disp_ind', <Parameter 'disp_ind', value=-3.0 (fixed), bounds=[-4.0:-2.0]>), ('disksoft_psdrat_norm', <Parameter 'disksoft_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('softhard_psdrat_norm', <Parameter 'softhard_psdrat_norm', value=1.0 (fixed), bounds=[0.3:3.0]>), ('lor_q1', <Parameter 'lor_q1', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq1', <Parameter 'lor_freq1', value=0.03 (fixed), bounds=[0.01:0.5]>), ('lor_rms1', <Parameter 'lor_rms1', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q2', <Parameter 'lor_q2', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq2', <Parameter 'lor_freq2', value=0.5 (fixed), bounds=[0.5:3.0]>), ('lor_rms2', <Parameter 'lor_rms2', value=0.1 (fixed), bounds=[0.0:0.5]>), ('lor_q3', <Parameter 'lor_q3', value=1 (fixed), bounds=[0.2:5.0]>), ('lor_freq3', <Parameter 'lor_freq3', value=2.0 (fixed), bounds=[2.0:10.0]>), ('lor_rms3', <Parameter 'lor_rms3', value=0.1 (fixed), bounds=[0.0:0.5]>)])
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 59
+    # data points      = 70
+    # variables        = 7
+    chi-square         = 283.446918
+    reduced chi-square = 4.49915743
+    Akaike info crit   = 111.897074
+    Bayesian info crit = 127.636540
+[[Variables]]
+    rin:                   3.09619814 +/- 344.095396 (11113.48%) (init = 2.96)
+    rcor:                  16.6417296 +/- 1790.12697 (10756.86%) (init = 7.96)
+    hcor:                  7.98737985 +/- 0.00323237 (0.04%) (init = 10.23)
+    cone_angle:            18.4807719 +/- 242.281360 (1310.99%) (init = 30)
+    seedff_norm:           0 (fixed)
+    thermal_frac:          1.34936513 +/- 95.0783641 (7046.16%) (init = 1.44)
+    pow_disk_frac:         0 (fixed)
+    disk_en:               1.56105995 +/- 1.17456922 (75.24%) (init = 1.87)
+    band_mult:             1.5 (fixed)
+    disk_tau_norm:         61.7798370 +/- 10109.7364 (16364.14%) (init = 55)
+    disk_tau_ind:          1.8 (fixed)
+    delay_tau_scale:       1 (fixed)
+    disp_ind:             -3 (fixed)
+    disksoft_psdrat_norm:  1 (fixed)
+    softhard_psdrat_norm:  1 (fixed)
+    lor_q1:                1 (fixed)
+    lor_freq1:             0.03 (fixed)
+    lor_rms1:              0.1 (fixed)
+    lor_q2:                1 (fixed)
+    lor_freq2:             0.5 (fixed)
+    lor_rms2:              0.1 (fixed)
+    lor_q3:                1 (fixed)
+    lor_freq3:             2 (fixed)
+    lor_rms3:              0.1 (fixed)
+[[Correlations]] (unreported correlations are < 0.100)
+    C(rin, rcor)                   = 1.000
+    C(rcor, hcor)                  = 1.000
+    C(rcor, disk_tau_norm)         = -1.000
+    C(rin, hcor)                   = 1.000
+    C(hcor, disk_tau_norm)         = -1.000
+    C(rin, disk_tau_norm)          = -1.000
+    C(hcor, thermal_frac)          = -1.000
+    C(thermal_frac, disk_tau_norm) = 1.000
+    C(rcor, thermal_frac)          = -1.000
+    C(rin, thermal_frac)           = -1.000
+    C(cone_angle, thermal_frac)    = -0.975
+    C(cone_angle, disk_tau_norm)   = -0.975
+    C(hcor, cone_angle)            = 0.974
+    C(rcor, cone_angle)            = 0.974
+    C(rin, cone_angle)             = 0.973
+    C(rin, disk_en)                = 0.946
+    C(rcor, disk_en)               = 0.946
+    C(hcor, disk_en)               = 0.945
+    C(disk_en, disk_tau_norm)      = -0.944
+    C(thermal_frac, disk_en)       = -0.943
+    C(cone_angle, disk_en)         = 0.866

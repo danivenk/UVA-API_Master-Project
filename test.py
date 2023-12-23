@@ -74,16 +74,19 @@ def test_f(dbg, CPP, function, thresh=0):
             if function == "calc_illumination_fracs" and \
                     type(test["input"][i]) == str:
                 test["input"][i] = getattr(um, test["input"][i])
-            
 
         test1 = f(*test["input"])
+        single = False
 
         try:
             assert len(test1) == len(test["output"])
         except AssertionError:
             assert len(test1) == len(test["output"][0])
+        except TypeError:
+            type(test1) == type(test["output"][0])
+            single = True
 
-        if checker(test1, test["output"], thresh):
+        if checker(test1, test["output"], thresh, single):
             dbg += 1
             print(f"ERROR in {tset} of {function}")
             
@@ -101,7 +104,7 @@ def test_f(dbg, CPP, function, thresh=0):
     return dbg
 
 
-def checker(data1, data2, thresh = 0):
+def checker(data1, data2, thresh = 0, single = False):
     if np.ndim(data1) != 0 and np.ndim(data2) != 0:
         try:
             assert len(data1) == len(data2)
@@ -113,6 +116,10 @@ def checker(data1, data2, thresh = 0):
                 assert len(data1[0]) == len(data2)
                 data1 = data1[0]
 
+    if single and abs(data1 - data2) > thresh:
+        return True
+    elif single and abs(data1 - data2) <= thresh:
+        return False
 
     for i in range(len(data1)):
         if (np.ndim(data1[i]) != 0 and np.ndim(data2[i]) != 0):

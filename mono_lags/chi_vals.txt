@@ -1,0 +1,17 @@
+Phil >0; Dani <0
+orignal: -4.888534022029489e-10
+illumination_fracs: 9.094947017729282e-13
+timing_params: -4.888534022029489e-10
+propagation_params: -4.888534022029489e-10
+radial_time_response: -4.888534022029489e-10
+irfs_mono: -4.893081495538354e-10
+disk_band: -4.87943907501176e-10
+----thermal frac-----
+Phil >0; Dani <0
+original: -4.740286385640502e-09
+illumination_fracs: 0.0
+timing_params: -4.740286385640502e-09
+propagation_params: -4.740286385640502e-09
+radial_time_response: -4.740286385640502e-09
+irfs_mono: -4.7398316382896155e-09
+disk_band: -4.7407411329913884e-09

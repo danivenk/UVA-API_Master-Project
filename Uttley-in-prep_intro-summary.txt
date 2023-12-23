@@ -1,0 +1,72 @@
+constraints on size scale of the diska and corona + geometry
+
+Well studied in hard state
+hard lags PL between PL energy bands studied with Ginga/Rossi X-ray Timing Explorer (RXTE)
+Myamoto et al 1988; Nowak et al 1999b; Grinberg et al 2014; Altaminaro & Méndez 2015
+
+2 possible origins
+compton scattering delays in an extended corona vs propagation delays in hot accretion flow
+
+seed photons multiple upscatterings into higher energy
+delays linked to light-travel times .1-10s large coronal size scale (10ks Rg)
+energy requirements heating large spherical corona not possible
+avoided Compton scattering in hard state jets
+Rieg et al 2003; Giannios et al 2004; Kylafis et al 2008
+
+large hard lags smaller scales in accretion flow. via propagation of mass accretion fluctuations
+driving force of broad band noisevariability
+Lyubarskii 1997; Uttley et al 2005
+truncated disk, corona inner hot geometrically thick flow power-law hardening towards smaller radii
+Kotev et al 2001; Arévalo & Uttley 2006
+Lags produced by the propagation delays between radii
+soft & hard emission decreasing for decreasing radii -> higher variability frequencies
+energy dependence of the lag, variability power spectrum
+discontinuities: emission spectrum (Rapisarda et al 2016; Mahmoud & Done 2018a), input variability signal (Mahmoud & Done 2018b), speed of propagation (Kawamura et al 2021)
+
+soft band focus on BB disk hard state XMM-Newton data GX 339-4 Wilkinson & Uttley 2009
+variability of minutes -> < 1s, strongest > 1s
+Uttley et al 2011 <1Hz soft PL lag disk lag disk several times more thanhard PL lags at same frequencies
+>1Hz roll overnegative soft lags disk delayed 1-2ms to soft PL
+mass accretion fluctuations first propagate through disk before varying PL emissions of central corona
+varying coronal emissions illuminates & reprocessed in the disk soft "reverberation" signal light travel delays few 10s of Rg
+Mastroserio et al 2018; Mahmout et al 2019
+reverberation confirmed with NICER
+fourier frequencies of enhanced delays broadened iron Ka reflection
+Kara et al 2019
+
+Soft lags different luminosities
+De Marco et al 2015, 2017
+light travel delays 100s Rg/c low accretion rates suggesting large radii truncation
+luminous black hole transient MAXI J1820+070 (Kara et al 2019; De Marco et al 2021; Wang et al 2021)
+different sources using NICER Wang et al 2022
+reveals pattern soft lags decrease to <1ms hard state rise and then sharply increase >10ms transition HIMS->SIMS
+sharp rise in soft reverberation lags during HIMS disk close to ISCO
+corona more vertically extended and jet-like
+Kara et al 2019; De Marco et al 2021; Wang et al 2022
+Relativistic jet ejections during state transition Homan et al 2020; Wang et al 2021
+
+progragress has been made studying hard and soft lags
+evolution of lags important info on disk corona geometry origin of different accretion states
+understanding of origin of lags between physical components on different time-scales of variability
+individual models can explain seperately none can do altogether
+comptonization delay model require extremely extended coronae in hard state >10^3Rg
+inconsistent with reverberation delays inferred from soft lags
+large PL-disk lags at low frequencies further increase discrepancy if light travel delays between the disk seed photons and corona (Uttley et al 2011)
+low frequency PL disk model via propagation of fluctuaions through the disk are inconsistent with hot flow propagation models for hard lags over same frequency range
+tension between hard PL lag models and models for lags including disk photons (hard & soft)
+
+resolve tension
+propagating fluctuations model for lags explain all hard disk PL lags low frequencies and soft lags at high frequencies
+link to coronal geometry
+observed features are natural consequence variations of seed photons illuminate the corona as accretion fluctuations propagate through disk to corona
+seed photons are modulated by fluctuations before corona is heated by them
+coroona cools and heats after large viscous time scale delay 
+produce large hard PL lags for small coronae and inner disk radii
+
+negative soft lags lags result from reverberation responding after somwhat slow rise in seed photons as fluctations propagate through inner regions of disk
+increase both hard PLlags and PL-disk negative lags can be explained by changes in coronal geometry
+more vertically extended coronae respond to seed variations from further out in disk -> larger lags
+lags predicted by model including soft lags are linked to propagation delays not light travel times
+corona are much more compact than implied by comptonisation or reverberation light travel delay models
+type of geometrical change inferred more vertically extended in HIMS simsilar
+ 
